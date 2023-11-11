@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3B3B3B">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarrrrrr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back"
+            android:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageeeeeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/povrede" />
+
+    <TextView
+        android:id="@+id/tvvvvvNaslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opekotine"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="#dec5a3"
+        android:layout_below="@+id/imageeeeeView"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/tvvvvvTekst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvvvvvNaslov"
+        android:textColor="@color/white"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text=" Odmah počnite hlađenje opekotine mlazom hladne vode. Držite opekotinu pod hladnom vodom najmanje 5 minuta. To će pomoći da se smanji temperatura tkiva i spriječi dalje širenje opekotine. Nikada ne stavljajte led ili ledene kocke direktno na opekotinu, jer to može izazvati dodatnu štetu tkivu. Ne nanosite kreme, masti, ulja ili bilo kakve druge supstance na opekotinu, jer to može otežati procjenu ozbiljnosti povrede od strane veterinara. Nakon hlađenja, prekrijte opekotinu sterilnom gazom ili čistom tkaninom kako biste zaštitili povrijeđeno područje od infekcije. Ne koristite pamučne jastučiće jer se mogu lijepiti za opekotinu. "
+        android:textSize="14dp"/>
+
+</RelativeLayout>

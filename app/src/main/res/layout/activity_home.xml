@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false"
+    android:background="#3B3B3B"
+    tools:ignore="Autofill"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_view_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/menu"
+                    app:tint="#ec9faf" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="81dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="86dp"
+                    android:gravity="center"
+                    android:text="PetCare"
+                    android:textColor="#ec9faf"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_1"
+                    android:layout_width="370dp"
+                    android:layout_height="170dp"
+                    app:cardCornerRadius="15dp"
+                    android:layout_below="@+id/textView"
+                    android:layout_marginTop="6dp"
+                    app:cardElevation="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+
+                    <ImageView
+                        android:id="@id/petImageView"
+                        android:layout_width="350dp"
+                        android:layout_height="135dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pets_3715733_1280" />
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/welcomeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relative_layout_2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:text="Dobrodošli"
+                android:textColor="#ec9faf"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="NotSibling" />
+
+            <HorizontalScrollView
+                android:id="@+id/petsHorizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relative_layout_2"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/petsCardView1"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_below="@+id/welcomeTextView"
+                        android:layout_margin="8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        app:cardCornerRadius="16dp"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        tools:ignore="NotSibling">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@id/iconPet"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ljubimci" />
+
+                            <TextView
+                                android:id="@id/textViewPet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ljubimci"
+                                android:textColor="#FFFFFF"
+                                android:textSize="11sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/iconPet"
+                                android:layout_marginTop="8dp" />
+
+                            <TextView
+                                android:id="@id/textViewPetDescription"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pogledajte galeriju i saznajte"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/textViewPet"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                tools:ignore="ExtraText" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="23dp"
+                                android:layout_below="@id/textViewPetDescription"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:text="više o ljubimcima"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/petsCardView2"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_margin="8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/petsCardView1"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@id/iconPaw"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/mojiljubimci"
+                                android:layout_centerInParent="true"
+                                tools:ignore="InvalidId" />
+                            <TextView
+                                android:id="@id/textViewMyPets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Moji ljubimci"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/iconPaw"
+                                android:layout_marginTop="8dp" />
+                            <TextView
+                                android:id="@id/textViewMyPetsDescription"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dodajte svoje omiljene"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/textViewMyPets"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                tools:ignore="InvalidId" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/textViewMyPetsDescription"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:text="krznene saputnike"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/exoticPetsCardView"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_margin="8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/petsCardView2"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@id/iconExoticPet"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/egzoticni"
+                                android:layout_centerInParent="true" />
+                            <TextView
+                                android:id="@id/textViewExoticPets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Egzotični ljubimci"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/iconExoticPet"
+                                android:layout_marginTop="8dp"/>
+                            <TextView
+                                android:id="@id/textViewExoticPetsDescription"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Otkrijte svijet"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/textViewExoticPets"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/textViewExoticPetsDescription"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:text="egzotičnih ljubimaca"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                tools:ignore="InvalidId" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </HorizontalScrollView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/petsHorizontalScrollView"/>
+            <TextView
+                android:id="@+id/uvodUNjeguTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-5dp"
+                android:layout_below="@+id/petsHorizontalScrollView"
+                android:text="Uvod u njegu"
+                android:textStyle="bold"
+                android:textColor="#ec9faf"
+                android:textSize="20sp" />
+            <HorizontalScrollView
+                android:id="@+id/additionalHorizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/petsHorizontalScrollView"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+                <RelativeLayout
+                    android:id="@+id/CareRelativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/careCardView1"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_margin="8dp"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/careIcon1"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/medecinskipodaci"
+                                android:layout_centerHorizontal="true" />
+
+                            <TextView
+                                android:id="@+id/careText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Medecinski podaci"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/careIcon1"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:id="@+id/careSubText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pratite zdravsteveno stanje"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careText1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:id="@+id/careSubText2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="svojih ljubimaca"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careSubText1"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp"
+                                tools:ignore="DuplicateIds,InvalidId" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/careCardView2"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_margin="8dp"
+                        android:layout_toEndOf="@id/careCardView1"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/careIcon2"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/forum"
+                                android:layout_centerHorizontal="true" />
+                            <TextView
+                                android:id="@+id/careText2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Forum "
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/careIcon2"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:id="@+id/careSubText2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Forum za dijeljenje"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careText2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                tools:ignore="DuplicateIds" />
+
+                            <TextView
+                                android:id="@+id/careSubText2_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" iskustava i savjeta"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careSubText2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp"
+                                tools:ignore="InvalidId" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/careCardView4"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_margin="8dp"
+                        android:layout_toEndOf="@id/careCardView2"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/careIcon4"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/prehrana"
+                                android:layout_centerHorizontal="true" />
+                            <TextView
+                                android:id="@+id/careText4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Evidencija prehrane"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/careIcon4"
+                                android:layout_marginTop="4dp" />
+
+                            <TextView
+                                android:id="@+id/careSubText4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Balansirana prehrana za"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careText4"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:id="@+id/careSubText4_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="zdravlje i vitalnost"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/careSubText4"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp"
+                                tools:ignore="InvalidId" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </HorizontalScrollView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/additionalHorizontalScrollView"/>
+            <HorizontalScrollView
+                android:id="@+id/newHorizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/additionalHorizontalScrollView"
+                android:layout_marginTop="3dp"
+                android:scrollbars="none">
+                <RelativeLayout
+                    android:id="@+id/NewCardRelativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/newCardView2"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        app:cardCornerRadius="16dp"
+                        android:layout_margin="8dp"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/newIcon3"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/aktivnosti"
+                                android:layout_centerInParent="true" />
+                            <TextView
+                                android:id="@+id/newText3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fitnes i aktivnosti"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/newIcon3"
+                                android:layout_marginTop="4dp" />
+                            <TextView
+                                android:id="@+id/newSubText3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Savjeti za aktivan život"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newText3"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp" />
+                            <TextView
+                                android:id="@+id/newSubText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="sa krznenim saputnikom"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newSubText3"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/newCardView3"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_toEndOf="@+id/newCardView2"
+                        android:layout_margin="8dp"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/newIcon4"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+
+                                android:src="@drawable/tezina"
+                                android:layout_centerInParent="true" />
+                            <TextView
+                                android:id="@+id/newText4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tjelesna težina"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/newIcon4"
+                                android:layout_marginTop="4dp" />
+                            <TextView
+                                android:id="@+id/newSubTextText4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Zapisujte težinu vašeg ljubimca "
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newText4"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp" />
+                            <TextView
+                                android:id="@+id/newwSubText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="i pratite težinske promjene"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newSubTextText4"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/newCardView4"
+                        android:layout_width="127dp"
+                        android:layout_height="127dp"
+                        android:layout_toEndOf="@+id/newCardView3"
+                        android:layout_margin="8dp"
+                        android:backgroundTint="#303030"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:id="@+id/newIcon5"
+                                android:layout_width="33dp"
+                                android:layout_height="33dp"
+                                android:src="@drawable/troskovi"
+                                android:layout_centerInParent="true" />
+                            <TextView
+                                android:id="@+id/newText5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Evidencija troškova"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/newIcon5"
+                                android:layout_marginTop="4dp" />
+                            <TextView
+                                android:id="@+id/newSubTextText5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Evidentirajte troškove za"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newText5"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp" />
+                            <TextView
+                                android:id="@+id/newwwSubText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="brigu o ljubimcu"
+                                android:textColor="#FFFFFF"
+                                android:textSize="7sp"
+                                android:layout_below="@id/newSubTextText5"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="1dp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#3B3B3B"
+        android:theme="@style/DashboardDrawerLayoutStyle"
+        app:itemIconPadding="10dp"
+        app:itemIconTint="#ec9faf"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/menu_drawer"
+        app:headerLayout="@layout/drawer_layout_header">
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ec9faf"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Dobrodošli"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#3B3B3B"
+        android:layout_marginTop="170dp" />
+
+    <TextView
+        android:id="@+id/textViewSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@id/textViewWelcome"
+        android:layout_centerHorizontal="true"
+        android:text="Prijavite se na svoj račun"
+        android:layout_marginTop="13dp" />
+
+    <ImageView
+        android:id="@+id/imageViewEmailIcon"
+        android:layout_width="24dp"
+        android:layout_height="92dp"
+        android:layout_below="@id/textViewSubtitle"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/login3" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_toEndOf="@id/imageViewEmailIcon"
+        android:layout_below="@id/textViewSubtitle"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+      android:hint="Unesite e-mail..." />
+
+    <ImageView
+        android:id="@+id/imageViewPasswordIcon"
+        android:layout_width="24dp"
+        android:layout_height="97dp"
+        android:layout_below="@id/editTextEmail"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/login4" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_toEndOf="@id/imageViewPasswordIcon"
+        android:layout_below="@id/editTextEmail"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="35dp"
+       android:hint="Unesite lozinku..."
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:backgroundTint="#3B3B3B"
+        android:textColor="@color/white"
+        android:layout_marginTop="70dp"
+        android:text="Prijavi se" />
+
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogin"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:text="Nemaš nalog? Napravi nalog"
+      />
+
+</RelativeLayout>

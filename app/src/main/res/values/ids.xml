@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="petImageView" type="id" />
+    <item name="petsCardView1" type="id" />
+    <item name="iconPet" type="id" />
+    <item name="petsCardView2" type="id" />
+    <item name="iconPaw" type="id" />
+    <item name="iconExoticPet" type="id" />
+    <item name="iconzanPet" type="id" />
+    <item name="iconCuriosity" type="id" />
+    <item name="textViewPet" type="id" />
+    <item name="textViewPetDescription" type="id" />
+    <item name="textViewMyPetsDescription" type="id" />
+    <item name="textViewMyPets" type="id" />
+    <item name="textViewExoticPets" type="id" />
+    <item name="textViewExoticPetsDescription" type="id" />
+    <item name="petsHorizontalScrollView" type="id"/>
+    <item name="careSubText2" type="id"/>
+    <item name="careText2" type="id"/>
+    <item name="careCardView2" type="id"/>
+    <item name="careSubText1" type="id"/>
+    <item name="careText1" type="id"/>
+    <item name="careIcon1" type="id"/>
+    <item name="careCardView1" type="id"/>
+    <item name="careIcon2" type="id"/>
+    <item name="careSubText2_2" type="id"/>
+    <item name="careCardView3" type="id"/>
+    <item name="careIcon3" type="id"/>
+<item name="careText3" type="id"/>
+    <item name="careSubText3" type="id"/>
+    <item name="careSubText3_2" type="id"/>
+    <item name="careCardView4" type="id"/>
+<item name="careIcon4" type="id"/>
+    <item name="careText4" type="id"/>
+    <item name="careSubText4" type="id"/>
+    <item name="careSubText4_2" type="id"/>
+    <item name="treciHorizontalScrollView" type="id"/>
+    <item name="CareRelativeLayout" type="id"/>
+    <item name="extraCardView1" type="id"/>
+<item name="extraIcon1" type="id"/>
+    <item name="extraText1" type="id"/>
+<item name="extraSubText2" type="id"/>
+    <item name="extraSubText1" type="id"/>
+    <item name="extraCardView2" type="id"/>
+    <item name="newHorizontalScrollView" type="id"/>
+    <item name="NewCardRelativeLayout" type="id"/>
+<item name="newCardView1" type="id"/>
+    <item name="newIcon1" type="id"/>
+    <item name="newText1" type="id"/>
+    <item name="newSubText1" type="id"/>
+    <item name="newSubText2" type="id"/>
+    <item name="newCardView2" type="id"/>
+    <item name="newIcon3" type="id"/>
+    <item name="newText3" type="id"/>
+    <item name="newSubText3" type="id"/>
+    <item name="newSubText" type="id"/>
+    <item name="newIcon4" type="id"/>
+    <item name="newText4" type="id"/>
+    <item name="newSubTextText4" type="id"/>
+    <item name="newSubText11" type="id"/>
+    <item name="newwSubText" type="id"/>
+    <item name="newSubText4" type="id" />
+    <item name="newSubTexText4" type="id" />
+    <item name="newCardView4" type="id"/>
+    <item name="newIcon5" type="id"/>
+    <item name="newText5" type="id"/>
+    <item name="newSubTextText5" type="id"/>
+    <item name="newwwSubText" type="id"/>
+    <item name="appLogoImageView" type="id" />
+    <item name="appLogoTextView" type="id" />
+    <item name="emailEditText" type="id"/>
+    <item name="skipLoginText" type="id" />
+    <item name="buttonRegister" type="id"/>
+    <item name="buttonLogin" type="id"/>
+    <item name="editTextEmail" type="id"/>
+    <item name="editTextPassword" type="id"/>
+    <item name="welcomeTextView" type="id"/>
+
+
+</resources>

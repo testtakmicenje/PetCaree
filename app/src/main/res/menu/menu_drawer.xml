@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home1" android:title="Početna "  android:icon="@drawable/homeicon" />
+    <item android:id="@+id/home2" android:title="Prva pomoć" android:icon="@drawable/prvapomoc"/>
+    <item android:id="@+id/home3" android:title="Vodič za njegu" android:icon="@drawable/vodic"/>
+    <item android:id="@+id/home4" android:title="Zanimljivosti" android:icon="@drawable/zanimljivosti"/>
+    <item android:id="@+id/home5" android:title="Savjeti" android:icon="@drawable/savjeti"/>
+    <item android:id="@+id/homeq" android:title="Kviz" android:icon="@drawable/kviz"/>
+
+</menu>

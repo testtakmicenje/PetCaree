@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3B3B3B">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back"
+            android:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/povrede" />
+
+    <TextView
+        android:id="@+id/tvNaslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prva pomoć kod krvarenja"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="#dec5a3"
+        android:layout_below="@+id/imageView"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/tvTekst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNaslov"
+        android:textColor="@color/white"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:gravity="center"
+        android:text="Ako je rana manja i krvarenje je umjereno, možete primjeniti pritisak na mjesto povrede pomoću sterilne gaze ili čiste tkanine. Cilj je zaustaviti krvarenje ili smanjiti intenzitet. Ako je rana veća i krvarenje je obilno, koristite sterilnu gazu ili tkaninu da biste pokrili ranu i vršili pritisak. Pritiskajte povremeno, ali ne previše čvrsto kako biste omogućili cirkulaciju krvi. Ako je moguće, podignite povrijeđeni dio tijela životinje iznad nivoa srca kako biste smanjili krvarenje. Ako primjetite da je krvarenje zaustavljeno, nemojte uklanjati sterilnu gazicu ili krpu. Dodajte novi sloj preko postojećeg ako je potrebno, ali nemojte uklanjati originalni sloj."
+        android:textSize="14dp"/>
+
+</RelativeLayout>

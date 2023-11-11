@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3B3B3B">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarrrrrrrr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back"
+            android:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageeeeeeeeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/povrede" />
+
+    <TextView
+        android:id="@+id/tvvvvvvvvNaslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Povrede šapa i noktiju"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="#dec5a3"
+        android:layout_below="@+id/imageeeeeeeeView"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/tvvvvvvvvTekst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvvvvvvvvNaslov"
+        android:textColor="@color/white"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Pažljivo pregledajte povrijeđenu šapu ili nokat. Potražite prisustvo rane, krvarenje ili oštećenja. Ako je rana duboka ili ako nokat izgleda jako oštećen, obavezno potražite veterinarsku pomoć. Ako postoji krvarenje, pokušajte zaustaviti krvarenje blagim pritiskom sterilnom gazom ili čistom krpom. Ako je rana vidljiva, možete je blago isprati sterilnim fiziološkim rastvorom kako biste očistili nečistoće i bakterije. Ako je nokat oštećen, nemojte pokušavati sami da uklonite dio nokta, jer to može izazvati dodatne povrede. Ako je povreda na šapi, možete pokušati zaštititi povrijeđeni dio tako da ga obmotate sterilnom gazom ili čistom tkaninom. "
+        android:textSize="14dp"/>
+
+</RelativeLayout>

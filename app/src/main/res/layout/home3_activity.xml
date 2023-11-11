@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/crna2">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back" />
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vodič za njegu"
+            android:textSize="22sp"
+            android:textColor="@color/rosa"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/crna1"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:onClick="onCardViewClick"
+            android:layout_marginEnd="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/kupanje" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Kupanje"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:onClick="onCardViewClick"
+            android:backgroundTint="@color/crna1"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/zubi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Čiščenje zuba"
+                    android:gravity="center"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="0dp"
+            android:clickable="true"
+            android:onClick="onCardViewClick"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/crna1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dlaka" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Njega dlake"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:onClick="onCardViewClick"
+            android:layout_weight="1"
+        android:backgroundTint="@color/crna1"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/nokti" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Njega noktiju"
+                    android:gravity="center"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:onClick="onCardViewClick"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/crna1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ciscenjekreveta" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Održavanje kreveta"
+                    android:gravity="center"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView6"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:onClick="onCardViewClick"
+            android:backgroundTint="@color/crna1"
+            android:clickable="true"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ciscenjeakvarijuma" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Održavanje akvarijuma"
+                    android:gravity="center"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="262dp"
+        android:layout_height="63dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/rosa"
+        android:text="Unesite podatke"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
+</LinearLayout>

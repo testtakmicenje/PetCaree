@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ec9faf"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Dobrodošli"
+        android:textStyle="bold"
+        android:textColor="#3B3B3B"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="316dp"
+        android:layout_height="79dp"
+        android:layout_below="@+id/textViewWelcome"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="0dp"
+        android:text=" Prijavi se i pridruži našoj rastućoj zajednici ljubitelja ljubimaca i bolje nauči o njihovoj brizi"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:ignore="DuplicateIds" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewLogin"
+        android:drawableEnd="@drawable/login1"
+        android:layout_marginTop="17dp"
+        android:onClick="onButtonLoginClick"
+        android:paddingStart="65dp"
+        android:paddingEnd="50dp"
+        android:text="Prijavite se"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3B3B3B"/>
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogin"
+        android:drawableEnd="@drawable/login2"
+        android:layout_marginTop="17dp"
+        android:onClick="onButtonRegisterClick"
+        android:paddingStart="65dp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3B3B3B"
+        android:paddingEnd="50dp"
+        android:text="Registrujte se" />
+
+</RelativeLayout>

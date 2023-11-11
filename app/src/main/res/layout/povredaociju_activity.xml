@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3B3B3B">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarrrrrrr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back"
+            android:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageeeeeeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/povrede" />
+
+    <TextView
+        android:id="@+id/tvvvvvvNaslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Povreda očiju"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="#dec5a3"
+        android:layout_below="@+id/imageeeeeeView"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/tvvvvvvTekst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvvvvvvNaslov"
+        android:textColor="@color/white"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:layout_marginEnd="10dp"
+        android:text="Ako primjetite da vaš ljubimac trlja ili grebe oko ili da ima suzenje, ne dozvolite mu da to radi jer to može pogoršati povredu. Ako je u oko dospio strani predmet, pokušajte isprati oko mlazom sterilnog fiziološkog rastvora (ako ga imate) ili čiste hladne vode. Držite oko otvoreno i lagano ispirajte oko kako biste uklonili strani predmet. Ako je povrijeđeno oko otvoreno ili ima vidljivih povreda, možete prekriti oštećeno oko sterilnom gazom ili čistom krpom kako biste zaštitili povrijeđeno područje i spriječili dodatne povrede. Ne koristite bilo kakve lijekove, masti ili kapi za oči, jer to može dodatno iritirati ili oštetiti oko."
+        android:textSize="14dp"/>
+
+</RelativeLayout>

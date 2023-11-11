@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PetCare">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android:name"
+                android:value="true" />
+        </activity>
+
+        <activity android:name=".HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AppIntro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login1Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login3Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Care1Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Care2Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CareActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ExoticPetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MyPetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NewActivity2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NewActivity3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NewActivity4"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home2Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home3Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home4Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home5Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Home6Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".KrvarenjeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OpekotineActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PovredaKostijuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PovredaOcijuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PovredaSapaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TrovanjeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VjestackoDisanjeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GusenjeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PrepoznavanjeSimptomaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost4"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost5"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost6"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost7"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost8"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost9"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost10"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Zanimljivost11"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeqActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UnesitepodatkeActivity"
+            android:screenOrientation="portrait"/>
+
+
+
+
+
+    </application>
+</manifest>

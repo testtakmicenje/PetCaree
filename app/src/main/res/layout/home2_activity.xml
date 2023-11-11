@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3B3B3B"
+    android:padding="16dp">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textPrvaPomoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Prva Pomoć"
+        android:textColor="#ec9faf"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textKrvarenje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textPrvaPomoc"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:text="Kako zaustaviti krvarenje?"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textVestackoDisanje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textKrvarenje"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="25dp"
+        android:text="Kako pružiti vještačko disanje?"
+        android:textSize="17sp" />
+
+
+    <TextView
+        android:id="@+id/textTrovanje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textVestackoDisanje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju trovanja?"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textGusenje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTrovanje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju gušenja?"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textOpekotine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textGusenje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju opekotina?"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textPovredaKostijuZglobova"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textPovredaOciju"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju povrede kostiju?"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textPovredaOciju"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textOpekotine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju povrede očiju?"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textPovredaSapaNoktiju"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textPovredaKostijuZglobova"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:text="Kako postupiti u slučaju povrede šapa?"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/btnPrepoznavanjeSimptoma"
+        android:layout_width="375dp"
+        android:layout_height="58dp"
+        android:layout_below="@id/textPovredaSapaNoktiju"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="#ec9faf"
+        android:text="Prepoznavanje simptoma"
+        android:textColor="#3B3B3B"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>

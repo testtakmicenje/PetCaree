@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ec9faf"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Izradite svoj korisnički račun"
+        android:textSize="24sp"
+        android:textColor="#3B3B3B"
+        android:layout_marginTop="60dp" />
+
+
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="76dp"
+        android:hint="Unesite korisničko ime"
+        android:drawableStart="@drawable/login9"
+        android:drawablePadding="8dp"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etUsername"
+        android:layout_marginTop="16dp"
+        android:hint="Unesite lozinku"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/login6"
+        android:drawablePadding="8dp" />
+
+    <EditText
+        android:id="@+id/etRepeatPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPassword"
+        android:layout_marginTop="16dp"
+        android:hint="Ponovo unesite lozinku"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/login4"
+        android:drawablePadding="8dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etRepeatPassword"
+        android:layout_marginTop="16dp"
+        android:hint="Unesite e-mail adresu"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/login3"
+        android:drawablePadding="8dp" />
+
+    <EditText
+        android:id="@+id/etFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etEmail"
+        android:layout_marginTop="16dp"
+        android:hint="Unesite svoje ime i prezime"
+        android:drawableStart="@drawable/login5"
+        android:drawablePadding="8dp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etFullName"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="#3B3B3B"
+        android:text="Registruj se"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textViewLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnRegister"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:text="Već imate nalog? Prijavite se" />
+
+</RelativeLayout>

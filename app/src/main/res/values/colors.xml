@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#3F5EFB</color>
+    <color name="pink">#d34c8b</color>
+    <color name="rosa">#ec9faf</color>
+    <color name="roza">#FF82AB</color>
+    <color name="crna2">#3B3B3B</color>
+    <color name="crna1">#303030</color>
+</resources>
