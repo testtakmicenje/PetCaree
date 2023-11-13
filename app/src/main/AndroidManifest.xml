@@ -53,8 +53,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".NewActivity4"
             android:screenOrientation="portrait"/>
-        <activity android:name=".PetsActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".Home2Activity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Home3Activity"
@@ -107,10 +105,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".DetailActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".UnesitepodatkeActivity"
+        <activity android:name=".ListActivity"
             android:screenOrientation="portrait"/>
-
-
+        <activity android:name=".ListItem"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CustomListAdapter"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PetsActivity"
+            android:screenOrientation="portrait"/>
 
 
 

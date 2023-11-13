@@ -157,17 +157,7 @@ public class Home3Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button nextButton = findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ovdje dodajte kod koji će se izvršiti kada se klikne na dugme
 
-                // Na primjer, otvorite novu aktivnost
-                Intent intent = new Intent(Home3Activity.this, UnesitepodatkeActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 }
