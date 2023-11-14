@@ -18,7 +18,6 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ImageView backImageView = findViewById(R.id.logoImageView1);
@@ -29,21 +28,17 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
-
         Intent intent = getIntent();
-        int slikaResId = intent.getIntExtra("slika", 0); // 0 je default vrednost ako ne postoji
-        String tekst = intent.getStringExtra("tekst");
+        int slikaResId = intent.getIntExtra("imageResource", 0); // Use "imageResource" key
+        String tekst = intent.getStringExtra("text");
+        String description = intent.getStringExtra("description");
 
+        RelativeLayout backgroundLayout = findViewById(R.id.backgroundLayout);
+        backgroundLayout.setBackgroundResource(slikaResId);
 
-        RelativeLayout backgroundLayout = findViewById(R.id.backgroundLayout); // Promenio ovde
-        backgroundLayout.setBackgroundResource(slikaResId); // Postavi pozadinu na slikaResId
-
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(tekst);
+        // Now, you can use the "description" string to display additional information if needed
+        TextView descriptionTextView = findViewById(R.id.textView);
+        descriptionTextView.setText(description);
     }
 }
+

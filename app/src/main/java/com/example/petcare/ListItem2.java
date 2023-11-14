@@ -1,11 +1,11 @@
 package com.example.petcare;
 
-public class ListItem {
+public class ListItem2 {
     private String name;
     private int imageResourceId;
     private String description;
 
-    public ListItem(String name, int imageResourceId, String description) {
+    public ListItem2(String name, int imageResourceId, String description) {
         this.name = name;
         this.imageResourceId = imageResourceId;
         this.description = description;
@@ -23,3 +23,4 @@ public class ListItem {
         return description;
     }
 }
+
