@@ -37,11 +37,11 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
 
         // Prikazivanje slike
         ImageView imageView = listItemView.findViewById(R.id.itemImage);
-        imageView.setImageResource(currentItem.getImageResource());
+        imageView.setImageResource(currentItem.getImageResourceId());
 
         // Prikazivanje teksta (ime psa)
         TextView textView = listItemView.findViewById(R.id.itemText);
-        textView.setText(currentItem.getText());
+        textView.setText(currentItem.getName());
 
         return listItemView;
     }
