@@ -65,7 +65,7 @@ public class Home5Activity extends AppCompatActivity {
         savjetiMap.put("Pravilna ishrana", savjetiTip6);
 
         List<String> savjetiTip7 = new ArrayList<>();
-        savjetiTip7.add("Redovnaveterinarska briga je izuzetno važna za zdravlje i dobrobit životinja. Veterinari su stručnjaci koji pružaju medecinsku njegu i savjete o zdravlju životinja. Redovne posjete veterinaru omogućavaju praćenje zdravstvenog stanja životinje, prevenciju bolesti, vakcinaciju i liječenje. Veterinar će pregledati životinju provjeriti vitalne znakove, dati potrebne vakcine i preporučiti preventivne mjere. Također veterinar može pružiti savjete o ishrani, fizičkoj aktivnosti i opštj dobrobiti životinje.");
+        savjetiTip7.add("Redovna veterinarska briga je izuzetno važna za zdravlje i dobrobit životinja. Veterinari su stručnjaci koji pružaju medecinsku njegu i savjete o zdravlju životinja. Redovne posjete veterinaru omogućavaju praćenje zdravstvenog stanja životinje, prevenciju bolesti, vakcinaciju i liječenje. Veterinar će pregledati životinju, provjeriti vitalne znakove, dati potrebne vakcine i preporučiti preventivne mjere. Također veterinar može pružiti savjete o ishrani, fizičkoj aktivnosti i opštj dobrobiti životinje.");
         savjetiMap.put("Redovna veterinarska briga", savjetiTip7);
 
         List<String> savjetiTip8 = new ArrayList<>();

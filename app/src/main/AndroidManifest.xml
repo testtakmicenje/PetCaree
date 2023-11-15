@@ -113,6 +113,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".PetsActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityDetail"
+            android:screenOrientation="portrait"/>
+
 
 
 

@@ -9,14 +9,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class DetailActivity extends AppCompatActivity {
+public class ActivityDetail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_activity);
+        setContentView(R.layout.activity_detail);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -28,17 +29,21 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
         Intent intent = getIntent();
-        int slikaResId = intent.getIntExtra("imageResource", 0);
-        String tekst = intent.getStringExtra("text");
-        String description = intent.getStringExtra("description");
+        int slikaResId = intent.getIntExtra("slika", 0);
+        String tekst = intent.getStringExtra("tekst");
+
 
         RelativeLayout backgroundLayout = findViewById(R.id.backgroundLayout);
         backgroundLayout.setBackgroundResource(slikaResId);
 
-
-        TextView descriptionTextView = findViewById(R.id.textView);
-        descriptionTextView.setText(description);
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(tekst);
     }
 }
-
