@@ -75,6 +75,14 @@
     <item name="editTextEmail" type="id"/>
     <item name="editTextPassword" type="id"/>
     <item name="welcomeTextView" type="id"/>
+    <item name="savePetButton" type="id" />
+    <item name="petTypeEditText" type="id" />
+    <item name="petNameEditText" type="id" />
+    <item name="editTextName" type="id" />
+    <item name="editTextType" type="id" />
+    <item name="editTextDescription" type="id" />
+    <item name="buttonAddPet" type="id" />
+    <item name="buttonViewPets" type="id" />
 
 
 </resources>

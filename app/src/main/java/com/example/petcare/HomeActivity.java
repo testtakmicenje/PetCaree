@@ -1,7 +1,7 @@
 package com.example.petcare;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Gravity;
@@ -17,8 +17,20 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 public class HomeActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+    private int backPressCount = 0;
+    private static final int MAX_BACK_PRESS_COUNT = 2;
+    private long backPressedTime = 0;
 
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
 
+    }
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

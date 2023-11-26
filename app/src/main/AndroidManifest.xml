@@ -3,6 +3,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -44,8 +47,6 @@
         <activity android:name=".CareActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ExoticPetsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MyPetsActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".NewActivity2"
             android:screenOrientation="portrait"/>
@@ -115,6 +116,21 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ActivityDetail"
             android:screenOrientation="portrait"/>
+        <activity android:name=".List1Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MyPetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TezinaLjubimcaDatabaseHelper"
+    android:screenOrientation="portrait"/>
+        <activity android:name=".TezinaLjubimca"
+            android:screenOrientation="portrait"/>
+
+
+
+
+
+
+
 
 
 
