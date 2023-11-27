@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/crna2">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back" />
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unesite težinu"
+            android:textSize="22sp"
+            android:textColor="@color/rosa"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+           android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datum:"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="378dp"
+        android:layout_height="67dp"
+        android:hint="Unesite datum" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vrsta ljubimca:"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/petTypeEditText"
+        android:layout_width="378dp"
+        android:layout_height="67dp"
+        android:hint="Unesite vrstu ljubimca" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ime ljubimca:"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/petNameEditText"
+        android:layout_width="378dp"
+        android:layout_height="67dp"
+        android:hint="Unesite ime ljubimca" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Težina:"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/weightEditText"
+        android:layout_width="378dp"
+        android:layout_height="67dp"
+        android:hint="Unesite težinu"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/addWeightButton"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@color/rosa"
+        android:layout_gravity="center"
+        android:text="Unesi"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

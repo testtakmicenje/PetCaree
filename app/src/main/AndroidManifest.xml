@@ -120,10 +120,15 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".MyPetsActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".TezinaLjubimcaDatabaseHelper"
+        <activity android:name=".WeightEntry"
     android:screenOrientation="portrait"/>
-        <activity android:name=".TezinaLjubimca"
+        <activity android:name=".AddWeightActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".DatabaseHelper"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".WeightListAdapter"
+            android:screenOrientation="portrait"/>
+
 
 
 
