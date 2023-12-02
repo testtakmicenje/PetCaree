@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PET_NAME = "pet_name";
     private static final String COLUMN_WEIGHT = "weight";
 
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -40,6 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Ovdje možete implementirati nadogradnju baze podataka
     }
+    // Metoda za brisanje težine
+
 
     public void addWeight(WeightEntry weightEntry) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -78,3 +81,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return weightList;
     }
 }
+

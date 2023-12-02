@@ -1,6 +1,7 @@
 package com.example.petcare;
-// WeightEntry.java
+
 public class WeightEntry {
+    private int id;
     private String date;
     private String petType;
     private String petName;
@@ -11,6 +12,14 @@ public class WeightEntry {
         this.petType = petType;
         this.petName = petName;
         this.weight = weight;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDate() {
@@ -29,3 +38,4 @@ public class WeightEntry {
         return weight;
     }
 }
+

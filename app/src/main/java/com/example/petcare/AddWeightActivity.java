@@ -1,18 +1,20 @@
 package com.example.petcare;
-// AddWeightActivity.java
+
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class AddWeightActivity extends AppCompatActivity {
 
-    private EditText dateEditText;
+    private DatePicker dateDatePicker; // Promijenjeno ime varijable
     private EditText petTypeEditText;
     private EditText petNameEditText;
     private EditText weightEditText;
@@ -29,7 +31,6 @@ public class AddWeightActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
         ImageView backImageView = findViewById(R.id.logoImageView1);
         backImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,8 +39,8 @@ public class AddWeightActivity extends AppCompatActivity {
             }
         });
 
-
-        dateEditText = findViewById(R.id.dateEditText);
+        // Promijenjena varijabla na dateDatePicker
+        dateDatePicker = findViewById(R.id.dateDatePicker);
         petTypeEditText = findViewById(R.id.petTypeEditText);
         petNameEditText = findViewById(R.id.petNameEditText);
         weightEditText = findViewById(R.id.weightEditText);
@@ -50,8 +51,13 @@ public class AddWeightActivity extends AppCompatActivity {
         addWeightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Dohvatite unesene podatke
-                String date = dateEditText.getText().toString();
+                // Dohvatite unesene podatke iz DatePicker-a
+                int dayOfMonth = dateDatePicker.getDayOfMonth();
+                int month = dateDatePicker.getMonth() + 1; // Mjeseci idu od 0 do 11
+                int year = dateDatePicker.getYear();
+
+                String date = year + "-" + month + "-" + dayOfMonth;
+
                 String petType = petTypeEditText.getText().toString();
                 String petName = petNameEditText.getText().toString();
                 double weight = Double.parseDouble(weightEditText.getText().toString());

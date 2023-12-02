@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
 
+
+
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -122,12 +126,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".WeightEntry"
     android:screenOrientation="portrait"/>
-        <activity android:name=".AddWeightActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".DatabaseHelper"
             android:screenOrientation="portrait"/>
         <activity android:name=".WeightListAdapter"
             android:screenOrientation="portrait"/>
+        <activity android:name=".AddWeightActivity"
+        android:screenOrientation="portrait"/>
 
 
 

@@ -1,41 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/dateTextView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Datum:"
-        android:textColor="@color/white"
-        />
+        android:orientation="vertical"
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/petTypeTextView"
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datum:"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/petTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vrsta ljubimca:"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/petNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ime ljubimca:"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/weightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Težina:"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <!-- Dodajte RelativeLayout za ikone -->
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vrsta ljubimca:"
-        android:textColor="@color/white"
-        />
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
 
-    <TextView
-        android:id="@+id/petNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ime ljubimca:"
-        android:textColor="@color/white"
-        />
+        <ImageView
+            android:id="@+id/editIcon"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_toStartOf="@id/deleteIcon"
+            android:src="@drawable/ic_edit" />
 
-    <TextView
-        android:id="@+id/weightTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Težina:"
-        android:textColor="@color/white"
-        />
+        <ImageView
+            android:id="@+id/deleteIcon"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_delete" />
 
-</LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+

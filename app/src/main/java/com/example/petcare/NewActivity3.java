@@ -1,5 +1,5 @@
 package com.example.petcare;
-// NewActivity3.java
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +28,6 @@ public class NewActivity3 extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
         ImageView backImageView = findViewById(R.id.logoImageView1);
         backImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +35,6 @@ public class NewActivity3 extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
 
         ListView weightListView = findViewById(R.id.weightListView);
         Button addWeightButton = findViewById(R.id.addWeightButton);
@@ -68,4 +66,5 @@ public class NewActivity3 extends AppCompatActivity {
         }
     }
 }
+
 
