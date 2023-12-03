@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:backgroundTint="@color/crna2"
+    android:background="@android:color/background_light">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/logoImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O aplikaciji"
+            android:textSize="22sp"
+            android:textColor="@color/rosa"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!-- CardView na vrhu -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:layout_centerInParent="true"
+        app:cardPreventCornerOverlap="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/crna1"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Ikona aplikacije -->
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/pozadina6"
+                android:layout_gravity="center_horizontal"/>
+
+            <!-- Tekst ispod ikone -->
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PetCare\n\nOtkrijte svijet kućnih ljubimaca"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- NestedScrollView ispod CardView-a -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cardView">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/cardView1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/crna1"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="15dp"
+            android:layout_centerInParent="true"
+            app:cardPreventCornerOverlap="true"
+            android:layout_marginBottom="16dp"
+            app:cardElevation="4dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Tekstovi unutar NestedScrollView-a -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="\nLjubimci-poseban segment posvećen ljubimcima, pružajući korisnicima specifične informacije i savjete o različitim vrstama kućnih ljubimaca.\n\nMoji ljubimci-centralno mjesto za pregled svih ljubimaca korisnika, gdje mogu dodavati nove, uređivati ili brisati postojeće informacije.\n\nEgzotični ljubimci-poseban segment posvećen egzotičnim ljubimcima, pružajući korisnicima specifične informacije i savjete o neobičnim vrstama kućnih ljubimaca.\n\nMedecinski podaci-omogućava korisnicima bilježenje medicinskih podataka o svojim ljubimcima, uključujući veterinarske posjete i ostale relevantne informacije.\n\nForum-mjesto gdje korisnici mogu dijeliti iskustva, postavljati pitanja i razmjenjivati savjete s drugim ljubiteljima ljubimaca.\n\nEvidencija prehrane-pruža korisnicima alat za praćenje prehrane njihovih ljubimaca, uključujući vrste hrane, količine i redovitost hranjenja.\n\nFitnes i ativnosti-omogućava zapisivanje i praćenje fizičkih aktivnosti ljubimaca, poput šetnji, igara i vježbi, kako bi se održala njihova kondicija.\n\nTjelesna težina-funkcija koja omogućava korisnicima praćenje tjelesne težine svojih ljubimaca pomoću datuma.\n\nEviidencija troškova-pomaže korisnicima da prate financijske aspekte skrbi o ljubimcima, uključujući troškove hrane, veterinarskih usluga i drugih potrebnih resursa.\n\nPrva pomoć-pruža osnovne smjernice i informacije o prvoj pomoći za ljubimce, kako bi korisnici znali kako reagirati u hitnim situacijama.\n\nPrepoznavanje simptoma-skeniranje bolesti putem kamere omogućava korisnicima da brzo identificiraju moguće zdravstvene probleme kod svojih ljubimaca.\n\nVodič za njegu-detaljne informacije i savjeti o opštoj njezi za različite vrste ljubimaca, uključujući preporuke o higijeni, čiščenju krzna i slično.\n\nZanimljivosti-dio posvećen zabavnim i zanimljivim činjenicama o životinjama, pružajući korisnicima dodatne informacije o svijetu ljubimaca.\n\nSavjeti-sekcija koja nudi korisne savjete i trikove vezane uz skrb o ljubimcima, podržavajući korisnike u pružanju najbolje moguće brige.\n\nKviz-interaktivna igra koja testira znanje korisnika o ljubimcima kroz postavljanje pitanja i pruža dodatnu edukaciju na zabavan način.\n "/>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
+

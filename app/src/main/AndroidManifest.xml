@@ -134,6 +134,8 @@
         android:screenOrientation="portrait"/>
         <activity android:name=".SettingsActivity"
             android:screenOrientation="portrait"/>
+    <activity android:name=".AboutApp"
+        android:screenOrientation="portrait"/>
 
 
     </application>

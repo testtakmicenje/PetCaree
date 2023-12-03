@@ -6,6 +6,8 @@ import android.widget.TextView;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import android.widget.LinearLayout;
+
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -27,7 +29,17 @@ public class SettingsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        TextView aboutAppTextView = findViewById(R.id.aboutAppTextView);
 
+        // Postavi OnClickListener za "O aplikaciji"
+        aboutAppTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Pokreni novu aktivnost kad korisnik klikne "O aplikaciji"
+                Intent intent = new Intent(SettingsActivity.this, AboutApp.class);
+                startActivity(intent);
+            }
+        });
 
         TextView instructionsTextView = findViewById(R.id.instructionsTextView);
         instructionsTextView.setOnClickListener(new View.OnClickListener() {
