@@ -132,6 +132,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".AddWeightActivity"
         android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
 
 
     </application>

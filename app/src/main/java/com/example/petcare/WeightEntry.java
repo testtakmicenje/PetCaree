@@ -6,6 +6,7 @@ public class WeightEntry {
     private String petName;
     private double weight;
     private boolean deleted;
+    private boolean markedForDeletion;
 
     public WeightEntry(String date, String petType, String petName, double weight) {
         this.date = date;
@@ -13,6 +14,7 @@ public class WeightEntry {
         this.petName = petName;
         this.weight = weight;
         this.deleted = false;
+        this.markedForDeletion = false;
     }
 
     public int getId() {
@@ -45,5 +47,13 @@ public class WeightEntry {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+
+    public boolean isMarkedForDeletion() {
+        return markedForDeletion;
+    }
+    public void markForDeletion() {
+        markedForDeletion = true;
     }
 }

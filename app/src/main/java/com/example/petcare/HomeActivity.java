@@ -52,6 +52,17 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         drawerLayout = findViewById(R.id.drawer_layout_1);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        ImageView settingsIcon = findViewById(R.id.settingsIcon);
+
+        settingsIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Otvorite novi ekran za postavke
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +169,8 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
 
         return true;
     }
+
+
 
 }
 
