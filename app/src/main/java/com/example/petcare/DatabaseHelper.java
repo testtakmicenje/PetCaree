@@ -1,10 +1,12 @@
 package com.example.petcare;
-// DatabaseHelper.java
+
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PET_TYPE = "pet_type";
     private static final String COLUMN_PET_NAME = "pet_name";
     private static final String COLUMN_WEIGHT = "weight";
-
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,8 +42,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Ovdje možete implementirati nadogradnju baze podataka
     }
-    // Metoda za brisanje težine
 
+    // Metoda za brisanje težine
+    public void deleteWeight(int weightId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_WEIGHT_ENTRIES, COLUMN_ID + " = ?", new String[]{String.valueOf(weightId)});
+        db.close();
+    }
 
     public void addWeight(WeightEntry weightEntry) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -81,4 +87,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return weightList;
     }
 }
+
 

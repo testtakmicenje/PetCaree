@@ -21,6 +21,12 @@
             android:src="@drawable/back"
             android:tint="@color/black" />
     </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageeeeeeeView"
@@ -54,7 +60,10 @@
         android:layout_marginStart="10dp"
         android:gravity="center"
         android:layout_marginEnd="10dp"
-        android:text="Ako sumnjate da je vaš ljubimac povrijedio kost, nemojte pokušavati da pomijerate ili ispravljate povređeni dio. Pomjeranje može uzrokovati dodatne povrede ili pogoršati situaciju. Ako je povrijeđeni dio dostupan, možete pokušati imobilizirati povrijeđeni ud kako biste spriječili dalje pomjeranje ili povrede. Možete koristiti meki jastuk ili čvrstu podlogu kako biste podržali povrijeđeni dio tijela. Ako postoji otok na povrijeđenom području, možete primjeniti hladni oblog (led umotan u krpu) na povrijeđeno mjesto. Držite hladni oblog na mjestu povrede najviše 15-20 minuta u kontinuitetu. Pazite da ne stavljate led direktno na kožu."
-        android:textSize="14dp"/>
+        android:text="Ako sumnjate da je vaš ljubimac povrijedio kost, nemojte pokušavati da pomijerate ili ispravljate povređeni dio. Pomjeranje može uzrokovati dodatne povrede ili pogoršati situaciju. Ako je povrijeđeni dio dostupan, možete pokušati imobilizirati povrijeđeni ud kako biste spriječili dalje pomjeranje ili povrede. Možete koristiti meki jastuk ili čvrstu podlogu kako biste podržali povrijeđeni dio tijela. Ako postoji otok na povrijeđenom području, možete primjeniti hladni oblog (led umotan u krpu) na povrijeđeno mjesto. Držite hladni oblog na mjestu povrede najviše 15-20 minuta u kontinuitetu. Pazite da ne stavljate led direktno na kožu.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

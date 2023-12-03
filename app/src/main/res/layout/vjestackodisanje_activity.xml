@@ -21,6 +21,12 @@
             android:src="@drawable/back"
             android:tint="@color/black" />
     </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageeView"
@@ -55,7 +61,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="Postavite svog ljubimca na ravnu površinu sa njegovim bokovima i glavom na istoj liniji. Otvorite mu usta i provjerite da nema stranih tijela ili blokada u grlu koje bi mogle ometati disanje. Postavite svoja usta preko nosa i usta vašeg ljubimca i napravite dobar zaptivni kontakt. Udahnite duboko i nježno izduvajte vazduh u pluća ljubimca. Pazite da ne izduvate previše jakim pritiskom kako ne biste povrijedili pluća ljubimca.Ponovite postupak svakih 5 sekundi za male kućne ljubimce (poput pasa i mačaka) i svakih 20-30 sekundi za veće ljubimce. Nastavite sa vještačkim disanjem dok vaš ljubimac ne pokaže znakove normalnog disanja."
-        android:textSize="14dp"/>
+        android:text="Postavite svog ljubimca na ravnu površinu sa njegovim bokovima i glavom na istoj liniji. Otvorite mu usta i provjerite da nema stranih tijela ili blokada u grlu koje bi mogle ometati disanje. Postavite svoja usta preko nosa i usta vašeg ljubimca i napravite dobar zaptivni kontakt. Udahnite duboko i nježno izduvajte vazduh u pluća ljubimca. Pazite da ne izduvate previše jakim pritiskom kako ne biste povrijedili pluća ljubimca.Ponovite postupak svakih 5 sekundi za male kućne ljubimce (poput pasa i mačaka) i svakih 20-30 sekundi za veće ljubimce. Nastavite sa vještačkim disanjem dok vaš ljubimac ne pokaže znakove normalnog disanja.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

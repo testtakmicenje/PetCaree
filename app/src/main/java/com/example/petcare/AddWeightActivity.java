@@ -1,20 +1,23 @@
 package com.example.petcare;
-
-
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.petcare.DatabaseHelper;
+import com.example.petcare.R;
+import com.example.petcare.WeightEntry;
+
 public class AddWeightActivity extends AppCompatActivity {
 
-    private DatePicker dateDatePicker; // Promijenjeno ime varijable
+    private DatePicker dateDatePicker;
     private EditText petTypeEditText;
     private EditText petNameEditText;
     private EditText weightEditText;
@@ -39,7 +42,6 @@ public class AddWeightActivity extends AppCompatActivity {
             }
         });
 
-        // Promijenjena varijabla na dateDatePicker
         dateDatePicker = findViewById(R.id.dateDatePicker);
         petTypeEditText = findViewById(R.id.petTypeEditText);
         petNameEditText = findViewById(R.id.petNameEditText);
@@ -60,7 +62,15 @@ public class AddWeightActivity extends AppCompatActivity {
 
                 String petType = petTypeEditText.getText().toString();
                 String petName = petNameEditText.getText().toString();
-                double weight = Double.parseDouble(weightEditText.getText().toString());
+                String weightInput = weightEditText.getText().toString();
+
+                // Provera unosa podataka
+                if (TextUtils.isEmpty(petType) || TextUtils.isEmpty(petName) || TextUtils.isEmpty(weightInput)) {
+                    Toast.makeText(AddWeightActivity.this, "Molimo Vas unesite sve podatke", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double weight = Double.parseDouble(weightInput);
 
                 // Spremite podatke u bazu podataka
                 dbHelper.addWeight(new WeightEntry(date, petType, petName, weight));
@@ -73,5 +83,6 @@ public class AddWeightActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

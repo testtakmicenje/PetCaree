@@ -15,12 +15,14 @@ public class WeightListAdapter extends ArrayAdapter<WeightEntry> {
     private Context context;
     private int resource;
     private List<WeightEntry> weightList;
+    private DatabaseHelper dbHelper;
 
-    public WeightListAdapter(Context context, int resource, List<WeightEntry> weightList) {
+    public WeightListAdapter(Context context, int resource, List<WeightEntry> weightList, DatabaseHelper dbHelper) {
         super(context, resource, weightList);
         this.context = context;
         this.resource = resource;
         this.weightList = weightList;
+        this.dbHelper = dbHelper; // Inicijalizacija dbHelper-a
     }
 
     @Override
@@ -51,25 +53,21 @@ public class WeightListAdapter extends ArrayAdapter<WeightEntry> {
         holder.petNameTextView.setText("Ime ljubimca: " + weightEntry.getPetName());
         holder.weightTextView.setText("Težina: " + weightEntry.getWeight() + " kg");
 
-        // Dodajte funkcionalnost za uređivanje
-        holder.editIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Implementirajte logiku za uređivanje težine
-                Toast.makeText(context, "Uredi težinu: " + weightEntry.getWeight(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Dodajte funkcionalnost za brisanje
         holder.deleteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implementirajte logiku za brisanje težine
-                weightList.remove(position);
-                notifyDataSetChanged();
-                Toast.makeText(context, "Težina obrisana", Toast.LENGTH_SHORT).show();
+                // Implementacija funkcionalnosti za trajno brisanje
+                if (weightEntry != null) {
+                    dbHelper.deleteWeight(weightEntry.getId()); // Brisanje iz baze podataka
+                    weightList.remove(position); // Uklanjanje iz liste
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Težina je trajno izbrisana", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
+
 
         return row;
     }
@@ -83,3 +81,5 @@ public class WeightListAdapter extends ArrayAdapter<WeightEntry> {
         ImageView deleteIcon;
     }
 }
+
+

@@ -8,4 +8,6 @@
     <color name="roza">#FF82AB</color>
     <color name="crna2">#3B3B3B</color>
     <color name="crna1">#303030</color>
+<color name="bg">#EEE0E5</color>
+    <color name="cardview">#FFF0F5</color>
 </resources>

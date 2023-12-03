@@ -14,7 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.List;
 
 public class NewActivity3 extends AppCompatActivity {
-
     private List<WeightEntry> weightList;
     private WeightListAdapter adapter;
     private DatabaseHelper dbHelper; // pretpostavljamo da imate ovu klasu
@@ -41,7 +40,10 @@ public class NewActivity3 extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
         weightList = dbHelper.getAllWeights();
-        adapter = new WeightListAdapter(this, R.layout.weight_entry_item, weightList);
+
+        // Inicijalizirajte adapter s dbHelper
+        adapter = new WeightListAdapter(this, R.layout.weight_entry_item, weightList, dbHelper);
+
         weightListView.setAdapter(adapter);
 
         addWeightButton.setOnClickListener(new View.OnClickListener() {

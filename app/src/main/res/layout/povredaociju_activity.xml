@@ -21,6 +21,12 @@
             android:src="@drawable/back"
             android:tint="@color/black" />
     </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
 
     <ImageView
@@ -55,7 +61,10 @@
         android:layout_marginStart="10dp"
         android:gravity="center"
         android:layout_marginEnd="10dp"
-        android:text="Ako primjetite da vaš ljubimac trlja ili grebe oko ili da ima suzenje, ne dozvolite mu da to radi jer to može pogoršati povredu. Ako je u oko dospio strani predmet, pokušajte isprati oko mlazom sterilnog fiziološkog rastvora (ako ga imate) ili čiste hladne vode. Držite oko otvoreno i lagano ispirajte oko kako biste uklonili strani predmet. Ako je povrijeđeno oko otvoreno ili ima vidljivih povreda, možete prekriti oštećeno oko sterilnom gazom ili čistom krpom kako biste zaštitili povrijeđeno područje i spriječili dodatne povrede. Ne koristite bilo kakve lijekove, masti ili kapi za oči, jer to može dodatno iritirati ili oštetiti oko."
-        android:textSize="14dp"/>
+        android:text="Ako primjetite da vaš ljubimac trlja ili grebe oko ili da ima suzenje, ne dozvolite mu da to radi jer to može pogoršati povredu. Ako je u oko dospio strani predmet, pokušajte isprati oko mlazom sterilnog fiziološkog rastvora (ako ga imate) ili čiste hladne vode. Držite oko otvoreno i lagano ispirajte oko kako biste uklonili strani predmet. Ako je povrijeđeno oko otvoreno ili ima vidljivih povreda, možete prekriti oštećeno oko sterilnom gazom ili čistom krpom kako biste zaštitili povrijeđeno područje i spriječili dodatne povrede. Ne koristite bilo kakve lijekove, masti ili kapi za oči, jer to može dodatno iritirati ili oštetiti oko.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

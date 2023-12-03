@@ -1,95 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/crna2"
-    android:orientation="vertical">
+    android:background="@color/crna2">
 
-    <ImageView
-        android:id="@+id/questionImage"
-        android:layout_width="302dp"
-        android:layout_height="231dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/hamster" />
-
-    <TextView
-        android:id="@+id/questionText"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Pitanje 1"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:textSize="18dp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="276dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="17dp"
-        android:background="@color/crna1"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        android:gravity="center"
-        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/questionImage"
+            android:layout_width="302dp"
+            android:layout_height="231dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/hamster" />
 
-
-        <RadioButton
-            android:id="@+id/answer1"
+        <TextView
+            android:id="@+id/questionText"
             android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Pitanje 1"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="18dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="276dp"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/rosa"
-            android:layout_marginTop="9dp"
-            android:text="Odgovor 1" />
+            android:layout_gravity="center"
+            android:layout_marginTop="17dp"
+            android:background="@color/crna1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/answer2"
-            android:layout_width="match_parent"
-            android:buttonTint="@color/rosa"
+            <RadioButton
+                android:id="@+id/answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/rosa"
+                android:layout_marginTop="9dp"
+                android:text="Odgovor 1" />
+
+            <RadioButton
+                android:id="@+id/answer2"
+                android:layout_width="match_parent"
+                android:buttonTint="@color/rosa"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Odgovor 2" />
+
+            <RadioButton
+                android:id="@+id/answer3"
+                android:layout_width="match_parent"
+                android:buttonTint="@color/rosa"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Odgovor 3" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="228dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/crna1"
+            android:text="Sledeće pitanje" />
+
+        <TextView
+            android:id="@+id/correctAnswersText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="Odgovor 2" />
+            android:text="Tačni odgovori: 0 od 10"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:visibility="gone" />
 
-        <RadioButton
-            android:id="@+id/answer3"
-            android:layout_width="match_parent"
-            android:buttonTint="@color/rosa"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:text="Odgovor 3" />
-    </RadioGroup>
+        <Button
+            android:id="@+id/finishButton"
+            android:layout_width="240dp"
+            android:layout_height="55dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/rosa"
+            android:text="Završi kviz"
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="228dp"
-        android:layout_height="58dp"
-        android:layout_gravity="center"
-android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/crna1"
-        android:text="Sledeće pitanje" />
-    <TextView
-        android:id="@+id/correctAnswersText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tačni odgovori: 0 od 10"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:visibility="gone" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/finishButton"
-        android:layout_width="240dp"
-        android:layout_height="55dp"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/rosa"
-        android:text="Završi kviz"
-        android:visibility="gone" />
-
-</LinearLayout>
+</ScrollView>

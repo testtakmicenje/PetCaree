@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3B3B3B">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarrrrr"
         android:layout_width="match_parent"
@@ -54,7 +60,10 @@
         android:layout_marginTop="13dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="Otvorite nježno usta svog ljubimca i pažljivo pregledajte unutra. Pokušajte da identifikujete bilo kakve strane predmete koji bi mogli uzrokovati gušenje i pokušajte ih pažljivo izvaditi ako je to moguće. Budite oprezni da ne gurate predmet dublje ako ga ne možete lako izvaditi.  Ako sumnjate da je strani predmet zaglavio u grlu vašeg ljubimca, možete primeniti modifikovanu verziju Heimlichovog manevra za kućne ljubimce. Stojte iza svog ljubimca i stavite ruke oko njegovog tela, tik ispod rebra.Pravite snažne, ali ne prejake kompresije prema gore prema rebra.Ponavljajte ove kompresije dok se strani predmet ne izbaci."
-        android:textSize="14dp"/>
+        android:text="Otvorite nježno usta svog ljubimca i pažljivo pregledajte unutra. Pokušajte da identifikujete bilo kakve strane predmete koji bi mogli uzrokovati gušenje i pokušajte ih pažljivo izvaditi ako je to moguće. Budite oprezni da ne gurate predmet dublje ako ga ne možete lako izvaditi.  Ako sumnjate da je strani predmet zaglavio u grlu vašeg ljubimca, možete primeniti modifikovanu verziju Heimlichovog manevra za kućne ljubimce. Stojte iza svog ljubimca i stavite ruke oko njegovog tela, tik ispod rebra.Pravite snažne, ali ne prejake kompresije prema gore prema rebra.Ponavljajte ove kompresije dok se strani predmet ne izbaci.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

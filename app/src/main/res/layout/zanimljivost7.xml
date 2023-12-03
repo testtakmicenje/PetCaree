@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:background="#3B3B3B"
     tools:context=".MainActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/slikaZanimljivosti7"
@@ -79,5 +85,7 @@
         android:textSize="24sp"
 
         />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

@@ -22,6 +22,12 @@
             android:src="@drawable/back"
             android:tint="@color/black" />
     </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageeeView"
         android:layout_width="match_parent"
@@ -54,7 +60,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:text="Izolujte svog ljubimca od bilo koje sumnjive hrane, pića ili predmeta. Odmah pozovite svog veterinara ili hitnu veterinarsku službu kako biste dobili uputstva i informacije o daljem postupanju. Pažljivo pratite simptome koje vaš ljubimac pokazuje, kao što su povraćanje, drhtavica, nesvjestica, teškoće u disanju itd. Ove informacije mogu pomoći veterinaru u dijagnozi. Ne dajte svom ljubimcu da pije ništa osim ako to ne bude eksplicitno naloženo od strane veterinara. Ako imate informacije o sumnjivoj supstanci ili proizvodu, kao i o vremenu kada je vaš ljubimac bio izložen, dajte ove informacije veterinaru."
-        android:textSize="14dp"/>
+        android:text="Izolujte svog ljubimca od bilo koje sumnjive hrane, pića ili predmeta. Odmah pozovite svog veterinara ili hitnu veterinarsku službu kako biste dobili uputstva i informacije o daljem postupanju. Pažljivo pratite simptome koje vaš ljubimac pokazuje, kao što su povraćanje, drhtavica, nesvjestica, teškoće u disanju itd. Ove informacije mogu pomoći veterinaru u dijagnozi. Ne dajte svom ljubimcu da pije ništa osim ako to ne bude eksplicitno naloženo od strane veterinara. Ako imate informacije o sumnjivoj supstanci ili proizvodu, kao i o vremenu kada je vaš ljubimac bio izložen, dajte ove informacije veterinaru.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

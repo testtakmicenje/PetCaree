@@ -23,6 +23,13 @@
             android:tint="@color/black" />
     </androidx.appcompat.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/imageeeeeeeeView"
         android:layout_width="match_parent"
@@ -55,7 +62,9 @@
         android:gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="Pažljivo pregledajte povrijeđenu šapu ili nokat. Potražite prisustvo rane, krvarenje ili oštećenja. Ako je rana duboka ili ako nokat izgleda jako oštećen, obavezno potražite veterinarsku pomoć. Ako postoji krvarenje, pokušajte zaustaviti krvarenje blagim pritiskom sterilnom gazom ili čistom krpom. Ako je rana vidljiva, možete je blago isprati sterilnim fiziološkim rastvorom kako biste očistili nečistoće i bakterije. Ako je nokat oštećen, nemojte pokušavati sami da uklonite dio nokta, jer to može izazvati dodatne povrede. Ako je povreda na šapi, možete pokušati zaštititi povrijeđeni dio tako da ga obmotate sterilnom gazom ili čistom tkaninom. "
-        android:textSize="14dp"/>
+        android:text="Pažljivo pregledajte povrijeđenu šapu ili nokat. Potražite prisustvo rane, krvarenje ili oštećenja. Ako je rana duboka ili ako nokat izgleda jako oštećen, obavezno potražite veterinarsku pomoć. Ako postoji krvarenje, pokušajte zaustaviti krvarenje blagim pritiskom sterilnom gazom ili čistom krpom. Ako je rana vidljiva, možete je blago isprati sterilnim fiziološkim rastvorom kako biste očistili nečistoće i bakterije. Ako je nokat oštećen, nemojte pokušavati sami da uklonite dio nokta, jer to može izazvati dodatne povrede. Ako je povreda na šapi, možete pokušati zaštititi povrijeđeni dio tako da ga obmotate sterilnom gazom ili čistom tkaninom.\n "
+        android:textSize="16dp" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

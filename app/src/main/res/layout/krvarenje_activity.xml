@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3B3B3B">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarr"
         android:layout_width="match_parent"
@@ -57,7 +63,10 @@
         android:layout_marginStart="9dp"
         android:layout_marginEnd="9dp"
         android:gravity="center"
-        android:text="Ako je rana manja i krvarenje je umjereno, možete primjeniti pritisak na mjesto povrede pomoću sterilne gaze ili čiste tkanine. Cilj je zaustaviti krvarenje ili smanjiti intenzitet. Ako je rana veća i krvarenje je obilno, koristite sterilnu gazu ili tkaninu da biste pokrili ranu i vršili pritisak. Pritiskajte povremeno, ali ne previše čvrsto kako biste omogućili cirkulaciju krvi. Ako je moguće, podignite povrijeđeni dio tijela životinje iznad nivoa srca kako biste smanjili krvarenje. Ako primjetite da je krvarenje zaustavljeno, nemojte uklanjati sterilnu gazicu ili krpu. Dodajte novi sloj preko postojećeg ako je potrebno, ali nemojte uklanjati originalni sloj."
-        android:textSize="14dp"/>
+        android:text="Ako je rana manja i krvarenje je umjereno, možete primjeniti pritisak na mjesto povrede pomoću sterilne gaze ili čiste tkanine. Cilj je zaustaviti krvarenje ili smanjiti intenzitet. Ako je rana veća i krvarenje je obilno, koristite sterilnu gazu ili tkaninu da biste pokrili ranu i vršili pritisak. Pritiskajte povremeno, ali ne previše čvrsto kako biste omogućili cirkulaciju krvi. Ako je moguće, podignite povrijeđeni dio tijela životinje iznad nivoa srca kako biste smanjili krvarenje. Ako primjetite da je krvarenje zaustavljeno, nemojte uklanjati sterilnu gazicu ili krpu. Dodajte novi sloj preko postojećeg ako je potrebno, ali nemojte uklanjati originalni sloj.\n"
+        android:textSize="16dp"
+        android:layout_marginVertical="4dp"/>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
