@@ -56,29 +56,24 @@ public class WeightListAdapter extends ArrayAdapter<WeightEntry> {
             holder.petNameTextView.setText("Ime ljubimca: " + weightEntry.getPetName());
             holder.weightTextView.setText("Težina: " + weightEntry.getWeight() + " kg");
 
-            // ... ostatak koda za ostale elemente UI-a
-
             holder.deleteIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // Implementacija funkcionalnosti za trajno brisanje
                     if (weightEntry != null) {
                         dbHelper.deleteWeight(weightEntry.getId()); // Brisanje iz baze podataka
-                        weightList.remove(position); // Uklanjanje iz liste
+                        weightList.remove(weightEntry); // Uklanjanje iz liste koristeći sam objekt
                         notifyDataSetChanged();
                         Toast.makeText(context, "Težina je trajno izbrisana", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
 
-            // Unutar metode onClick u WeightListAdapter
             holder.editIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     WeightEntry weightEntry = weightList.get(position);
-
-                    // Kreirajte Intent
-
+                    // Kreirajte Intent za uređivanje
                 }
             });
         } else {
@@ -98,5 +93,6 @@ public class WeightListAdapter extends ArrayAdapter<WeightEntry> {
         ImageView deleteIcon;
     }
 }
+
 
 

@@ -15,14 +15,6 @@
         android:layout_marginTop="26dp"
         android:elevation="4dp">
 
-        <ImageView
-            android:id="@+id/logoImageView1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/back" />
         <TextView
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
@@ -35,7 +27,7 @@
             android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/weightListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -11,6 +11,8 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.petcare.weight.MyJobsAndMyProjects;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 
@@ -130,7 +132,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         newCardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, NewActivity3.class);
+                Intent intent = new Intent(HomeActivity.this, MyJobsAndMyProjects.class);
                 startActivity(intent);
             }
         });

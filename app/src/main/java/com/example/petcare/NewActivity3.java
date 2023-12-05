@@ -67,6 +67,22 @@ public class NewActivity3 extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Fetch the latest data from the database
+        List<WeightEntry> updatedList = dbHelper.getAllWeights();
+
+        // Clear the existing data in the list
+        weightList.clear();
+
+        // Add the updated data to the list
+        weightList.addAll(updatedList);
+
+        // Notify the adapter about the changes
+        adapter.notifyDataSetChanged();
+    }
 }
 
 

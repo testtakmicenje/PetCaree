@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -72,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                WeightEntry weightEntry = new WeightEntry(
+                @SuppressLint("Range") WeightEntry weightEntry = new WeightEntry(
                         cursor.getString(cursor.getColumnIndex(COLUMN_DATE)),
                         cursor.getString(cursor.getColumnIndex(COLUMN_PET_TYPE)),
                         cursor.getString(cursor.getColumnIndex(COLUMN_PET_NAME)),

@@ -81,6 +81,7 @@
                 android:layout_height="55dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
+                android:textColorHint="#FFFFFF"
                 android:hint="Unesite vrstu ljubimca."
                 android:layout_below="@+id/dateDatePicker"
                 android:layout_marginTop="20dp"
@@ -101,6 +102,7 @@
                 android:layout_height="55dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
+                android:textColorHint="#FFFFFF"
                 android:hint="Unesite ime ljubimca."
                 android:layout_below="@+id/petTypeEditText"
                 android:layout_marginTop="20dp"
@@ -121,6 +123,7 @@
                 android:layout_height="55dp"
                 android:hint="Unesite težinu."
                 android:inputType="numberDecimal"
+                android:textColorHint="#FFFFFF"
                 android:layout_below="@+id/petNameEditText"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp" />

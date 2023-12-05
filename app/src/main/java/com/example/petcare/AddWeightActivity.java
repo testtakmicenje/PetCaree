@@ -1,4 +1,6 @@
 package com.example.petcare;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,7 +25,9 @@ public class AddWeightActivity extends AppCompatActivity {
     private EditText weightEditText;
     private Button addWeightButton;
 
-    private DatabaseHelper dbHelper;
+    public static final String DATABASE_NAME = "LinkBizMyJobsAndMyProjects.db";
+
+    SQLiteDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,9 @@ public class AddWeightActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        createEmployeeTable();
 
         ImageView backImageView = findViewById(R.id.logoImageView1);
         backImageView.setOnClickListener(new View.OnClickListener() {
@@ -47,8 +54,6 @@ public class AddWeightActivity extends AppCompatActivity {
         petNameEditText = findViewById(R.id.petNameEditText);
         weightEditText = findViewById(R.id.weightEditText);
         addWeightButton = findViewById(R.id.addWeightButton);
-
-        dbHelper = new DatabaseHelper(this);
 
         addWeightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,19 +75,48 @@ public class AddWeightActivity extends AppCompatActivity {
                     return;
                 }
 
-                double weight = Double.parseDouble(weightInput);
+                String insertSQL =
 
-                // Spremite podatke u bazu podataka
-                dbHelper.addWeight(new WeightEntry(date, petType, petName, weight));
+                        "INSERT INTO Student \n" +
+
+                                "(Name, Email, PhoneNo, WorkerSalary)\n" +
+
+                                "VALUES \n" +
+
+                                "(?, ?, ?, ?);";
+
+                mDatabase.execSQL(insertSQL, new String[]{petName, petType, weightInput, date});
+
 
                 // Obavijestite korisnika da je težina unesena
                 Toast.makeText(AddWeightActivity.this, "Težina je unesena", Toast.LENGTH_SHORT).show();
 
-                // Vratite se na prethodni ekran
-                setResult(RESULT_OK);
                 finish();
             }
         });
 
     }
+
+    private void createEmployeeTable() {
+        mDatabase.execSQL(
+
+                "CREATE TABLE IF NOT EXISTS Student " +
+
+                        "(\n" +
+
+                        "    id INTEGER NOT NULL CONSTRAINT employees_pk PRIMARY KEY AUTOINCREMENT,\n" +
+
+                        "    Name varchar(200) NOT NULL,\n" +
+
+                        "    Email varchar(200) NOT NULL,\n" +
+
+                        "    PhoneNo Varchar(200) NOT NULL, \n" +
+
+                        "    WorkerSalary Varchar(200) NOT NULL \n" +
+
+                        ");"
+
+        );
+    }
+
 }

@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/crna2">
 
-
-
     <RelativeLayout
         android:id="@+id/backgroundLayout"
         android:layout_width="match_parent"

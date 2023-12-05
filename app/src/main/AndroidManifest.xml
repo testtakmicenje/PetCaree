@@ -29,6 +29,11 @@
 
         <activity android:name=".HomeActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".weight.MyJobsAndMyProjects"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".weight.AddMyJobsAndMyProjects"
+            android:screenOrientation="portrait"/>
         <activity android:name=".AppIntro"
             android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity2"
