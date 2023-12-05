@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="Base.Theme.PetCare" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.PetCare" parent="Theme.Material3.Light.NoActionBar">
 
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
@@ -20,10 +20,5 @@
         <item name="android:listPreferredItemHeightSmall">50dp</item>
         <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
     </style>
-
-
-
-
-
 
 </resources>
