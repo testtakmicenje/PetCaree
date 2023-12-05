@@ -5,9 +5,10 @@
 
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
 
 
     </style>
@@ -17,6 +18,7 @@
     <style name="DashboardDrawerLayoutStyle">
         <item name="android:textSize">15sp</item>
         <item name="android:listPreferredItemHeightSmall">50dp</item>
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
     </style>
 
 
