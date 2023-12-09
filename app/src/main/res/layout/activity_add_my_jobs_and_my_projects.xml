@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/crna2">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,6 +18,15 @@
         app:contentInsetStartWithNavigation="0dp"
         app:layout_scrollFlags="scroll|enterAlways">
 
+        <ImageView
+            android:id="@+id/logoImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/back" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -27,7 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Dodajte tezinu"
+                android:textColor="@color/rosa"
                 android:textSize="20sp" />
+
 
             <TextView
                 android:id="@+id/add"
@@ -38,6 +50,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="Dodajte"
+                android:textColor="@color/rosa"
                 android:textSize="15sp" />
 
         </RelativeLayout>
@@ -67,51 +80,44 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Datum:" />
+                    android:text="Datum:"
+                    android:textColor="@color/white"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="60dp">
-
-                    <EditText
-                        android:padding="10dp"
-                        android:inputType="text"
-                        android:gravity="start"
-                        android:textColorHint="@color/black"
-                        android:textColor="@color/black"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Unesite datum..."
-                        android:id="@+id/workernameandsurname"/>
-
-                </androidx.cardview.widget.CardView>
+                <DatePicker
+                    android:id="@+id/dateDatePicker"
+                    android:layout_width="379dp"
+                    android:layout_height="191dp"
+                    android:layout_marginTop="10dp"
+                    android:calendarViewShown="false"
+                    android:layout_gravity="center"
+                    android:datePickerMode="spinner"
+                    android:spinnersShown="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Vrsta ljubicma:" />
+                    android:text="Vrsta ljubicma:"
+                    android:textColor="@color/white"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     app:cardElevation="0dp"
+                    android:backgroundTint="@color/white"
                     app:cardCornerRadius="60dp">
 
                     <EditText
-                        android:padding="10dp"
-                        android:inputType="text"
-                        android:gravity="start"
+                        android:id="@+id/workeremail"
                         android:layout_width="match_parent"
-                        android:textColorHint="@color/black"
-                        android:textColor="@color/black"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:gravity="start"
                         android:hint="Unesite vrstu ljubimca..."
-                        android:id="@+id/workeremail"/>
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -119,21 +125,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Ime ljubicma:" />
+                    android:text="Ime ljubicma:"
+                    android:textColor="@color/white"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     app:cardElevation="0dp"
+                    android:backgroundTint="@color/white"
                     app:cardCornerRadius="60dp">
 
                     <EditText
                         android:padding="10dp"
-                        android:inputType="text"
+                        android:inputType="textCapWords"
                         android:gravity="start"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"
                         android:hint="Unesite ime ljubimca..."
@@ -145,21 +153,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Težina:" />
+                    android:text="Težina:"
+                    android:textColor="@color/white"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     app:cardElevation="0dp"
+                   android:backgroundTint="@color/white"
                     app:cardCornerRadius="60dp">
 
                     <EditText
                         android:padding="10dp"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:gravity="start"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:hint="Unesite težinu..."
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"

@@ -4,22 +4,28 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import com.example.petcare.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class AddMyJobsAndMyProjects extends AppCompatActivity {
 
     private Toolbar mTopToolbar;
 
-    EditText edit_text_1, edit_text_2, edit_text_3, edit_text_4, edit_text_5;
+    // Izmene ovde - zamenili smo EditText sa DatePicker
+    DatePicker datePicker;
+    EditText workeremail, workerphonenumber, workersalary;
 
-    TextView bt_save;
+    TextView add;
 
     public static final String DATABASE_NAME = "LinkBizMyJobsAndMyProjects.db";
 
@@ -29,52 +35,58 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_my_jobs_and_my_projects);
-        mTopToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mTopToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+        ImageView backImageView = findViewById(R.id.logoImageView1);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         View view = getWindow().getDecorView();
-
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         createEmployeeTable();
 
-        edit_text_1 = (EditText) findViewById(R.id.workernameandsurname);
+        // Izmene ovde - promenili smo ime i tip varijable, i pridružili smo je DatePicker-u
+        datePicker = findViewById(R.id.dateDatePicker);
+        workeremail = findViewById(R.id.workeremail);
+        workerphonenumber = findViewById(R.id.workerphonenumber);
+        workersalary = findViewById(R.id.workersalary);
 
-        edit_text_2 = (EditText) findViewById(R.id.workeremail);
+        add = findViewById(R.id.add);
 
-        edit_text_3 = (EditText) findViewById(R.id.workerphonenumber);
-
-        edit_text_4 = (EditText) findViewById(R.id.workersalary);
-
-        bt_save = (TextView) findViewById(R.id.add);
-
-        bt_save.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String name = edit_text_1.getText().toString().trim();
+                // Izmene ovde - dohvatanje datuma iz DatePicker-a
+                int dayOfMonth = datePicker.getDayOfMonth();
+                int month = datePicker.getMonth() + 1;
+                int year = datePicker.getYear();
+                String date = formatDate(year, month, dayOfMonth);
 
-                String email = edit_text_2.getText().toString().trim();
+                String email = workeremail.getText().toString().trim();
+                String phone = workerphonenumber.getText().toString();
+                String salary = workersalary.getText().toString().trim();
 
-                String phone = edit_text_3.getText().toString();
-
-                String salary = edit_text_4.getText().toString().trim();
 
                 {
 
-                    String insertSQL =
+                    String insertSQL = "INSERT INTO Student \n" +
+                            "(Name, Email, PhoneNo, WorkerSalary)\n" +
+                            "VALUES \n" +
+                            "(?, ?, ?, ?);";
 
-                            "INSERT INTO Student \n" +
-
-                                    "(Name, Email, PhoneNo, WorkerSalary)\n" +
-
-                                    "VALUES \n" +
-
-                                    "(?, ?, ?, ?);";
-
-                    mDatabase.execSQL(insertSQL, new String[]{name, email, phone, salary});
+                    mDatabase.execSQL(insertSQL, new String[]{date, email, phone, salary});
 
                     Intent intent = new Intent(AddMyJobsAndMyProjects.this, MyJobsAndMyProjects.class);
                     startActivity(intent);
@@ -106,5 +118,13 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
                         ");"
 
         );
+    }
+
+    // Izmene ovde - dodata metoda za formatiranje datuma
+    private String formatDate(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, day); // month is 0-based
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(calendar.getTime());
     }
 }

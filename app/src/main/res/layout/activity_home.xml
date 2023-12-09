@@ -10,7 +10,7 @@
     android:fitsSystemWindows="false"
     android:background="@color/crna2"
     tools:ignore="Autofill"
-    tools:context=".HomeActivity">
+    tools:context=".početna.HomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
