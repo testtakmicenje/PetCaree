@@ -16,8 +16,8 @@
         android:elevation="4dp">
         <ImageView
             android:id="@+id/logoImageView1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
