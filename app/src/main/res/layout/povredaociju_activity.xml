@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B3B3B">
+    android:background="@color/bg">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarrrrrrr"
         android:layout_width="match_parent"
@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/logoImageView7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -46,7 +46,7 @@
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="15dp"
-        android:textColor="#dec5a3"
+        android:textColor="@color/crna2"
         android:layout_below="@+id/imageeeeeeView"
         android:textStyle="bold"/>
 
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvvvvvvNaslov"
-        android:textColor="@color/white"
+        android:textColor="@color/crna2"
         android:layout_marginTop="13dp"
         android:layout_marginStart="10dp"
         android:gravity="center"

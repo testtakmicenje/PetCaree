@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B3B3B"
-    tools:context=".splashscreen.MainActivity">
+    android:background="@color/bg">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,7 +33,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="21dp"
         android:text="Psi su najpopularniji kućni ljubimci na svijetu. Postoji više od 340 različitih pasmina pasa širom svijeta, od malih čivava do velikih dalmatinaca."
-        android:textColor="@color/white"
+        android:textColor="@color/crna2"
         android:textSize="19dp" />
 
     <Button
@@ -44,9 +43,9 @@
         android:layout_below="@id/tekstZanimljivosti"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:backgroundTint="#303030"
+        android:backgroundTint="@color/crna2"
         android:text="Sledeća zanimljivost"
-        android:textColor="@color/white" />
+        android:textColor="@color/cardview" />
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar11"
         android:layout_width="77dp"
@@ -55,7 +54,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="-26dp"
         android:layout_marginTop="8dp"
-        android:background="#3B3B3B"
+        android:background="@color/bg"
         app:title=""
         app:titleTextColor="@android:color/transparent">
 
@@ -66,6 +65,7 @@
             android:layout_height="25dp"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
+            android:tint="@color/crna2"
             android:layout_marginTop="8dp"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
         android:layout_marginTop="25dp"
         android:text="Zanimljivosti"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/crna2"
         android:textSize="24sp" />
         </RelativeLayout>
     </ScrollView>

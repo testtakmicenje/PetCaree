@@ -25,6 +25,7 @@ import com.example.petcare.ljubimci.PetsActivity;
 import com.example.petcare.mojiljubimci.MyPetsActivity;
 import com.example.petcare.prvapomoc.Home2Activity;
 import com.example.petcare.settings.SettingsActivity;
+import com.example.petcare.vodičzanjegu.Home3Activity;
 import com.example.petcare.weight.MyJobsAndMyProjects;
 import com.example.petcare.zanimljivosti.Home4Activity;
 import com.google.android.material.navigation.NavigationView;
@@ -170,7 +171,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
             Intent intent = new Intent(this, Home2Activity.class);
             startActivity(intent);
         } else if (id == R.id.home3) {
-            Intent intent = new Intent(this, MyJobsAndMyProjects.class);
+            Intent intent = new Intent(this, Home3Activity.class);
             startActivity(intent);
         } else if (id == R.id.home4) {
             Intent intent = new Intent(this, Home4Activity.class);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B3B3B"
+    android:background="@color/bg"
     tools:context=".splashscreen.MainActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="26dp"
         android:text="Kućni ljubimci mogu poboljšati vaše mentalno zdravlje. Istraživanja su pokazala da druženje s kućnim ljubimcima može smanjiti stres, anksioznost i depresiju, i povećati osjećaj sreće."
-        android:textColor="@color/white"
+        android:textColor="@color/crna2"
         android:textSize="19dp" />
 
     <Button
@@ -46,7 +46,7 @@
         android:layout_marginTop="50dp"
         android:backgroundTint="#303030"
         android:text="Sledeća zanimljivost"
-        android:textColor="@color/white" />
+        android:textColor="@color/bg" />
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar9"
         android:layout_width="77dp"
@@ -55,19 +55,20 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="-26dp"
         android:layout_marginTop="8dp"
-        android:background="#3B3B3B"
+        android:background="@color/bg"
         app:title=""
         app:titleTextColor="@android:color/transparent">
 
 
         <ImageView
             android:id="@+id/logoImageView9"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/back"
+            android:tint="@color/crna2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.appcompat.widget.Toolbar>
@@ -81,7 +82,7 @@
         android:layout_marginTop="25dp"
         android:text="Zanimljivosti"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/crna2"
         android:textSize="24sp"
 
         />

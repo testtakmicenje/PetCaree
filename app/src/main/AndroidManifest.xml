@@ -118,16 +118,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".mojiljubimci.MyPetsActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".WeightEntry"
-    android:screenOrientation="portrait"/>
-        <activity android:name=".DatabaseHelper"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".WeightListAdapter"
-            android:screenOrientation="portrait"/>
         <activity android:name=".settings.SettingsActivity"
             android:screenOrientation="portrait"/>
     <activity android:name=".settings.AboutApp"
         android:screenOrientation="portrait"/>
+        <activity android:name=".vodičzanjegu.Home3Activity"
+            android:screenOrientation="portrait"/>
 
 
     </application>

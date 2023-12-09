@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/crna2">
+    android:background="@color/bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:text="Pitanje 1"
-            android:textColor="@color/white"
+            android:textColor="@color/crna2"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:textSize="18dp" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="17dp"
-            android:background="@color/crna1"
+            android:background="@color/cardview"
             android:gravity="center"
             android:orientation="vertical">
 

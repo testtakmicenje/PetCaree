@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/crna2">
+    android:background="@color/bg">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,7 +17,7 @@
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/crna2">
+        android:background="@color/bg">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -30,9 +30,10 @@
 
             <ImageView
                 android:id="@+id/logoImageView1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="start"
+                android:tint="@color/crna2"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/back" />
@@ -43,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Istražite ljubimce"
                 android:textSize="22sp"
-                android:textColor="@color/white"
+                android:textColor="@color/crna2"
                 android:layout_gravity="center"
                 android:layout_marginStart="8dp"
                 android:textStyle="bold"/>
