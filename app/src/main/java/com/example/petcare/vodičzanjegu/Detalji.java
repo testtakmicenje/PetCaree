@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.petcare.R;
 
-public class ActivityDetail extends AppCompatActivity {
+public class Detalji extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

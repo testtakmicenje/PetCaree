@@ -124,6 +124,8 @@
         android:screenOrientation="portrait"/>
         <activity android:name=".vodičzanjegu.Home3Activity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".vodičzanjegu.Detalji"
+            android:screenOrientation="portrait"/>
 
 
     </application>

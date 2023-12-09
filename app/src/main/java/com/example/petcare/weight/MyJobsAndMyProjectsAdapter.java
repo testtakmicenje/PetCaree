@@ -3,7 +3,6 @@ package com.example.petcare.weight;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -14,9 +13,13 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.text.Html;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.petcare.R;
@@ -31,6 +34,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
     SQLiteDatabase mDatabase;
 
     private Context context;
+    private boolean isToastShown = false;
 
     private List<MyJobsAndMyProjectsModel> myJobsAndMyProjectsListModel;
 
@@ -39,6 +43,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         this.custom_list_item = custom_list_item;
         this.mDatabase = mDatabase;
         this.myJobsAndMyProjectsListModel = myJobsAndMyProjectsListModel;
+        this.isToastShown = false; // Postavi isToastShown na false prilikom kreiranja adaptera
     }
 
     @NonNull
@@ -67,10 +72,44 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         holder.deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                String sql = "DELETE FROM Student WHERE id = ?";
-                mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
-                reloadEmployeesFromDatabase();
-                ((Activity) context).finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Confirmation");
+
+                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbrisati ovu težinu?</font>"));
+
+                builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String sql = "DELETE FROM Student WHERE id = ?";
+                        mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
+                        reloadEmployeesFromDatabase();
+                        ((Activity) context).finish();
+
+                        // Display toast for weight deletion
+                        showToast("Težina je obrisana.");
+                    }
+                });
+
+                builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Do nothing, just close the dialog
+                    }
+                });
+
+                // Prevent dialog dismissal when clicking outside
+                builder.setCancelable(false);
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                // Customize the colors of the AlertDialog buttons
+                int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
+                int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
+
+                // Set text color for buttons
+                alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
+                alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
             }
         });
     }
@@ -135,15 +174,21 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
 
                 String sql = " UPDATE Student \n" +
                         " SET Name = ?, \n" +
-                        " Email = ?,\n"+
-                        " PhoneNO = ?,\n"+
+                        " Email = ?,\n" +
+                        " PhoneNO = ?,\n" +
                         " WorkerSalary= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{name, email,username,phno, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{name, email, username, phno, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
                 ((Activity) context).finish();
+
+                // Display toast for weight update
+                showToast("Težina je uređena.");
+
+                // Remove the user from the function
+                removeUserFromFunction(workersListModel);
             }
         });
 
@@ -153,6 +198,13 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 dialog.dismiss();
             }
         });
+    }
+
+    private void removeUserFromFunction(MyJobsAndMyProjectsModel workersListModel) {
+        myJobsAndMyProjectsListModel.remove(workersListModel);
+        notifyDataSetChanged();
+
+
     }
 
     @Override
@@ -181,5 +233,13 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(new java.util.Date(year - 1900, month, day));
     }
+
+    // Add this method to display a toast
+    private void showToast(String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
 }
+
+
+
 

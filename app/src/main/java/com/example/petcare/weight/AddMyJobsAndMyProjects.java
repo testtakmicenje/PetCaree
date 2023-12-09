@@ -58,6 +58,7 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
 
         // Izmene ovde - promenili smo ime i tip varijable, i pridružili smo je DatePicker-u
         datePicker = findViewById(R.id.dateDatePicker);
+
         workeremail = findViewById(R.id.workeremail);
         workerphonenumber = findViewById(R.id.workerphonenumber);
         workersalary = findViewById(R.id.workersalary);

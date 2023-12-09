@@ -42,7 +42,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview1_image);
                 intent.putExtra("tekst", "\n" +
                         "Kupanje\n\n" +
@@ -63,7 +63,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview2_image);
                 intent.putExtra("tekst", "\n" +
                         "Čiščenje zuba\n\n" +
@@ -82,7 +82,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview3_image);
                 intent.putExtra("tekst", "\n" +
                         "Njega dlake\n\n" +
@@ -102,7 +102,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview4_image);
                 intent.putExtra("tekst", "\n" +
                         "Njega za nokte\n\n" +
@@ -121,7 +121,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview5_image);
                 intent.putExtra("tekst", "\n" +
                         "Čišćenje kreveta\n\n" +
@@ -142,7 +142,7 @@ public class Home3Activity extends AppCompatActivity {
         cardView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home3Activity.this, ActivityDetail.class);
+                Intent intent = new Intent(Home3Activity.this, Detalji.class);
                 intent.putExtra("slika", R.drawable.cardview6_image);
                 intent.putExtra("tekst", "\n" +
                         "Čišćenje akvarijuma\n\n" +

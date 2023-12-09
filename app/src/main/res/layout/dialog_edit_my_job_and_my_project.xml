@@ -90,7 +90,8 @@
                     android:calendarViewShown="false"
                     android:layout_gravity="center"
                     android:datePickerMode="spinner"
-                    android:spinnersShown="true" />
+                    android:spinnersShown="true"
+                    android:theme="@style/MyDatePickerStyle"/>
 
 
 
