@@ -48,8 +48,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".prehrana.EvidencijaPrehrane"
             android:screenOrientation="portrait"/>
-        <activity android:name=".medecinskipodaci.MedecinskiPodaci"
-            android:screenOrientation="portrait"/>
         <activity android:name=".egzoticniljubimci.ExoticPetsActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".fitnesiaktivnosti.FitnesIAktivnosti"
@@ -126,6 +124,14 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".vodičzanjegu.Detalji"
             android:screenOrientation="portrait"/>
+    <activity android:name=".medecinskipodaci.AddMedicalData"
+        android:screenOrientation="portrait"/>
+        <activity android:name=".medecinskipodaci.MedicalDataModel"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".medecinskipodaci.MedicalDataAdapter"
+            android:screenOrientation="portrait"/>
+<activity android:name=".medecinskipodaci.MedicalDataList"
+        android:screenOrientation="portrait"/>
 
 
     </application>
