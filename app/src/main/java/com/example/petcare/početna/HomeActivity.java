@@ -34,19 +34,33 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 public class HomeActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+
+
+    private static final int MAX_BACK_PRESS_COUNT = 1;
     private int backPressCount = 0;
-    private static final int MAX_BACK_PRESS_COUNT = 2;
     private long backPressedTime = 0;
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
     @Override
     public void onBackPressed() {
+        if (backPressCount < MAX_BACK_PRESS_COUNT) {
+            showToast("Pritisnite ponovo za izlazak.");
+            backPressCount++;
+            backPressedTime = System.currentTimeMillis();
+        } else {
+            exitApplication();
+        }
+    }
+
+
+
+    private void exitApplication() {
         moveTaskToBack(true);
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(1);
+    }
 
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
     @SuppressLint("WrongViewCast")
     @Override

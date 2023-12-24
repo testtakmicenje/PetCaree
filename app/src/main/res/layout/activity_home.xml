@@ -344,7 +344,7 @@
                                 android:id="@+id/careText1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Medecinski podaci"
+                                android:text="Medicinski podaci"
                                 android:textColor="@color/crna2"
                                 android:textSize="12sp"
                                 android:layout_centerHorizontal="true"

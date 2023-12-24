@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="27dp"
             android:layout_marginTop="16dp"
-            android:text="Upute"
+            android:text="Uputstva"
             android:textColor="@color/rosa"
             android:textSize="18sp" />
     </LinearLayout>

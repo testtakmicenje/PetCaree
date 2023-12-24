@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.text.Html;
 import android.widget.Toast;
-
+import java.util.Collections;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
-import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.petcare.R;
@@ -82,8 +80,8 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String sql = "DELETE FROM Student WHERE id = ?";
                         mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
-                        reloadEmployeesFromDatabase();
-                        ((Activity) context).finish();
+                        removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
+                        notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
                         // Display toast for weight deletion
                         showToast("Težina je obrisana.");
@@ -112,6 +110,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
             }
         });
+
     }
 
     void reloadEmployeesFromDatabase() {
@@ -120,16 +119,22 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         if (cursorproduct1.moveToFirst()) {
             myJobsAndMyProjectsListModel.clear();
             do {
-                myJobsAndMyProjectsListModel.add(new MyJobsAndMyProjectsModel(
+                MyJobsAndMyProjectsModel workersListModel = new MyJobsAndMyProjectsModel(
                         cursorproduct1.getInt(0),
                         cursorproduct1.getString(1),
                         cursorproduct1.getString(2),
                         cursorproduct1.getString(3),
-                        cursorproduct1.getString(4)));
+                        cursorproduct1.getString(4));
+
+                // Dodajte workersListModel na kraj liste umjesto na početak
+                myJobsAndMyProjectsListModel.add(workersListModel);
             } while (cursorproduct1.moveToNext());
         }
 
         cursorproduct1.close();
+
+        // Obrnite redoslijed liste kako biste dobili najnovije težine na vrhu
+        Collections.reverse(myJobsAndMyProjectsListModel);
 
         notifyDataSetChanged();
     }
@@ -167,11 +172,21 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
 
-                String name = date;
-                String email = editemail.getText().toString().trim();
-                String username = editUsername.getText().toString().trim();
-                String phno = editphno.getText().toString().trim();
+                // Čuvanje nepromijenjenih podataka
+                String name = workersListModel.getName();
+                String email = workersListModel.getEmail();
+                String username = workersListModel.getUsername();
+                String phno = workersListModel.getPhno();
 
+                // Ako je korisnik unio nove podatke, zamijeni ih
+                if (!editemail.getText().toString().trim().isEmpty()) {
+                    email = editemail.getText().toString().trim();
+                }
+                if (!editphno.getText().toString().trim().isEmpty()) {
+                    phno = editphno.getText().toString().trim();
+                }
+
+                // Ažuriraj bazu podataka
                 String sql = " UPDATE Student \n" +
                         " SET Name = ?, \n" +
                         " Email = ?,\n" +
@@ -184,11 +199,11 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 dialog.dismiss();
                 ((Activity) context).finish();
 
-                // Display toast for weight update
+                // Prikazuje toast za ažuriranje težine
                 showToast("Težina je uređena.");
 
-                // Remove the user from the function
-                removeUserFromFunction(workersListModel);
+                // Ponovno učitaj podatke iz baze podataka
+                reloadEmployeesFromDatabase();
             }
         });
 
@@ -199,6 +214,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
             }
         });
     }
+
 
     private void removeUserFromFunction(MyJobsAndMyProjectsModel workersListModel) {
         myJobsAndMyProjectsListModel.remove(workersListModel);
