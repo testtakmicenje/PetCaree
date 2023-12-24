@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+import android.os.Handler;
 import com.example.petcare.forum.Forum;
 import com.example.petcare.medecinskipodaci.MedicalDataList;
 import com.example.petcare.prehrana.EvidencijaPrehrane;
@@ -22,6 +22,7 @@ import com.example.petcare.troškovi.EvidencijaTroškova;
 import com.example.petcare.R;
 import com.example.petcare.egzoticniljubimci.ExoticPetsActivity;
 import com.example.petcare.ljubimci.PetsActivity;
+import android.os.Looper;
 import com.example.petcare.mojiljubimci.MyPetsActivity;
 import com.example.petcare.prvapomoc.Home2Activity;
 import com.example.petcare.settings.SettingsActivity;
@@ -51,17 +52,30 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         }
     }
 
-
-
     private void exitApplication() {
+        cancelToast(); // Cancel the toast when the application is exited
         moveTaskToBack(true);
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(1);
     }
 
+    private Toast currentToast;
+
     private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        cancelToast(); // Cancel any existing toast before showing a new one
+        currentToast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        currentToast.show();
     }
+
+    private void cancelToast() {
+        if (currentToast != null) {
+            currentToast.cancel();
+            currentToast = null;
+        }
+    }
+
+
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
