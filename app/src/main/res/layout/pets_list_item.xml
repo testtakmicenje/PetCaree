@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/cardview"
+        android:layout_height="120dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="30dp">
+
+        <RelativeLayout
+            android:layout_width="402dp"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <!-- ImageView za prikaz slike ljubimca -->
+            <ImageView
+                android:id="@+id/petImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder_image"
+                android:contentDescription="Slika ljubimca"/>
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/petImageView"
+                android:textColor="@color/crna2" />
+
+            <TextView
+                android:id="@+id/textViewUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/textViewName"
+                android:layout_toEndOf="@id/petImageView"
+                android:textColor="@color/crna2" />
+
+            <!-- Ostatak koda ostaje nepromijenjen -->
+
+            <TextView
+                android:id="@+id/petName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/profesion"
+                android:layout_toEndOf="@id/petImageView"
+                android:textColor="@color/crna2"
+                android:text="Ime ljubimca: " />
+
+            <TextView
+                android:id="@+id/petType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/petName"
+                android:layout_toEndOf="@id/petImageView"
+                android:textColor="@color/crna2"
+                android:text="Vrsta ljubimca: " />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/buttonDeleteStudent"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:tint="@color/rosa"
+                android:src="@drawable/deletworkericon" />
+
+            <ImageView
+                android:id="@+id/buttonEditstudent"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                app:tint="@color/rosa"
+                android:src="@drawable/editworkericon" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

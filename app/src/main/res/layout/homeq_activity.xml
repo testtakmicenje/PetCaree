@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg">
@@ -46,14 +47,14 @@
                 android:id="@+id/answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/rosa"
+                app:buttonTint="#3B3B3B"
                 android:layout_marginTop="9dp"
                 android:text="Odgovor 1" />
 
             <RadioButton
                 android:id="@+id/answer2"
                 android:layout_width="match_parent"
-                android:buttonTint="@color/rosa"
+                app:buttonTint="#3B3B3B"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
                 android:text="Odgovor 2" />
@@ -61,8 +62,8 @@
             <RadioButton
                 android:id="@+id/answer3"
                 android:layout_width="match_parent"
-                android:buttonTint="@color/rosa"
                 android:layout_height="wrap_content"
+                app:buttonTint="#3B3B3B"
                 android:layout_marginTop="9dp"
                 android:text="Odgovor 3" />
         </RadioGroup>
@@ -75,7 +76,7 @@
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/crna1"
-            android:text="Sledeće pitanje" />
+           />
 
         <TextView
             android:id="@+id/correctAnswersText"

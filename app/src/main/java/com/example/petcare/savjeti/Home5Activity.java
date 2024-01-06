@@ -104,10 +104,10 @@ public class Home5Activity extends AppCompatActivity {
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                String selectedSavjet = (String) adapter.getChild(groupPosition, childPosition);
-                Toast.makeText(Home5Activity.this, selectedSavjet, Toast.LENGTH_SHORT).show();
+                // Ne prikazujemo Toast poruku
                 return true;
             }
+
         });
     }
 

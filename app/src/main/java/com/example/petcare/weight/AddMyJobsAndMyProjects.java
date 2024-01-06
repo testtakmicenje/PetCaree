@@ -21,7 +21,7 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
 
     private Toolbar mTopToolbar;
 
-    // Izmene ovde - zamenili smo EditText sa DatePicker
+
     DatePicker datePicker;
     EditText workeremail, workerphonenumber, workersalary;
 
