@@ -26,25 +26,54 @@
             android:layout_height="match_parent"
             android:padding="10dp">
 
-            <!-- Ovdje zadržite postojeće TextView-e, ali prilagodite ih prema vašim podacima. -->
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/crna2" />
 
             <TextView
-                android:id="@+id/medicalConditionTextView"
+                android:id="@+id/textViewUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/textViewName"
+                android:textColor="@color/crna2" />
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/textViewUsername"
+                android:textColor="@color/crna2" />
+
+            <TextView
+                android:id="@+id/textViewPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/textViewEmail"
+                android:textColor="@color/crna2" />
+
+            <TextView
+                android:id="@+id/startdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_below="@id/textViewPhone"
                 android:textColor="@color/crna2"
+
                 />
 
             <TextView
-                android:id="@+id/medicationTextView"
+                android:id="@+id/profesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_below="@id/startdate"
-                android:textColor="@color/crna2"
-                />
+                android:textColor="@color/crna2" />
 
         </RelativeLayout>
 
@@ -56,43 +85,22 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <!-- Ovdje zadržite postojeće ImageView-e, ali prilagodite ih prema vašim potrebama. -->
-
             <ImageView
-                android:id="@+id/buttonDeleteMedicalData"
+                android:id="@+id/buttonDeleteStudent"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 app:tint="@color/rosa"
-                android:src="@drawable/ic_delete" />
+                android:src="@drawable/deletworkericon" />
 
             <ImageView
-                android:id="@+id/buttonEditMedicalData"
+                android:id="@+id/buttonEditstudent"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_marginEnd="10dp"
                 app:tint="@color/rosa"
-                android:src="@drawable/ic_edit" />
-            <!-- Dodajte nove TextView-e za prikaz imena i vrste životinje -->
-            <TextView
-                android:id="@+id/animalNameTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_below="@id/textViewPhone"
-                android:textColor="@color/crna2"
-                />
-
-            <TextView
-                android:id="@+id/animalTypeTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_below="@id/startdate"
-                android:textColor="@color/crna2"
-                />
-
+                android:src="@drawable/editworkericon" />
 
         </LinearLayout>
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,49 +14,57 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.petcare.R;
+import com.example.petcare.weight.MyJobsAndMyProjectsModel;
+
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.List;
 
-public class MedicalDataAdapter extends RecyclerView.Adapter<MedicalDataAdapter.ProductViewHolder> {
-
+public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdapter.ProductViewHolder> {
     int custom_list_item;
+
     SQLiteDatabase mDatabase;
+
     private Context context;
     private boolean isToastShown = false;
-    private List<MedicalDataModel> medicalDataModelList;
 
-    public MedicalDataAdapter(Context context, int custom_list_item, List<MedicalDataModel> medicalDataModelList, SQLiteDatabase mDatabase) {
+    private List<MyJobsAndMyProjectsModel> myJobsAndMyProjectsListModel;
+
+    public MyMedicalInfoAdapter(Context context, int custom_list_item, List<MyJobsAndMyProjectsModel> myJobsAndMyProjectsListModel, SQLiteDatabase mDatabase) {
         this.context = context;
         this.custom_list_item = custom_list_item;
         this.mDatabase = mDatabase;
-        this.medicalDataModelList = medicalDataModelList;
-        this.isToastShown = false;
+        this.myJobsAndMyProjectsListModel = myJobsAndMyProjectsListModel;
+        this.isToastShown = false; // Postavi isToastShown na false prilikom kreiranja adaptera
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.cardview_medical_data, null);
+        View view = inflater.inflate(R.layout.my_medicalinfo_adapter, null);
         return new ProductViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
-        final MedicalDataModel medicalDataModel = medicalDataModelList.get(position);
-        holder.textViewName.setText("Datum: " + medicalDataModel.getDate());
-        holder.textViewUsername.setText("Ime ljubimca: " + medicalDataModel.getPetName());
-        holder.textViewEmail.setText("Rasa: " + medicalDataModel.getPetBreed());
+        final MyJobsAndMyProjectsModel workersListModel = myJobsAndMyProjectsListModel.get(position);
+        holder.textViewName.setText("Datum: " + workersListModel.getName());
+        holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
+        holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
+        holder.textViewPhone.setText("Težina: " + workersListModel.getPhno());
 
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateMedicalData(medicalDataModel);
+                updateEmployee(workersListModel);
             }
         });
 
@@ -65,81 +72,95 @@ public class MedicalDataAdapter extends RecyclerView.Adapter<MedicalDataAdapter.
             @Override
             public void onClick(final View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Potvrda");
+                builder.setTitle("Confirmation");
 
-                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Jeste li sigurni da želite izbrisati ove medicinske podatke?</font>"));
+                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbrisati ovu težinu?</font>"));
 
                 builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String sql = "DELETE FROM MedicalData WHERE id = ?";
-                        mDatabase.execSQL(sql, new Integer[]{medicalDataModel.getId()});
-                        reloadMedicalDataFromDatabase();
-                        ((Activity) context).finish();
+                        String sql = "DELETE FROM Student WHERE id = ?";
+                        mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
+                        removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
+                        notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
-                        showToast("Medicinski podaci su izbrisani.");
+                        // Display toast for weight deletion
+                        showToast("Težina je obrisana.");
                     }
                 });
 
                 builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        // Do nothing, just close the dialog
                     }
                 });
 
+                // Prevent dialog dismissal when clicking outside
                 builder.setCancelable(false);
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
+                // Customize the colors of the AlertDialog buttons
                 int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
                 int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
 
+                // Set text color for buttons
                 alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
                 alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
             }
         });
+
     }
 
-    void reloadMedicalDataFromDatabase() {
-        Cursor cursor = mDatabase.rawQuery("SELECT * FROM MedicalData", null);
+    void reloadEmployeesFromDatabase() {
+        Cursor cursorproduct1 = mDatabase.rawQuery("SELECT * FROM Student", null);
 
-        if (cursor.moveToFirst()) {
-            medicalDataModelList.clear();
+        if (cursorproduct1.moveToFirst()) {
+            myJobsAndMyProjectsListModel.clear();
             do {
-                medicalDataModelList.add(new MedicalDataModel(
-                        cursor.getInt(0),
-                        cursor.getString(1),
-                        cursor.getString(2),
-                        cursor.getString(3)));
-            } while (cursor.moveToNext());
+                MyJobsAndMyProjectsModel workersListModel = new MyJobsAndMyProjectsModel(
+                        cursorproduct1.getInt(0),
+                        cursorproduct1.getString(1),
+                        cursorproduct1.getString(2),
+                        cursorproduct1.getString(3),
+                        cursorproduct1.getString(4));
+
+                // Dodajte workersListModel na kraj liste umjesto na početak
+                myJobsAndMyProjectsListModel.add(workersListModel);
+            } while (cursorproduct1.moveToNext());
         }
 
-        cursor.close();
+        cursorproduct1.close();
+
+        // Obrnite redoslijed liste kako biste dobili najnovije težine na vrhu
+        Collections.reverse(myJobsAndMyProjectsListModel);
 
         notifyDataSetChanged();
     }
 
-    private void updateMedicalData(final MedicalDataModel medicalDataModel) {
+    private void updateEmployee(final MyJobsAndMyProjectsModel workersListModel) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.medical_dialog, null);
+        View view = inflater.inflate(R.layout.dialog_edit_my_job_and_my_project, null);
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
-        final EditText editPetName = view.findViewById(R.id.workeremail);
-        final EditText editPetBreed = view.findViewById(R.id.workerphonenumber);
+        final EditText editUsername = view.findViewById(R.id.workeremail);
+        final EditText editemail = view.findViewById(R.id.workerphonenumber);
+        final EditText editphno = view.findViewById(R.id.workersalary);
 
-        String[] dateParts = medicalDataModel.getDate().split("-");
+        String[] dateParts = workersListModel.getName().split("-");
         int year = Integer.parseInt(dateParts[0]);
         int month = Integer.parseInt(dateParts[1]) - 1;
         int day = Integer.parseInt(dateParts[2]);
         datePicker.init(year, month, day, null);
 
-        editPetName.setText(medicalDataModel.getPetName());
-        editPetBreed.setText(medicalDataModel.getPetBreed());
+        editUsername.setText(workersListModel.getUsername());
+        editemail.setText(workersListModel.getEmail());
+        editphno.setText(workersListModel.getPhno());
 
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -152,21 +173,38 @@ public class MedicalDataAdapter extends RecyclerView.Adapter<MedicalDataAdapter.
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
 
-                String petName = editPetName.getText().toString().trim();
-                String petBreed = editPetBreed.getText().toString().trim();
+                // Čuvanje nepromijenjenih podataka
+                String name = workersListModel.getName();
+                String email = workersListModel.getEmail();
+                String username = workersListModel.getUsername();
+                String phno = workersListModel.getPhno();
 
-                String sql = " UPDATE MedicalData \n" +
-                        " SET Date = ?, \n" +
-                        " PetName = ?,\n" +
-                        " PetBreed = ? \n" +
+                // Ako je korisnik unio nove podatke, zamijeni ih
+                if (!editemail.getText().toString().trim().isEmpty()) {
+                    email = editemail.getText().toString().trim();
+                }
+                if (!editphno.getText().toString().trim().isEmpty()) {
+                    phno = editphno.getText().toString().trim();
+                }
+
+                // Ažuriraj bazu podataka
+                String sql = " UPDATE Student \n" +
+                        " SET Name = ?, \n" +
+                        " Email = ?,\n" +
+                        " PhoneNO = ?,\n" +
+                        " WorkerSalary= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{date, petName, petBreed, String.valueOf(medicalDataModel.getId())});
+                mDatabase.execSQL(sql, new String[]{name, email, username, phno, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
                 ((Activity) context).finish();
 
-                showToast("Medicinski podaci su ažurirani.");
+                // Prikazuje toast za ažuriranje težine
+                showToast("Težina je uređena.");
+
+                // Ponovno učitaj podatke iz baze podataka
+                reloadEmployeesFromDatabase();
             }
         });
 
@@ -178,14 +216,17 @@ public class MedicalDataAdapter extends RecyclerView.Adapter<MedicalDataAdapter.
         });
     }
 
-    private void removeMedicalData(MedicalDataModel medicalDataModel) {
-        medicalDataModelList.remove(medicalDataModel);
+
+    private void removeUserFromFunction(MyJobsAndMyProjectsModel workersListModel) {
+        myJobsAndMyProjectsListModel.remove(workersListModel);
         notifyDataSetChanged();
+
+
     }
 
     @Override
     public int getItemCount() {
-        return medicalDataModelList.size();
+        return myJobsAndMyProjectsListModel.size();
     }
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
@@ -204,13 +245,18 @@ public class MedicalDataAdapter extends RecyclerView.Adapter<MedicalDataAdapter.
         }
     }
 
+    // Dodata metoda za formatiranje datuma
     private String formatDate(int year, int month, int day) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(new java.util.Date(year - 1900, month, day));
     }
 
+    // Add this method to display a toast
     private void showToast(String message) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).
-                show();
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
+
+
+
+

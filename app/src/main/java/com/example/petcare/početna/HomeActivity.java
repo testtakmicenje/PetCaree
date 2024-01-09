@@ -11,9 +11,9 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.os.Handler;
+
 import com.example.petcare.forum.Forum;
-import com.example.petcare.medecinskipodaci.MedicalDataList;
+import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 import com.example.petcare.prehrana.EvidencijaPrehrane;
 import com.example.petcare.savjeti.Home5Activity;
 import com.example.petcare.kviz.HomeqActivity;
@@ -22,7 +22,6 @@ import com.example.petcare.troškovi.EvidencijaTroškova;
 import com.example.petcare.R;
 import com.example.petcare.egzoticniljubimci.ExoticPetsActivity;
 import com.example.petcare.ljubimci.PetsActivity;
-import android.os.Looper;
 import com.example.petcare.mojiljubimci.MyPetsActivity;
 import com.example.petcare.prvapomoc.Home2Activity;
 import com.example.petcare.settings.SettingsActivity;
@@ -143,7 +142,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         careCardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MedicalDataList.class);
+                Intent intent = new Intent(HomeActivity.this, MyMedicalInfo.class);
                 startActivity(intent);
             }
         });

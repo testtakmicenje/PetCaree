@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:elevation="4dp">
-
         <ImageView
             android:id="@+id/logoImageView1"
             android:layout_width="25dp"
@@ -30,7 +29,7 @@
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medicinski podaci"
+            android:text="Težine vaših ljubimaca"
             android:textSize="22sp"
             android:textColor="@color/rosa"
             android:layout_gravity="center"
@@ -38,22 +37,23 @@
             android:textStyle="bold"/>
 
     </androidx.appcompat.widget.Toolbar>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/medicalDataListView"
+        android:id="@+id/weightListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="0.5dp"/>
 
+
     <Button
-        android:id="@+id/addMedicalDataButton"
+        android:id="@+id/addWeightButton"
         android:layout_width="260dp"
         android:layout_height="53dp"
         android:backgroundTint="@color/rosa"
         android:layout_gravity="center"
-        android:text="Dodaj medicinske podatke"
+        android:text="Dodaj težinu"
         android:layout_marginVertical="15dp"
         android:textColor="@color/crna2" />
 </LinearLayout>
+

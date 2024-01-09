@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,17 +12,19 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
         app:titleMarginStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
         app:layout_scrollFlags="scroll|enterAlways">
+
         <ImageView
             android:id="@+id/logoImageView1"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="start"
-            android:tint="@color/rosa"
             android:layout_marginStart="16dp"
+            android:tint="@color/rosa"
             android:layout_marginTop="8dp"
             android:src="@drawable/back" />
 
@@ -33,12 +36,11 @@
                 android:id="@+id/title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/logoImageView1"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:text="Uredite"
-                android:textSize="20sp"
-                android:textColor="@color/rosa"/>
+                android:text="Dodajte tezinu"
+                android:textColor="@color/rosa"
+                android:textSize="20sp" />
+
 
             <TextView
                 android:id="@+id/add"
@@ -48,7 +50,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Uredi"
+                android:text="Dodajte"
                 android:textColor="@color/rosa"
                 android:textSize="15sp" />
 
@@ -93,13 +95,11 @@
                     android:spinnersShown="true"
                     android:theme="@style/MyDatePickerStyle"/>
 
-
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Vrsta:"
+                    android:text="Vrsta ljubicma:"
                     android:textColor="@color/crna2"/>
 
                 <androidx.cardview.widget.CardView
@@ -113,44 +113,13 @@
                     <EditText
                         android:id="@+id/workeremail"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:gravity="start"
-                        android:textColor="@color/crna2"
-                        android:textColorHint="@color/crna2"
-                        android:hint="Unesite novu vrstu..."
+                        android:hint="Unesite vrstu ljubimca..."
                         android:inputType="textCapWords"
                         android:padding="10dp"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Dodajte nova polja za unos imena i vrste životinje -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Ime životinje:"
-                    android:textColor="@color/crna2"/>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    app:cardElevation="0dp"
-                    android:backgroundTint="@color/cardview"
-                    app:cardCornerRadius="60dp">
-
-                    <EditText
-                        android:id="@+id/animalName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
                         android:textColor="@color/crna2"
-                        android:textColorHint="@color/crna2"
-                        android:hint="Unesite ime životinje..."
-                        android:inputType="textCapWords"
-                        android:padding="10dp"
-                        />
+                        android:textColorHint="@color/crna2" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -158,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Ime:"
+                    android:text="Ime ljubicma:"
                     android:textColor="@color/crna2"/>
 
                 <androidx.cardview.widget.CardView
@@ -174,10 +143,10 @@
                         android:inputType="textCapWords"
                         android:gravity="start"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:textColorHint="@color/black"
                         android:textColor="@color/crna2"
-                        android:textColorHint="@color/crna2"
-                        android:hint="Unesite novo ime..."
+                        android:hint="Unesite ime ljubimca..."
                         android:id="@+id/workerphonenumber"/>
 
                 </androidx.cardview.widget.CardView>
@@ -189,24 +158,23 @@
                     android:text="Težina:"
                     android:textColor="@color/crna2"/>
 
-
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     app:cardElevation="0dp"
-                    android:backgroundTint="@color/cardview"
+                   android:backgroundTint="@color/cardview"
                     app:cardCornerRadius="60dp">
 
                     <EditText
                         android:padding="10dp"
-                        android:gravity="start"
                         android:inputType="numberDecimal"
+                        android:gravity="start"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/crna2"
+                        android:layout_height="48dp"
+                        android:hint="Unesite težinu..."
                         android:textColorHint="@color/crna2"
-                        android:hint="Unesite novu težinu..."
+                        android:textColor="@color/crna2"
                         android:id="@+id/workersalary"/>
 
                 </androidx.cardview.widget.CardView>

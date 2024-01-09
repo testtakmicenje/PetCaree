@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.petcare.R;
+import com.example.petcare.skeniranje.MainActivity;
 import com.example.petcare.skeniranje.PrepoznavanjeSimptomaActivity;
 
 
@@ -116,7 +117,7 @@ public class Home2Activity extends AppCompatActivity {
         btnPrepoznavanjeSimptoma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home2Activity.this, PrepoznavanjeSimptomaActivity.class);
+                Intent intent = new Intent(Home2Activity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

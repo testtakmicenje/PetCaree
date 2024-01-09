@@ -365,7 +365,7 @@
                                 android:layout_marginEnd="4dp" />
 
                             <TextView
-                                android:id="@+id/careSubText2"
+                                android:id="@+id/careSubText22"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="svojih ljubimaca"

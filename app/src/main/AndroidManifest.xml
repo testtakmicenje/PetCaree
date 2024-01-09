@@ -27,6 +27,12 @@
                 android:value="true" />
         </activity>
 
+        <activity android:name=".skeniranje.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".medecinskipodaci.MyMedicalInfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".medecinskipodaci.AddMedicalInfo"
+            android:screenOrientation="portrait"/>
         <activity android:name=".početna.HomeActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".weight.MyJobsAndMyProjects"
@@ -124,14 +130,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".vodičzanjegu.Detalji"
             android:screenOrientation="portrait"/>
-    <activity android:name=".medecinskipodaci.AddMedicalData"
-        android:screenOrientation="portrait"/>
-        <activity android:name=".medecinskipodaci.MedicalDataModel"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".medecinskipodaci.MedicalDataAdapter"
-            android:screenOrientation="portrait"/>
-<activity android:name=".medecinskipodaci.MedicalDataList"
-        android:screenOrientation="portrait"/>
 
 
     </application>
