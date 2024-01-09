@@ -7,8 +7,10 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.petcare.databinding.FragmentScanBinding
@@ -46,6 +48,18 @@ class ScanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backImageView: ImageView = binding.logoImageView1
+        backImageView.setOnClickListener {
+            backImageView.setOnClickListener {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
+
+        }
 
    //     showInterstitial()
 

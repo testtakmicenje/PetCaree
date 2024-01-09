@@ -2,6 +2,8 @@ package com.example.petcare.skeniranje
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.widget.ImageView
+
 import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.net.Uri
@@ -17,6 +19,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.petcare.R
 import com.example.petcare.databinding.FragmentResultBinding
+import androidx.appcompat.app.AppCompatActivity
+
+
 
 @Suppress("DEPRECATION")
 class ResultFragment : Fragment() {
@@ -64,8 +69,21 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-       // showInterstitial()
+        (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val backImageView: ImageView = binding.logoImageView1
+        backImageView.setOnClickListener {
+            backImageView.setOnClickListener {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
+
+        }
+
+
+        // showInterstitial()
 
         assetManager = activity?.assets!!
 
