@@ -42,9 +42,7 @@ public class MyMedicalInfo extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
 
         ImageView backImageView = findViewById(R.id.logoImageView1);
         backImageView.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +70,7 @@ public class MyMedicalInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Otvorite novi ekran za unos težine
-                Intent intent = new Intent(MyMedicalInfo.this, AddMyJobsAndMyProjects.class);
+                Intent intent = new Intent(MyMedicalInfo.this, AddMedicalInfo.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -82,15 +80,15 @@ public class MyMedicalInfo extends AppCompatActivity {
 
     private void showEmployeesFromDatabase() {
 
-        Cursor cursorproduct = mDatabase.rawQuery("SELECT * FROM Student", null);
+        Cursor cursorproduct = mDatabase.rawQuery("SELECT * FROM Student2", null);
 
-        List<MyJobsAndMyProjectsModel> workersListModelList = new ArrayList<>();
+        List<MyMedicalInfoModel> workersListModelList = new ArrayList<>();
 
         if (cursorproduct.moveToFirst()) {
 
             do {
 
-                workersListModelList.add(new MyJobsAndMyProjectsModel(
+                workersListModelList.add(new MyMedicalInfoModel(
 
                         cursorproduct.getInt(0),
 
@@ -100,7 +98,9 @@ public class MyMedicalInfo extends AppCompatActivity {
 
                         cursorproduct.getString(3),
 
-                        cursorproduct.getString(4)
+                        cursorproduct.getString(4),
+
+                        cursorproduct.getString(5)
 
                 ));
 
@@ -134,11 +134,11 @@ public class MyMedicalInfo extends AppCompatActivity {
 
         mDatabase.execSQL(
 
-                "CREATE TABLE IF NOT EXISTS Student " +
+                "CREATE TABLE IF NOT EXISTS Student2 " +
 
                         "(\n" +
 
-                        "    id INTEGER NOT NULL CONSTRAINT employees_pk PRIMARY KEY AUTOINCREMENT,\n" +
+                        "    id INTEGER NOT NULL CONSTRAINT employees_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
 
                         "    Name varchar(200) NOT NULL,\n" +
 
@@ -146,7 +146,9 @@ public class MyMedicalInfo extends AppCompatActivity {
 
                         "    PhoneNo Varchar(200) NOT NULL, \n" +
 
-                        "    WorkerSalary Varchar(200) NOT NULL \n" +
+                        "    WorkerSalary Varchar(200) NOT NULL, \n" +
+
+                        "    Lijek Varchar(200) NOT NULL \n" +
 
                         ");"
 

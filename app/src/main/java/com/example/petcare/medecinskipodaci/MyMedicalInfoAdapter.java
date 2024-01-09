@@ -35,9 +35,9 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
     private Context context;
     private boolean isToastShown = false;
 
-    private List<MyJobsAndMyProjectsModel> myJobsAndMyProjectsListModel;
+    private List<MyMedicalInfoModel> myJobsAndMyProjectsListModel;
 
-    public MyMedicalInfoAdapter(Context context, int custom_list_item, List<MyJobsAndMyProjectsModel> myJobsAndMyProjectsListModel, SQLiteDatabase mDatabase) {
+    public MyMedicalInfoAdapter(Context context, int custom_list_item, List<MyMedicalInfoModel> myJobsAndMyProjectsListModel, SQLiteDatabase mDatabase) {
         this.context = context;
         this.custom_list_item = custom_list_item;
         this.mDatabase = mDatabase;
@@ -55,11 +55,12 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
-        final MyJobsAndMyProjectsModel workersListModel = myJobsAndMyProjectsListModel.get(position);
+        final MyMedicalInfoModel workersListModel = myJobsAndMyProjectsListModel.get(position);
         holder.textViewName.setText("Datum: " + workersListModel.getName());
         holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
         holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
-        holder.textViewPhone.setText("Težina: " + workersListModel.getPhno());
+        holder.textViewPhone.setText("Bolest: " + workersListModel.getPhno());
+        holder.textViewPhone.setText("Lijek: " + workersListModel.getLijek());
 
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,18 +75,18 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Confirmation");
 
-                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbrisati ovu težinu?</font>"));
+                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbrisati ovaj medicinski podatak?</font>"));
 
                 builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String sql = "DELETE FROM Student WHERE id = ?";
+                        String sql = "DELETE FROM Student2 WHERE id = ?";
                         mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
                         removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
                         notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
                         // Display toast for weight deletion
-                        showToast("Težina je obrisana.");
+                        showToast("Medicinski podatak je obrisana.");
                     }
                 });
 
@@ -115,17 +116,18 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
     }
 
     void reloadEmployeesFromDatabase() {
-        Cursor cursorproduct1 = mDatabase.rawQuery("SELECT * FROM Student", null);
+        Cursor cursorproduct1 = mDatabase.rawQuery("SELECT * FROM Student2", null);
 
         if (cursorproduct1.moveToFirst()) {
             myJobsAndMyProjectsListModel.clear();
             do {
-                MyJobsAndMyProjectsModel workersListModel = new MyJobsAndMyProjectsModel(
+                MyMedicalInfoModel workersListModel = new MyMedicalInfoModel(
                         cursorproduct1.getInt(0),
                         cursorproduct1.getString(1),
                         cursorproduct1.getString(2),
                         cursorproduct1.getString(3),
-                        cursorproduct1.getString(4));
+                        cursorproduct1.getString(4),
+                        cursorproduct1.getString(5));
 
                 // Dodajte workersListModel na kraj liste umjesto na početak
                 myJobsAndMyProjectsListModel.add(workersListModel);
@@ -140,7 +142,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         notifyDataSetChanged();
     }
 
-    private void updateEmployee(final MyJobsAndMyProjectsModel workersListModel) {
+    private void updateEmployee(final MyMedicalInfoModel workersListModel) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -178,6 +180,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 String email = workersListModel.getEmail();
                 String username = workersListModel.getUsername();
                 String phno = workersListModel.getPhno();
+                String lijek = workersListModel.getLijek();
 
                 // Ako je korisnik unio nove podatke, zamijeni ih
                 if (!editemail.getText().toString().trim().isEmpty()) {
@@ -188,20 +191,21 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 }
 
                 // Ažuriraj bazu podataka
-                String sql = " UPDATE Student \n" +
+                String sql = " UPDATE Student2 \n" +
                         " SET Name = ?, \n" +
                         " Email = ?,\n" +
                         " PhoneNO = ?,\n" +
-                        " WorkerSalary= ? \n" +
+                        " WorkerSalary= ?, \n" +
+                        " Lijek= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{name, email, username, phno, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{name, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
                 ((Activity) context).finish();
 
                 // Prikazuje toast za ažuriranje težine
-                showToast("Težina je uređena.");
+                showToast("Medicinski podatak je uređena.");
 
                 // Ponovno učitaj podatke iz baze podataka
                 reloadEmployeesFromDatabase();
@@ -217,7 +221,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
     }
 
 
-    private void removeUserFromFunction(MyJobsAndMyProjectsModel workersListModel) {
+    private void removeUserFromFunction(MyMedicalInfoModel workersListModel) {
         myJobsAndMyProjectsListModel.remove(workersListModel);
         notifyDataSetChanged();
 
