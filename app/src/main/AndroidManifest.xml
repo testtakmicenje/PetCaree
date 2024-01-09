@@ -131,6 +131,5 @@
         <activity android:name=".vodičzanjegu.Detalji"
             android:screenOrientation="portrait"/>
 
-
     </application>
 </manifest>

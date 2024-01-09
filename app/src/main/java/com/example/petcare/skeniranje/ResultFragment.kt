@@ -125,47 +125,6 @@ class ResultFragment : Fragment() {
 
         }
 
-        binding.btnRemedies.setOnClickListener {
-
-            if (isAdDismissed) {
-
-                if (mClassifier.recognizeImage(bitmap).firstOrNull() == null) {
-
-                    Toast.makeText(
-                        context,
-                        "Ni jedna bolest nije pronadjena. Pokušajte ponovno i uslikajte jasniju sliku.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                } else {
-
-                    val intent = Intent(
-
-                        Intent.ACTION_VIEW,
-
-                        Uri.parse(
-
-                            "https://www.google.com/search?q=${
-
-                                list[mClassifier.recognizeImage(
-
-                                    bitmap
-
-                                ).firstOrNull()!!.id.toInt()]
-
-                            }"
-
-                        )
-
-                    )
-
-                    startActivity(intent)
-
-                }
-            }
-
-        }
-
     }
 
 }
