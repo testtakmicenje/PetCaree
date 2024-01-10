@@ -8,10 +8,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.petcare.R;
 
 import java.text.SimpleDateFormat;
@@ -74,14 +73,16 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
                 int month = datePicker.getMonth() + 1;
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
-
                 String email = workeremail.getText().toString().trim();
                 String phone = workerphonenumber.getText().toString();
                 String salary = workersalary.getText().toString().trim();
 
 
-                {
-
+                if (date.isEmpty() || email.isEmpty() || phone.isEmpty() || salary.isEmpty()) {
+                    // Ako neki od podataka nedostaje, prikaži Toast
+                    showToast("Molimo Vas da unesete sve podatke.");
+                } else {
+                    // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
                     String insertSQL = "INSERT INTO Student \n" +
                             "(Name, Email, PhoneNo, WorkerSalary)\n" +
                             "VALUES \n" +
@@ -91,12 +92,9 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
 
                     Intent intent = new Intent(AddMyJobsAndMyProjects.this, MyJobsAndMyProjects.class);
                     startActivity(intent);
-
                 }
-
             }
         });
-
     }
 
     private void createEmployeeTable() {
@@ -127,5 +125,8 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
         calendar.set(year, month - 1, day); // month is 0-based
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(calendar.getTime());
+    }
+    private void showToast(String message) {
+        Toast.makeText(AddMyJobsAndMyProjects.this, message, Toast.LENGTH_SHORT).show();
     }
 }

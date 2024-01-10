@@ -63,7 +63,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateEmployee(workersListModel);
+                updateJobAndProject(workersListModel);
             }
         });
 
@@ -139,7 +139,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         notifyDataSetChanged();
     }
 
-    private void updateEmployee(final MyJobsAndMyProjectsModel workersListModel) {
+    private void updateJobAndProject(final MyJobsAndMyProjectsModel workersListModel) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -214,7 +214,6 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
             }
         });
     }
-
 
     private void removeUserFromFunction(MyJobsAndMyProjectsModel workersListModel) {
         myJobsAndMyProjectsListModel.remove(workersListModel);

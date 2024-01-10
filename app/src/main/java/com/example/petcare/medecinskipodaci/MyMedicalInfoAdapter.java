@@ -60,7 +60,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
         holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
         holder.textViewPhone.setText("Bolest: " + workersListModel.getPhno());
-        holder.textViewPhone.setText("Lijek: " + workersListModel.getLijek());
+        holder.startDate.setText("Lijek: " + workersListModel.getLijek());
 
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +86,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                         notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
                         // Display toast for weight deletion
-                        showToast("Medicinski podatak je obrisana.");
+                        showToast("Medicinski podatak je obrisan.");
                     }
                 });
 
@@ -177,9 +177,9 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
 
-                // Čuvanje nepromijenjenih podataka
-                String name = workersListModel.getName();
-                String email = workersListModel.getEmail();
+                // Ako je korisnik unio nove podatke, zamijeni ih
+                String name = workersListModel.getName(); // Ostavi datum nepromijenjenim
+                String email = editemail.getText().toString().trim();
                 String username = workersListModel.getUsername();
                 String phno = workersListModel.getPhno();
                 String lijek = workersListModel.getLijek();
@@ -201,13 +201,13 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                         " Lijek= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{name, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
                 ((Activity) context).finish();
 
                 // Prikazuje toast za ažuriranje težine
-                showToast("Medicinski podatak je uređena.");
+                showToast("Medicinski podatak je uređen.");
 
                 // Ponovno učitaj podatke iz baze podataka
                 reloadEmployeesFromDatabase();
@@ -221,6 +221,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
             }
         });
     }
+
 
 
     private void removeUserFromFunction(MyMedicalInfoModel workersListModel) {

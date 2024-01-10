@@ -20,6 +20,17 @@
             app:contentInsetStartWithNavigation="0dp"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleMarginStart="0dp">
+            <TextView
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="Prepoznavanje simptoma"
+                android:textColor="@color/crna2"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
 
             <ImageView

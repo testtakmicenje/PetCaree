@@ -8,7 +8,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -82,8 +82,11 @@ public class AddMedicalInfo extends AppCompatActivity {
                 String salary = workersalary.getText().toString().trim();
                 String salary2 = workersalary2.getText().toString().trim();
 
-                {
-
+                if (date.isEmpty() || email.isEmpty() || phone.isEmpty() || salary.isEmpty() || salary2.isEmpty()) {
+                    // Ako neki od podataka nedostaje, prikaži Toast
+                    showToast("Molimo vas da unesete sve podatke.");
+                } else {
+                    // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
                     String insertSQL = "INSERT INTO Student2 \n" +
                             "(Name, Email, PhoneNo, WorkerSalary, Lijek)\n" +
                             "VALUES \n" +
@@ -93,13 +96,13 @@ public class AddMedicalInfo extends AppCompatActivity {
 
                     Intent intent = new Intent(AddMedicalInfo.this, MyMedicalInfo.class);
                     startActivity(intent);
-
                 }
-
             }
         });
-
     }
+
+
+
 
     private void createEmployeeTable() {
         mDatabase.execSQL(
@@ -131,5 +134,8 @@ public class AddMedicalInfo extends AppCompatActivity {
         calendar.set(year, month - 1, day); // month is 0-based
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(calendar.getTime());
+    }
+    private void showToast(String message) {
+        Toast.makeText(AddMedicalInfo.this, message, Toast.LENGTH_SHORT).show();
     }
 }

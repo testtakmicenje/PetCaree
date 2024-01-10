@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Dodajte medicinske podatke"
+                android:text="Medicinski podaci"
                 android:textColor="@color/rosa"
                 android:textSize="20sp" />
 
