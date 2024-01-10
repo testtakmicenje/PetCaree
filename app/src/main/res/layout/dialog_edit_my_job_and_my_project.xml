@@ -156,7 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Težina:"
+                    android:text="Bolest ljubimca:"
                     android:textColor="@color/crna2"/>
 
                 <androidx.cardview.widget.CardView
@@ -170,13 +170,39 @@
                     <EditText
                         android:padding="10dp"
                         android:gravity="start"
-                        android:inputType="numberDecimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/crna2"
                         android:textColorHint="@color/crna2"
-                        android:hint="Unesite novu težinu..."
+                        android:hint="Unesite novu bolest ljubimca..."
                         android:id="@+id/workersalary"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Lijek:"
+                    android:textColor="@color/crna2"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@color/cardview"
+                    app:cardCornerRadius="60dp">
+
+                    <EditText
+                        android:padding="10dp"
+                        android:gravity="start"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/crna2"
+                        android:textColorHint="@color/crna2"
+                        android:hint="Unesite novi lijek..."
+                        android:id="@+id/workersalary2"/>
 
                 </androidx.cardview.widget.CardView>
 

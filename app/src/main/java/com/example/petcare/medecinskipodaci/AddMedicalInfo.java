@@ -24,7 +24,7 @@ public class AddMedicalInfo extends AppCompatActivity {
 
 
     DatePicker datePicker;
-    EditText workeremail, workerphonenumber, workersalary;
+    EditText workeremail, workerphonenumber, workersalary, workersalary2;
 
     TextView add;
 
@@ -63,6 +63,7 @@ public class AddMedicalInfo extends AppCompatActivity {
         workeremail = findViewById(R.id.workeremail);
         workerphonenumber = findViewById(R.id.workerphonenumber);
         workersalary = findViewById(R.id.workersalary);
+        workersalary2 = findViewById(R.id.workersalary2);
 
         add = findViewById(R.id.add);
 
@@ -79,18 +80,18 @@ public class AddMedicalInfo extends AppCompatActivity {
                 String email = workeremail.getText().toString().trim();
                 String phone = workerphonenumber.getText().toString();
                 String salary = workersalary.getText().toString().trim();
-
+                String salary2 = workersalary2.getText().toString().trim();
 
                 {
 
-                    String insertSQL = "INSERT INTO Student \n" +
-                            "(Name, Email, PhoneNo, WorkerSalary)\n" +
+                    String insertSQL = "INSERT INTO Student2 \n" +
+                            "(Name, Email, PhoneNo, WorkerSalary, Lijek)\n" +
                             "VALUES \n" +
-                            "(?, ?, ?, ?);";
+                            "(?, ?, ?, ?, ?);";
 
-                    mDatabase.execSQL(insertSQL, new String[]{date, email, phone, salary});
+                    mDatabase.execSQL(insertSQL, new String[]{date, email, phone, salary, salary2});
 
-                    Intent intent = new Intent(AddMedicalInfo.this, MyJobsAndMyProjects.class);
+                    Intent intent = new Intent(AddMedicalInfo.this, MyMedicalInfo.class);
                     startActivity(intent);
 
                 }
@@ -103,11 +104,11 @@ public class AddMedicalInfo extends AppCompatActivity {
     private void createEmployeeTable() {
         mDatabase.execSQL(
 
-                "CREATE TABLE IF NOT EXISTS Student " +
+                "CREATE TABLE IF NOT EXISTS Student2 " +
 
                         "(\n" +
 
-                        "    id INTEGER NOT NULL CONSTRAINT employees_pk PRIMARY KEY AUTOINCREMENT,\n" +
+                        "    id INTEGER NOT NULL CONSTRAINT employees_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
 
                         "    Name varchar(200) NOT NULL,\n" +
 
@@ -115,7 +116,9 @@ public class AddMedicalInfo extends AppCompatActivity {
 
                         "    PhoneNo Varchar(200) NOT NULL, \n" +
 
-                        "    WorkerSalary Varchar(200) NOT NULL \n" +
+                        "    WorkerSalary Varchar(200) NOT NULL, \n" +
+
+                        "    Lijek Varchar(200) NOT NULL \n" +
 
                         ");"
 

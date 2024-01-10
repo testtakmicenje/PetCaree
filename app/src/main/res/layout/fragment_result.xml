@@ -68,19 +68,6 @@
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_remedies"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:background="#FFF0F5"
-                android:padding="15dp"
-                android:text="Saznajte više"
-                android:textColor="@color/crna2"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_test_again"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
