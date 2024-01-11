@@ -150,8 +150,8 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
-        final EditText editUsername = view.findViewById(R.id.workeremail);
-        final EditText editemail = view.findViewById(R.id.workerphonenumber);
+        final EditText editUsername = view.findViewById(R.id.workerphonenumber);
+        final EditText editemail = view.findViewById(R.id.workeremail);
         final EditText editphno = view.findViewById(R.id.workersalary);
         final EditText lijek = view.findViewById(R.id.workersalary2);
 
