@@ -21,7 +21,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.petcare.R;
-import com.example.petcare.weight.MyJobsAndMyProjectsModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -146,7 +145,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dialog_edit_my_job_and_my_project, null);
+        View view = inflater.inflate(R.layout.dialog_edit_weight, null);
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
@@ -201,9 +200,10 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                         " Lijek= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{name, date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
+
                 ((Activity) context).finish();
 
                 // Prikazuje toast za ažuriranje težine

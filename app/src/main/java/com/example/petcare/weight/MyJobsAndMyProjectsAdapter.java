@@ -143,7 +143,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dialog_edit_my_job_and_my_project, null);
+        View view = inflater.inflate(R.layout.dialog_edit_weight, null);
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
