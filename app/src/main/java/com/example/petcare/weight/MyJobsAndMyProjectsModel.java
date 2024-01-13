@@ -2,37 +2,37 @@ package com.example.petcare.weight;
 
 public class MyJobsAndMyProjectsModel {
     private int id;
-    private String name;
-    private String username;
+    private String data;
     private String email;
-    private String phno;
+    private String phone;
+    private String sallary;
 
-    public MyJobsAndMyProjectsModel(int id, String name, String username, String email, String phno) {
+    public MyJobsAndMyProjectsModel(int id, String data, String email, String phone, String sallary) {
         this.id = id;
-        this.name = name;
-        this.username = username;
+        this.data = data;
         this.email = email;
-        this.phno = phno;
+        this.phone = phone;
+        this.sallary = sallary;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getUsername() {
-        return username;
+    public String getData() {
+        return data;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getPhno() {
-        return phno;
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getSallary() {
+        return sallary;
     }
 
 

@@ -55,10 +55,10 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         final MyJobsAndMyProjectsModel workersListModel = myJobsAndMyProjectsListModel.get(position);
-        holder.textViewName.setText("Datum: " + workersListModel.getName());
-        holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
-        holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
-        holder.textViewPhone.setText("Težina: " + workersListModel.getPhno());
+        holder.textViewName.setText("Datum: " + workersListModel.getData());
+        holder.textViewUsername.setText("Vrsta: " + workersListModel.getEmail());
+        holder.textViewEmail.setText("Ime: " + workersListModel.getPhone());
+        holder.textViewPhone.setText("Težina: " + workersListModel.getSallary());
 
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,19 +147,19 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
-        final EditText editUsername = view.findViewById(R.id.workeremail);
-        final EditText editemail = view.findViewById(R.id.workerphonenumber);
-        final EditText editphno = view.findViewById(R.id.workersalary);
+        final EditText emailedittext = view.findViewById(R.id.workeremail);
+        final EditText phoneedittext = view.findViewById(R.id.workerphonenumber);
+        final EditText sallaryedittext = view.findViewById(R.id.workersalary);
 
-        String[] dateParts = workersListModel.getName().split("-");
+        String[] dateParts = workersListModel.getData().split("-");
         int year = Integer.parseInt(dateParts[0]);
         int month = Integer.parseInt(dateParts[1]) - 1;
         int day = Integer.parseInt(dateParts[2]);
         datePicker.init(year, month, day, null);
 
-        editUsername.setText(workersListModel.getUsername());
-        editemail.setText(workersListModel.getEmail());
-        editphno.setText(workersListModel.getPhno());
+        emailedittext.setText(workersListModel.getEmail());
+        phoneedittext.setText(workersListModel.getPhone());
+        sallaryedittext.setText(workersListModel.getSallary());
 
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -173,28 +173,32 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 String date = formatDate(year, month, dayOfMonth);
 
                 // Čuvanje nepromijenjenih podataka
-                String name = workersListModel.getName();
+                String date1 = workersListModel.getData();
                 String email = workersListModel.getEmail();
-                String username = workersListModel.getUsername();
-                String phno = workersListModel.getPhno();
+                String phone = workersListModel.getPhone();
+                String sallary = workersListModel.getSallary();
 
                 // Ako je korisnik unio nove podatke, zamijeni ih
-                if (!editemail.getText().toString().trim().isEmpty()) {
-                    email = editemail.getText().toString().trim();
+                if (!emailedittext.getText().toString().trim().isEmpty()) {
+                    email = emailedittext.getText().toString().trim();
                 }
-                if (!editphno.getText().toString().trim().isEmpty()) {
-                    phno = editphno.getText().toString().trim();
+                if (!phoneedittext.getText().toString().trim().isEmpty()) {
+                    phone = phoneedittext.getText().toString().trim();
+                }
+
+                if (!sallaryedittext.getText().toString().trim().isEmpty()) {
+                    sallary = sallaryedittext.getText().toString().trim();
                 }
 
                 // Ažuriraj bazu podataka
-                String sql = " UPDATE Student \n" +
-                        " SET Name = ?, \n" +
-                        " Email = ?,\n" +
-                        " PhoneNO = ?,\n" +
-                        " WorkerSalary= ? \n" +
+                String sql = "UPDATE Student \n" +
+                        "SET Date = ?,\n" +
+                        "    Email = ?,\n" +
+                        "    PhoneNO = ?,\n" +
+                        "    WorkerSalary = ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{name, email, username, phno, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{date, email, phone, sallary, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
                 ((Activity) context).finish();

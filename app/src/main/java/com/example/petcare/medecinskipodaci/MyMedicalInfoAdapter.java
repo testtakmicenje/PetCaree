@@ -152,7 +152,6 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         final EditText editUsername = view.findViewById(R.id.workerphonenumber);
         final EditText editemail = view.findViewById(R.id.workeremail);
         final EditText editphno = view.findViewById(R.id.workersalary);
-        final EditText lijek = view.findViewById(R.id.workersalary2);
 
         String[] dateParts = workersListModel.getName().split("-");
         int year = Integer.parseInt(dateParts[0]);
@@ -163,7 +162,6 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         editUsername.setText(workersListModel.getUsername());
         editemail.setText(workersListModel.getEmail());
         editphno.setText(workersListModel.getPhno());
-        lijek.setText(workersListModel.getLijek());
 
         final AlertDialog dialog = builder.create();
         dialog.show();

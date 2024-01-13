@@ -137,7 +137,7 @@ public class MyJobsAndMyProjects extends AppCompatActivity {
 
                         "    id INTEGER NOT NULL CONSTRAINT employees_pk PRIMARY KEY AUTOINCREMENT,\n" +
 
-                        "    Name varchar(200) NOT NULL,\n" +
+                        "    Date varchar(200) NOT NULL,\n" +
 
                         "    Email varchar(200) NOT NULL,\n" +
 
