@@ -1,16 +1,16 @@
 package com.example.petcare.medecinskipodaci;
 public class MyMedicalInfoModel {
     private int id;
-    private String name;
+    private String date;
     private String username;
     private String email;
     private String phno;
 
     private String lijek;
 
-    public MyMedicalInfoModel(int id, String name, String username, String email, String phno, String lijek) {
+    public MyMedicalInfoModel(int id, String date, String username, String email, String phno, String lijek) {
         this.id = id;
-        this.name = name;
+        this.date = date;
         this.username = username;
         this.email = email;
         this.phno = phno;
@@ -21,8 +21,8 @@ public class MyMedicalInfoModel {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getDate() {
+        return date;
     }
 
     public String getUsername() {

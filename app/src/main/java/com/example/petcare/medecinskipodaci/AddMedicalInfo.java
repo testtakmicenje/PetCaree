@@ -88,7 +88,7 @@ public class AddMedicalInfo extends AppCompatActivity {
                 } else {
                     // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
                     String insertSQL = "INSERT INTO Student2 \n" +
-                            "(Name, Email, PhoneNo, WorkerSalary, Lijek)\n" +
+                            "(Date, Email, PhoneNo, WorkerSalary, Lijek)\n" +
                             "VALUES \n" +
                             "(?, ?, ?, ?, ?);";
 
@@ -113,7 +113,7 @@ public class AddMedicalInfo extends AppCompatActivity {
 
                         "    id INTEGER NOT NULL CONSTRAINT employees_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
 
-                        "    Name varchar(200) NOT NULL,\n" +
+                        "    Date varchar(200) NOT NULL,\n" +
 
                         "    Email varchar(200) NOT NULL,\n" +
 

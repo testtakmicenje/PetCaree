@@ -14,14 +14,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.petcare.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
@@ -55,7 +52,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         final MyMedicalInfoModel workersListModel = myJobsAndMyProjectsListModel.get(position);
-        holder.textViewName.setText("Datum: " + workersListModel.getName());
+        holder.textViewName.setText("Datum: " + workersListModel.getDate());
         holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
         holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
         holder.textViewPhone.setText("Bolest: " + workersListModel.getPhno());
@@ -145,15 +142,16 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dialog_edit_weight, null);
+        View view = inflater.inflate(R.layout.dialog_edit_medical_info, null);
         builder.setView(view);
 
         final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
         final EditText editUsername = view.findViewById(R.id.workerphonenumber);
         final EditText editemail = view.findViewById(R.id.workeremail);
         final EditText editphno = view.findViewById(R.id.workersalary);
+        final EditText editlijek = view.findViewById(R.id.lijek);
 
-        String[] dateParts = workersListModel.getName().split("-");
+        String[] dateParts = workersListModel.getDate().split("-");
         int year = Integer.parseInt(dateParts[0]);
         int month = Integer.parseInt(dateParts[1]) - 1;
         int day = Integer.parseInt(dateParts[2]);
@@ -162,6 +160,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         editUsername.setText(workersListModel.getUsername());
         editemail.setText(workersListModel.getEmail());
         editphno.setText(workersListModel.getPhno());
+        editlijek.setText(workersListModel.getLijek());
 
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -175,7 +174,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 String date = formatDate(year, month, dayOfMonth);
 
                 // Ako je korisnik unio nove podatke, zamijeni ih
-                String name = workersListModel.getName(); // Ostavi datum nepromijenjenim
+                String name = workersListModel.getDate(); // Ostavi datum nepromijenjenim
                 String email = editemail.getText().toString().trim();
                 String username = workersListModel.getUsername();
                 String phno = workersListModel.getPhno();
@@ -185,20 +184,29 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 if (!editemail.getText().toString().trim().isEmpty()) {
                     email = editemail.getText().toString().trim();
                 }
+
                 if (!editphno.getText().toString().trim().isEmpty()) {
                     phno = editphno.getText().toString().trim();
                 }
 
+                if (!editUsername.getText().toString().trim().isEmpty()) {
+                    username = editUsername.getText().toString().trim();
+                }
+
+                if (!editlijek.getText().toString().trim().isEmpty()) {
+                    lijek = editlijek.getText().toString().trim();
+                }
+
                 // Ažuriraj bazu podataka
                 String sql = " UPDATE Student2 \n" +
-                        " SET Name = ?, \n" +
+                        " SET Date = ?, \n" +
                         " Email = ?,\n" +
                         " PhoneNO = ?,\n" +
                         " WorkerSalary= ?, \n" +
                         " Lijek= ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{name, date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
 
@@ -261,7 +269,3 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
-
-
-
-
