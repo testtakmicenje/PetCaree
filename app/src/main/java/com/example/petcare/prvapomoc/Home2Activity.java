@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.petcare.R;
 import com.example.petcare.skeniranje.MainActivity;
-import com.example.petcare.skeniranje.PrepoznavanjeSimptomaActivity;
 
 
 public class Home2Activity extends AppCompatActivity {

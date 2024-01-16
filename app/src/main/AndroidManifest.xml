@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
 
     <application
         android:allowBackup="true"
@@ -82,8 +86,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".prvapomoc.GusenjeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".skeniranje.PrepoznavanjeSimptomaActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".zanimljivosti.Zanimljivost2"
             android:screenOrientation="portrait"/>
         <activity android:name=".zanimljivosti.Zanimljivost3"
@@ -120,8 +122,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".egzoticniljubimci.List1Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.MyPetsActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".settings.SettingsActivity"
             android:screenOrientation="portrait"/>
     <activity android:name=".settings.AboutApp"
@@ -129,6 +129,22 @@
         <activity android:name=".vodičzanjegu.Home3Activity"
             android:screenOrientation="portrait"/>
         <activity android:name=".vodičzanjegu.Detalji"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".prehrana.ReminderBroadcastReceiver"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".prehrana.Ljubimac"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".prehrana.DBHelper"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mojiljubimci.AddPetActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mojiljubimci.DatabaseHelper"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mojiljubimci.Pet"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mojiljubimci.PetListAdapter"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mojiljubimci.MyPetsActivity"
             android:screenOrientation="portrait"/>
 
     </application>

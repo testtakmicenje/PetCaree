@@ -81,11 +81,12 @@
                 android:textColor="@color/crna2"/>
 
             <ImageView
-                android:id="@+id/imageGallery"
-                android:layout_width="match_parent"
+                android:id="@+id/petImageView"
+                android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="10dp"
-                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
                 android:src="@drawable/placeholder_image"
                 android:contentDescription="Slika ljubimca"/>
 
@@ -94,10 +95,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Odaberi sliku"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/crna2"
-                android:backgroundTint="@color/rosa" />
+                android:backgroundTint="@color/rosa"
+                android:text="Odaberi sliku"
+                android:textColor="@color/crna2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -148,6 +149,33 @@
                     android:layout_height="48dp"
                     android:gravity="start"
                     android:hint="Unesite vrstu ljubimca..."
+                    android:inputType="textCapWords"
+                    android:padding="10dp"
+                    android:textColor="@color/crna2"
+                    android:textColorHint="@color/crna2" />
+
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Napomena:"
+                android:textColor="@color/crna2"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="382dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/cardview"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="0dp">
+
+                <EditText
+                    android:id="@+id/petsNoteEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="start"
+                    android:hint="Unesite napomenu..."
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:textColor="@color/crna2"

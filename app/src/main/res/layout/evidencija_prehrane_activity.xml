@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/logoImageView1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="start"
+                    app:tint="@color/crna2"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/toolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Evidencija prehrane"
+                    android:textSize="22sp"
+                    android:textColor="@color/crna2"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"/>
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Gornji dio ekrana za unos podataka -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite podatke za ljubimca:"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"/>
+
+            <!-- Ime ljubimca -->
+            <EditText
+                android:id="@+id/imeLjubimcaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ime ljubimca"
+                android:textColor="@color/crna2"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+
+
+            <!-- Tekst za unos vremena hranjenja -->
+            <TextView
+                android:id="@+id/vrijemeHranjenjaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite vrijeme hranjenja"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:clickable="true"
+                android:textColor="@color/crna2"/>
+
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:id="@+id/datumHranjenjaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite datum hranjenja"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:clickable="true"
+                android:textColor="@color/crna2"/>
+
+            <!-- DatePicker za odabir datuma hranjenja -->
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/> <!-- Inicijalno skriven -->
+
+            <!-- Dugme za postavljanje podsjetnika -->
+            <Button
+                android:id="@+id/podesiPodsjetnikButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/cardview"
+                android:text="Podesi Podsjetnik"
+                android:textColor="@color/crna2" />
+            <Switch
+                android:id="@+id/obavjestenjeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="8dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+

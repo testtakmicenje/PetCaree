@@ -82,5 +82,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.0.2'
     implementation 'com.firebaseui:firebase-ui-database:3.2.2'
     implementation 'com.github.Drjacky:ImagePicker:2.3.22'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+
 
 }
