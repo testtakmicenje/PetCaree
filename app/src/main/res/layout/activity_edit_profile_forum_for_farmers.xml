@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:id="@+id/ll"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/bg"
         tools:context=".EditProfileActivity">
 
             <androidx.appcompat.widget.Toolbar
@@ -30,6 +30,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/closeicon"
+                        android:tint="@color/rosa"
                         android:contentDescription="@null" />
 
                     <TextView
@@ -38,8 +39,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@id/close"
-                        android:text="Uredite svoj račun"
-                        android:textColor="@color/black"
+                        android:text="Uredi račun"
+                        android:textColor="@color/crna2"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -50,9 +51,8 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="10dp"
-                        android:text="Sačuvaj"
-                        android:textAllCaps="true"
-                        android:textColor="@color/black"
+                        android:text="Sačuvaj promjene"
+                        android:textColor="@color/crna2"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
 
@@ -81,23 +81,23 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:text="Promjenite sliku profila"
-                android:textColor="@color/black"
+                android:textColor="@color/crna2"
                 android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Unesite svoje ime i prezime"
-                app:hintTextColor="@color/black"
-                app:boxBackgroundColor="@color/white">
+                android:hint="Ime i prezime..."
+                app:hintTextColor="@color/crna2"
+                app:boxBackgroundColor="@color/cardview">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
+                    android:textColor="@color/crna2"
+                    android:textColorHint="@color/crna2"
                     android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -106,16 +106,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Unesite svoje korisničko ime"
-                app:hintTextColor="@color/black"
-                app:boxBackgroundColor="@color/white">
+                android:hint="Korisničko ime..."
+                app:hintTextColor="@color/crna2"
+                app:boxBackgroundColor="@color/cardview">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
+                    android:textColor="@color/crna2"
+                    android:textColorHint="@color/crna2"
                     android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -124,16 +124,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Unesite svoj opis profila"
-                app:hintTextColor="@color/black"
-                app:boxBackgroundColor="@color/white">
+                android:hint="Opis profila..."
+                app:hintTextColor="@color/crna2"
+                app:boxBackgroundColor="@color/cardview">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/bio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
+                    android:textColor="@color/crna2"
+                    android:textColorHint="@color/crna2"
                     android:maxLines="5" />
 
             </com.google.android.material.textfield.TextInputLayout>

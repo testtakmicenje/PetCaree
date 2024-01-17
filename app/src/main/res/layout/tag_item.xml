@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:text="#tag"
-            android:textColor="@color/black"
+            android:textColor="@color/crna2"
             android:textSize="12sp"
             android:textStyle="bold" />
 

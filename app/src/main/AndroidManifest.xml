@@ -53,8 +53,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".login.Login3Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".forum.Forum"
-            android:screenOrientation="portrait"/>
         <activity android:name=".prehrana.EvidencijaPrehrane"
             android:screenOrientation="portrait"/>
         <activity android:name=".egzoticniljubimci.ExoticPetsActivity"

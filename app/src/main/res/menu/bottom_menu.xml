@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/forumhomeicon"
+        android:icon="@drawable/homeicon"
         android:title="" />
 
     <item
         android:id="@+id/searchFragment"
-        android:icon="@drawable/forumsearchicon"
+        android:icon="@drawable/search"
         android:title="" />
 
     <item
         android:id="@+id/postActivity"
-        android:icon="@drawable/addicon"
+        android:icon="@drawable/more"
         android:title="" />
 
     <item
         android:id="@+id/notificationFragment"
-        android:icon="@drawable/notificationsicon"
+        android:icon="@drawable/notification"
         android:title="" />
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/accounticon"
+        android:icon="@drawable/account"
         android:title="" />
 
 </menu>

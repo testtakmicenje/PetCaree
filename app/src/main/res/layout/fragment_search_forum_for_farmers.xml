@@ -7,7 +7,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/bg"
         tools:context=".fragments.SearchFragment">
 
             <androidx.appcompat.widget.Toolbar
@@ -22,7 +22,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/searchicon"
                     android:contentDescription="@null"
-                    app:tint="@color/black"/>
+                    app:tint="@color/rosa"/>
 
                 <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
                     android:id="@+id/search_bar"
@@ -30,8 +30,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:background="@android:color/transparent"
-                    android:textColor="@color/black"
-                    android:hint="Pretražite" />
+                    android:textColor="@color/crna2"
+                    android:hint="Pretražite..." />
 
             </androidx.appcompat.widget.Toolbar>
 

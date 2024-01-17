@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/bg"
         tools:context=".PostActivity">
 
             <androidx.appcompat.widget.Toolbar
@@ -28,6 +28,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
+                        android:tint="@color/crna2"
                         android:src="@drawable/closeicon"
                         android:contentDescription="@null" />
 
@@ -38,7 +39,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="15dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/crna2"
                         android:text="Objavi"
                         android:textSize="18sp"
                         tools:ignore="RelativeOverlap" />
@@ -67,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:hint="Unesite naziv objave"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:hint="Naziv objave..."
+                android:textColor="@color/crna2"
+                android:textColorHint="@color/crna2"
                 android:textCursorDrawable="@null"
                 android:maxLines="5"
                 app:hashtagColor="@color/black"

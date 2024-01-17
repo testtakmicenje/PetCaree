@@ -4,7 +4,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/bg"
         android:padding="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/crna2"
                 android:id="@+id/username"
                 android:text=""/>
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/black"
+                android:textColor="@color/crna2"
                 android:maxLines="5"
                 android:id="@+id/comment"/>
 

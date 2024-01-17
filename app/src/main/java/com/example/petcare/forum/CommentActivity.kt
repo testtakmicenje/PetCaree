@@ -59,7 +59,7 @@ class CommentActivity : AppCompatActivity() {
 
             setSupportActionBar(toolbar)
 
-            supportActionBar?.title = "Komentari"
+            supportActionBar?.setDisplayShowTitleEnabled(false)
 
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

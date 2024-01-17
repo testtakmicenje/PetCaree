@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.NotificationFragment">
+        tools:context=".fragments.NotificationFragment"
+        android:background="@color/bg">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -21,8 +22,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Primjljena obavještenja"
-                        android:textColor="@color/black"
+                        android:text="Vaša obavještenja"
+                        android:textColor="@color/crna2"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 

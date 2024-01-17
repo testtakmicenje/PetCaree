@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.petcare.forum.Forum;
 import com.example.petcare.forum.MainActivity;
 import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 import com.example.petcare.prehrana.EvidencijaPrehrane;

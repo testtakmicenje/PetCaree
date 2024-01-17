@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/bg"
         tools:context=".fragments.ProfileFragment">
 
             <androidx.appcompat.widget.Toolbar
@@ -16,20 +16,7 @@
                 android:layout_marginTop="40dp"
                 android:background="@android:color/transparent">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:ignore="UselessLeaf">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Moj račun"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -79,7 +66,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -87,8 +74,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Objava"
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="12sp" />
 
                             </LinearLayout>
@@ -104,7 +90,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -112,8 +98,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Pratioca"
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="12sp" />
 
                             </LinearLayout>
@@ -129,7 +114,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -137,8 +122,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Prati"
-                                    android:textAllCaps="true"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/crna2"
                                     android:textSize="12sp" />
 
                             </LinearLayout>
@@ -149,7 +133,9 @@
                             android:id="@+id/edit_profile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/crna2"
+                            android:text="Uredi"
+                            android:backgroundTint="@color/rosa"
                             android:layout_marginTop="10dp" />
 
                     </LinearLayout>
@@ -169,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:maxLines="1"
                         android:text=""
-                        android:textColor="@color/black"
+                        android:textColor="@color/crna2"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -180,7 +166,7 @@
                         android:layout_marginTop="5dp"
                         android:maxLines="5"
                         android:text=""
-                        android:textColor="@color/black" />
+                        android:textColor="@color/crna2" />
 
                 </LinearLayout>
 
@@ -196,26 +182,24 @@
                     <ImageButton
                         android:id="@+id/my_pictures"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/myimagesicon"
-                        android:contentDescription="@null" />
-
-                    <View
-                        android:layout_width="2dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@color/black" />
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"
+                        android:tint="@color/rosa"
+                        android:src="@drawable/imagee" />
 
                     <ImageButton
                         android:id="@+id/saved_pictures"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/saveicon"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/savee"
+                        android:tint="@color/rosa" />
 
                 </LinearLayout>
 
