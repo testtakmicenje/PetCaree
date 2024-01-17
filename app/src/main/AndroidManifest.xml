@@ -145,6 +145,18 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".mojiljubimci.MyPetsActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".forum.EditProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".forum.CommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".forum.PostActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".forum.MainActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 </manifest>
