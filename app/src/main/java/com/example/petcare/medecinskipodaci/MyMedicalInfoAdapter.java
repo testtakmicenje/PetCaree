@@ -157,8 +157,8 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         int day = Integer.parseInt(dateParts[2]);
         datePicker.init(year, month, day, null);
 
-        editUsername.setText(workersListModel.getUsername());
-        editemail.setText(workersListModel.getEmail());
+        editUsername.setText(workersListModel.getEmail());
+        editemail.setText(workersListModel.getUsername());
         editphno.setText(workersListModel.getPhno());
         editlijek.setText(workersListModel.getLijek());
 
