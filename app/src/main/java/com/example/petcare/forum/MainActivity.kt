@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.petcare.R
 import com.example.petcare.databinding.ActivityMainForumForFarmersBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        setMyAccountId()
+
         val navController = Navigation.findNavController(this, R.id.myNavHostFragment)
 
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
@@ -45,6 +48,16 @@ class MainActivity : AppCompatActivity() {
                 .apply()
 
         }
+
+    }
+
+    private fun setMyAccountId() {
+
+        val editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit()
+
+        editor.putString("profileid", FirebaseAuth.getInstance().currentUser!!.uid)
+
+        editor.apply()
 
     }
 

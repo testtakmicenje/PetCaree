@@ -74,8 +74,6 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         }
     }
 
-
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
