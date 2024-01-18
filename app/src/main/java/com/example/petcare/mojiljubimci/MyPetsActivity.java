@@ -23,6 +23,7 @@ public class MyPetsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mypets_activity);
+        databaseHelper = new DatabaseHelper(this);
 
         toolbar = findViewById(R.id.toolbar);  // Dodano
         setSupportActionBar(toolbar);

@@ -1,14 +1,21 @@
 package com.example.petcare.mojiljubimci;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.petcare.R;
@@ -20,10 +27,16 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     private Context context;
     private List<Pet> petList;
+    private DatabaseHelper databaseHelper;
 
     public PetListAdapter(Context context, List<Pet> petList) {
         this.context = context;
         this.petList = petList;
+
+        // Inicijalizirajte DatabaseHelper ako nije
+        if (databaseHelper == null) {
+            databaseHelper = new DatabaseHelper(context);
+        }
     }
 
     @NonNull
@@ -35,7 +48,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
-        final Pet pet = petList.get(position);
+        final Pet pet = petList.get(holder.getAdapterPosition());
 
         if (pet.getImageUri() != null) {
             Picasso.get().load(Uri.parse(pet.getImageUri())).into(holder.petImageView);
@@ -50,10 +63,8 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         holder.buttonDeletePetImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Postavljanje URI-ja slike na null
-                pet.setImageUri(null);
-                // Osvježavanje prikaza RecyclerView-a
-                notifyDataSetChanged();
+                // Prikažite dijalog za potvrdu brisanja
+                showDeleteConfirmationDialog(pet, holder.getAdapterPosition());
             }
         });
     }
@@ -68,12 +79,60 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         notifyItemInserted(0); // Obavijesti adapter o promjenama
     }
 
-
-    // Method to update image URI for a specific pet
+    // Metoda za ažuriranje URI-ja slike za određenog ljubimca
     public void updatePetImage(int position, String imageUri) {
         Pet pet = petList.get(position);
         pet.setImageUri(imageUri);
         notifyItemChanged(position);
+    }
+
+    // Metoda za prikaz dijaloga za potvrdu brisanja
+    private void showDeleteConfirmationDialog(final Pet pet, final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(Html.fromHtml("<font color='#3B3B3B'>Potvrda</font>"));
+        builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li ste sigurni da želite izbrisati ovog ljubimca?</font>"));
+
+        builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Pozovite metodu za brisanje ljubimca iz baze podataka
+                if (databaseHelper != null) {
+                    databaseHelper.deletePet(pet.getId());
+                } else {
+                    Log.e("MyPetsActivity", "DatabaseHelper is null");
+                    return; // Ako je DatabaseHelper null, prekinite izvršavanje
+                }
+
+                // Osvježavanje prikaza RecyclerView-a
+                petList.remove(position);
+                notifyItemRemoved(position);
+
+                // Prikazivanje poruke da je ljubimac izbrisan
+                Toast.makeText(context, "Ljubimac je trajno izbrisan.", Toast.LENGTH_SHORT).show();
+
+                // Otvorite MyPetsActivity nakon brisanja
+
+            }
+        });
+
+        builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Zatvori dijalog, korisnik je odustao od brisanja
+                dialogInterface.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        // Prilagodite boje gumba AlertDialog-a
+        int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
+        int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
+
+        // Postavite boju teksta za gumbe
+        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
+        alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
     }
 
     public static class PetViewHolder extends RecyclerView.ViewHolder {

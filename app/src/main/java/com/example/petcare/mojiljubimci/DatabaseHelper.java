@@ -89,11 +89,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return petList;
     }
-    public boolean deletePet(int petId) {
+    // Dodajte ovu metodu u DatabaseHelper klasu ili sličnu klasu koja manipulira bazom podataka
+    public void deletePet(int petId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String[] whereArgs = {String.valueOf(petId)};
-        return db.delete(TABLE_PETS, COLUMN_ID + "=?", whereArgs) > 0;
+        db.delete(TABLE_PETS, "id=?", new String[]{String.valueOf(petId)});
+
+
+        db.close();
     }
+
 
 }
 
