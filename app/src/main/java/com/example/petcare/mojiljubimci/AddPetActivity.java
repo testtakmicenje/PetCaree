@@ -61,6 +61,7 @@ public class AddPetActivity extends Activity {
                 long result = databaseHelper.addPet(petName, petType, "", petNote);
 
 
+
                 if (result != -1) {
                     // Dobijte URI slike i postavite ga u trenutno dodanog ljubimca u adapteru
                     Uri petImageUri = getImageUriFromPetImageView();

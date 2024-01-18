@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME, name);
         values.put(COLUMN_TYPE, type);
         values.put(COLUMN_IMAGE_PATH, imagePath);
-        values.put(COLUMN_NOTE, note); // Dodajte novi redak za napomenu
+        values.put(COLUMN_NOTE, note);
         return db.insert(TABLE_PETS, null, values);
     }
 
@@ -71,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int nameColumnIndex = cursor.getColumnIndex(COLUMN_NAME);
         int typeColumnIndex = cursor.getColumnIndex(COLUMN_TYPE);
         int imagePathColumnIndex = cursor.getColumnIndex(COLUMN_IMAGE_PATH);
+        int noteColumnIndex = cursor.getColumnIndex(COLUMN_NOTE);
 
         while (cursor.moveToNext()) {
             if (idColumnIndex != -1 && nameColumnIndex != -1 && typeColumnIndex != -1 && imagePathColumnIndex != -1) {
@@ -79,6 +80,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 pet.setName(cursor.getString(nameColumnIndex));
                 pet.setType(cursor.getString(typeColumnIndex));
                 pet.setImagePath(cursor.getString(imagePathColumnIndex));
+
+                pet.setNote(cursor.getString(noteColumnIndex));
                 petList.add(pet);
             }
         }

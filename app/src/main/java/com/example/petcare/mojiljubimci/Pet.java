@@ -12,6 +12,7 @@ public class Pet implements BaseColumns {
     public static final String COLUMN_NAME_TYPE = "vrsta";
     public static final String COLUMN_NAME_IMAGE_PATH = "slika_path";
     public static final String COLUMN_NAME_IMAGE_URI = "slika_uri";
+    public static final String COLUMN_NAME_NOTE = "napomena";
 
     private int id;
     private String name;
