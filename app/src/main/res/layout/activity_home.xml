@@ -68,10 +68,10 @@
                     android:id="@+id/card_view_1"
                     android:layout_width="370dp"
                     android:layout_height="170dp"
-                    app:cardCornerRadius="15dp"
-                    android:layout_centerInParent="true"
                     android:layout_below="@+id/textView"
+                    android:layout_centerInParent="true"
                     android:layout_marginTop="6dp"
+                    app:cardCornerRadius="15dp"
                     app:cardElevation="10dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true">
@@ -99,7 +99,7 @@
                 android:layout_below="@id/relative_layout_2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-10dp"
-                android:text="Dobrodošli"
+                android:text="Istražite svijet ljubimaca"
                 android:textColor="#ec9faf"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -153,28 +153,6 @@
                                 android:layout_below="@id/iconPet"
                                 android:layout_marginTop="8dp" />
 
-                            <TextView
-                                android:id="@id/textViewPetDescription"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pogledajte galeriju i saznajte"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/textViewPet"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                tools:ignore="ExtraText" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="23dp"
-                                android:layout_below="@id/textViewPetDescription"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:text="više o ljubimcima"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp" />
-
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -209,27 +187,6 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/iconPaw"
                                 android:layout_marginTop="8dp" />
-                            <TextView
-                                android:id="@id/textViewMyPetsDescription"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dodajte svoje omiljene"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/textViewMyPets"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                tools:ignore="InvalidId" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/textViewMyPetsDescription"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:text="krznene saputnike"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -263,28 +220,6 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/iconExoticPet"
                                 android:layout_marginTop="8dp"/>
-                            <TextView
-                                android:id="@id/textViewExoticPetsDescription"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Otkrijte svijet"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/textViewExoticPets"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp" />
-
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/textViewExoticPetsDescription"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:text="egzotičnih ljubimaca"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                tools:ignore="InvalidId" />
 
 
                         </RelativeLayout>
@@ -351,30 +286,6 @@
                                 android:layout_below="@id/careIcon1"
                                 android:layout_marginTop="4dp" />
 
-                            <TextView
-                                android:id="@+id/careSubText1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pratite zdravsteveno stanje"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careText1"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp" />
-
-                            <TextView
-                                android:id="@+id/careSubText22"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="svojih ljubimaca"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careSubText1"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp"
-                                tools:ignore="DuplicateIds,InvalidId" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
@@ -406,32 +317,6 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/careIcon2"
                                 android:layout_marginTop="4dp" />
-
-                            <TextView
-                                android:id="@+id/careSubText2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Forum za dijeljenje"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careText2"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp"
-                                tools:ignore="DuplicateIds" />
-
-                            <TextView
-                                android:id="@+id/careSubText2_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=" iskustava i savjeta"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careSubText2"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp"
-                                tools:ignore="InvalidId" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -465,31 +350,6 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/careIcon4"
                                 android:layout_marginTop="4dp" />
-
-                            <TextView
-                                android:id="@+id/careSubText4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Balansirana prehrana za"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careText4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp" />
-
-                            <TextView
-                                android:id="@+id/careSubText4_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="zdravlje i vitalnost"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/careSubText4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp"
-                                tools:ignore="InvalidId" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -541,28 +401,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/newIcon3"
                                 android:layout_marginTop="4dp" />
-                            <TextView
-                                android:id="@+id/newSubText3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Savjeti za aktivan život"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newText3"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp" />
-                            <TextView
-                                android:id="@+id/newSubText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="sa krznenim saputnikom"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newSubText3"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp" />
+
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
@@ -595,28 +434,6 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/newIcon4"
                                 android:layout_marginTop="4dp" />
-                            <TextView
-                                android:id="@+id/newSubTextText4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Zapisujte težinu vašeg ljubimca "
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newText4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp" />
-                            <TextView
-                                android:id="@+id/newwSubText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="i pratite težinske promjene"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newSubTextText4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp" />
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
@@ -649,28 +466,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_below="@id/newIcon5"
                                 android:layout_marginTop="4dp" />
-                            <TextView
-                                android:id="@+id/newSubTextText5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Evidentirajte troškove za"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newText5"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginEnd="4dp" />
-                            <TextView
-                                android:id="@+id/newwwSubText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="brigu o ljubimcu"
-                                android:textColor="@color/crna2"
-                                android:textSize="7sp"
-                                android:layout_below="@id/newSubTextText5"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="1dp" />
+
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
                 </RelativeLayout>

@@ -64,7 +64,8 @@ public class AddPetActivity extends Activity {
                 if (result != -1) {
                     // Dobijte URI slike i postavite ga u trenutno dodanog ljubimca u adapteru
                     Uri petImageUri = getImageUriFromPetImageView();
-                    Pet newPet = new Pet(petName, petType);
+                    Pet newPet = new Pet(petName, petType, petNote);
+
                     newPet.setNote(petNote); // Dodano za napomenu
                     newPet.setImageUri(petImageUri.toString());
 

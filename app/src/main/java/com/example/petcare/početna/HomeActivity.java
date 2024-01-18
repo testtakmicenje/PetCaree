@@ -8,6 +8,9 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,6 +21,7 @@ import com.example.petcare.prehrana.EvidencijaPrehrane;
 import com.example.petcare.savjeti.Home5Activity;
 import com.example.petcare.kviz.HomeqActivity;
 import com.example.petcare.fitnesiaktivnosti.FitnesIAktivnosti;
+import com.example.petcare.skeniranje.ScanFragment;
 import com.example.petcare.troškovi.EvidencijaTroškova;
 import com.example.petcare.R;
 import com.example.petcare.egzoticniljubimci.ExoticPetsActivity;
@@ -208,6 +212,8 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
             Intent intent = new Intent(this, HomeqActivity.class);
             startActivity(intent);
         }
+
+
 
         return true;
     }

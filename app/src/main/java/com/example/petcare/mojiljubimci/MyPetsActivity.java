@@ -29,7 +29,7 @@ public class MyPetsActivity extends AppCompatActivity {
         List<Pet> petList = databaseHelper.getAllPets();
 
         // Postavljanje adaptera za RecyclerView
-        petListAdapter = new PetListAdapter(this, petList);
+        petsRecyclerView.setAdapter(petListAdapter);
 
         // Postavljanje adaptera za RecyclerView
         petsRecyclerView.setAdapter(new PetListAdapter(this, petList));

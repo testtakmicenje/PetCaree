@@ -158,6 +158,10 @@
         <activity
             android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".skeniranje.ScanFragment"
+            android:screenOrientation="portrait" />
+
+
 
     </application>
 </manifest>

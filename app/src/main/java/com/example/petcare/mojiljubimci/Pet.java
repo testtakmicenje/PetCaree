@@ -26,11 +26,13 @@ public class Pet implements BaseColumns {
     }
 
     // Konstruktor s argumentima
-    public Pet(String name, String type) {
+    // Konstruktor s argumentima
+    public Pet(String name, String type, String note) {
         this.name = name;
         this.type = type;
         this.note = note;
     }
+
 
     // Getteri i setteri
     public int getId() {
