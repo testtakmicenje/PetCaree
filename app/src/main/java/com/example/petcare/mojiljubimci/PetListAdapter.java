@@ -68,6 +68,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         notifyItemInserted(0); // Obavijesti adapter o promjenama
     }
 
+
     // Method to update image URI for a specific pet
     public void updatePetImage(int position, String imageUri) {
         Pet pet = petList.get(position);

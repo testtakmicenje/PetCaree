@@ -10,19 +10,24 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.petcare.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class AddPetActivity extends Activity {
+
+
+
+public class AddPetActivity extends AppCompatActivity {
 
     private EditText petNameEditText, petTypeEditText;
     private ImageView petImageView;
     private TextView addPetButton;
     private TextView selectImageButton;
     private EditText petsNoteEditText;
+    private Toolbar toolbar;
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -33,6 +38,21 @@ public class AddPetActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moji_ljubimci);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+        ImageView backImageView = findViewById(R.id.logoImageView1);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         petNameEditText = findViewById(R.id.petNameEditText);
         petTypeEditText = findViewById(R.id.petTypeEditText);
