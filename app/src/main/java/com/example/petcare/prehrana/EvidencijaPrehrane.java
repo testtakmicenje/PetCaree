@@ -3,6 +3,8 @@ package com.example.petcare.prehrana;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.example.petcare.R;
+import com.example.petcare.medecinskipodaci.AddMedicalInfo;
+import com.example.petcare.medecinskipodaci.MyMedicalInfo;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -24,6 +31,14 @@ public class EvidencijaPrehrane extends AppCompatActivity {
     private EditText imeLjubimcaEditText;
     private TextView datumVrijemeTextView;
     private Calendar calendar;
+
+    Button addpodsjetnik;
+
+    EditText workeremail;
+
+    public static final String DATABASE_NAME = "Prehrana.db";
+
+    SQLiteDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +60,15 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         // Inicijalizacija elemenata
         imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText);
         datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText);
+
+        workeremail = findViewById(R.id.imeLjubimcaEditText);
+
+        addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton);
+
         calendar = Calendar.getInstance();
+
+        mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+        createEmployeeTable();
 
         // Postavljanje klika za odabir datuma i vremena
         datumVrijemeTextView.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +77,60 @@ public class EvidencijaPrehrane extends AppCompatActivity {
                 showDateTimePicker();
             }
         });
+
+        addpodsjetnik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String email = workeremail.getText().toString().trim();
+
+                if (email.isEmpty()) {
+                    // Ako neki od podataka nedostaje, prikaži Toast
+                    showToast("Molimo vas da unesete sve podatke.");
+                } else {
+                    // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
+                    String insertSQL = "INSERT INTO Prehrana2 \n" +
+                            "(Email)\n" +
+                            "VALUES \n" +
+                            "(?);";
+
+                    mDatabase.execSQL(insertSQL, new String[]{email});
+
+                    Intent intent = new Intent(EvidencijaPrehrane.this, Prehrana.class);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
+
+
+
+
+    private void createEmployeeTable() {
+        mDatabase.execSQL(
+
+                "CREATE TABLE IF NOT EXISTS Prehrana2 " +
+
+                        "(\n" +
+
+                        "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
+
+                        "    Email varchar(200) NOT NULL\n" +
+
+                        ");"
+
+        );
+    }
+
+    // Izmene ovde - dodata metoda za formatiranje datuma
+    private String formatDate(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, day); // month is 0-based
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(calendar.getTime());
+    }
+    private void showToast(String message) {
+        Toast.makeText(EvidencijaPrehrane.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Metoda za prikazivanje dijaloga za odabir datuma i vremena
