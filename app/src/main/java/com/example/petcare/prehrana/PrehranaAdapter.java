@@ -52,11 +52,7 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         final Ljubimac workersListModel = myJobsAndMyProjectsListModel.get(position);
-        holder.textViewName.setText("Datum: " + workersListModel.getDate());
-        holder.textViewUsername.setText("Vrsta: " + workersListModel.getUsername());
         holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
-        holder.textViewPhone.setText("Bolest: " + workersListModel.getPhno());
-        holder.startDate.setText("Lijek: " + workersListModel.getLijek());
 
         holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,11 +115,7 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
             do {
                 Ljubimac workersListModel = new Ljubimac(
                         cursorproduct1.getInt(0),
-                        cursorproduct1.getString(1),
-                        cursorproduct1.getString(2),
-                        cursorproduct1.getString(3),
-                        cursorproduct1.getString(4),
-                        cursorproduct1.getString(5));
+                        cursorproduct1.getString(1));
 
                 // Dodajte workersListModel na kraj liste umjesto na početak
                 myJobsAndMyProjectsListModel.add(workersListModel);
@@ -151,16 +143,7 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
         final EditText editphno = view.findViewById(R.id.workersalary);
         final EditText editlijek = view.findViewById(R.id.lijek);
 
-        String[] dateParts = workersListModel.getDate().split("-");
-        int year = Integer.parseInt(dateParts[0]);
-        int month = Integer.parseInt(dateParts[1]) - 1;
-        int day = Integer.parseInt(dateParts[2]);
-        datePicker.init(year, month, day, null);
-
         editUsername.setText(workersListModel.getEmail());
-        editemail.setText(workersListModel.getUsername());
-        editphno.setText(workersListModel.getPhno());
-        editlijek.setText(workersListModel.getLijek());
 
         final AlertDialog dialog = builder.create();
         dialog.show();
@@ -174,39 +157,18 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
                 String date = formatDate(year, month, dayOfMonth);
 
                 // Ako je korisnik unio nove podatke, zamijeni ih
-                String name = workersListModel.getDate(); // Ostavi datum nepromijenjenim
                 String email = editemail.getText().toString().trim();
-                String username = workersListModel.getUsername();
-                String phno = workersListModel.getPhno();
-                String lijek = workersListModel.getLijek();
-
                 // Ako je korisnik unio nove podatke, zamijeni ih
                 if (!editemail.getText().toString().trim().isEmpty()) {
                     email = editemail.getText().toString().trim();
                 }
 
-                if (!editphno.getText().toString().trim().isEmpty()) {
-                    phno = editphno.getText().toString().trim();
-                }
-
-                if (!editUsername.getText().toString().trim().isEmpty()) {
-                    username = editUsername.getText().toString().trim();
-                }
-
-                if (!editlijek.getText().toString().trim().isEmpty()) {
-                    lijek = editlijek.getText().toString().trim();
-                }
-
                 // Ažuriraj bazu podataka
                 String sql = " UPDATE Prehrana2 \n" +
-                        " SET Date = ?, \n" +
-                        " Email = ?,\n" +
-                        " PhoneNO = ?,\n" +
-                        " WorkerSalary= ?, \n" +
-                        " Lijek= ? \n" +
+                        " SET Email = ? \n" +
                         "WHERE id = ?;\n";
 
-                mDatabase.execSQL(sql, new String[]{date, email, username, phno, lijek, String.valueOf(workersListModel.getId())});
+                mDatabase.execSQL(sql, new String[]{date, email, String.valueOf(workersListModel.getId())});
 
                 dialog.dismiss();
 

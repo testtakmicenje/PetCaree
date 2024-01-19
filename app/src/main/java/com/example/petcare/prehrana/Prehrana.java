@@ -88,15 +88,7 @@ public class Prehrana extends AppCompatActivity {
 
                         cursorproduct.getInt(0),
 
-                        cursorproduct.getString(1),
-
-                        cursorproduct.getString(2),
-
-                        cursorproduct.getString(3),
-
-                        cursorproduct.getString(4),
-
-                        cursorproduct.getString(5)
+                        cursorproduct.getString(1)
 
                 ));
 
@@ -134,17 +126,9 @@ public class Prehrana extends AppCompatActivity {
 
                         "(\n" +
 
-                        "    id INTEGER NOT NULL CONSTRAINT prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
+                        "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
 
-                        "    Date varchar(200) NOT NULL,\n" +
-
-                        "    Email varchar(200) NOT NULL,\n" +
-
-                        "    PhoneNo Varchar(200) NOT NULL, \n" +
-
-                        "    WorkerSalary Varchar(200) NOT NULL, \n" +
-
-                        "    Lijek Varchar(200) NOT NULL \n" +
+                        "    Email varchar(200) NOT NULL\n" +
 
                         ");"
 
