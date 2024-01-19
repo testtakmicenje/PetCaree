@@ -27,7 +27,7 @@ class PermissionActivity : AppCompatActivity() {
                 //main activity
                 startActivity(Intent(
                     this@PermissionActivity,
-                    Prehrana::class.java
+                    EvidencijaPrehrane::class.java
                 ))
             }
             else {

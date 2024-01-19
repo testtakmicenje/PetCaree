@@ -1,25 +1,45 @@
-package com.example.petcare.prehrana;
+package com.example.petcare.prehrana
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.app.NotificationManager;
-import android.app.Notification;
+import android.Manifest
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.example.petcare.R
 
-public class NotificationPublisher extends BroadcastReceiver {
-    public static String NOTIFICATION_ID = "2";
-    public static String NOTIFICATION = "obavjestenje";
+class NotificationPublisher : BroadcastReceiver() {
+    override fun onReceive(context: Context?, intent: Intent?) {
+        // Build and display the notification
+        val notificationBuilder = NotificationCompat.Builder(
+            context!!,
+            "channelId"
+        )
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        int id = intent.getIntExtra(NOTIFICATION_ID, 0);
-        Notification notification = intent.getParcelableExtra(NOTIFICATION);
-
-        if (notificationManager != null) {
-            notificationManager.notify(id, notification);
+        notificationBuilder.apply {
+            setSmallIcon(R.drawable.notificationicon)
+            setContentTitle("Vaš podsjetnik")
+            setContentText("Sada je vrijeme za hranjenje!")
         }
+
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        NotificationManagerCompat.from(context)
+            .notify(1, notificationBuilder.build())
     }
 }
 

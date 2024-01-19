@@ -66,7 +66,7 @@ public class Prehrana extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Otvorite novi ekran za unos težine
-                Intent intent = new Intent(Prehrana.this, EvidencijaPrehrane.class);
+                Intent intent = new Intent(Prehrana.this, PermissionActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
