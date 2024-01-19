@@ -11,14 +11,17 @@ public class Pet implements BaseColumns {
     public static final String COLUMN_NAME_NAME = "ime";
     public static final String COLUMN_NAME_TYPE = "vrsta";
     public static final String COLUMN_NAME_IMAGE_PATH = "slika_path";
-    public static final String COLUMN_NAME_IMAGE_URI = "slika_uri";
+
     public static final String COLUMN_NAME_NOTE = "napomena";
+    // Unutar klase Pet
+
+
 
     private int id;
     private String name;
     private String type;
     private String imagePath;
-    private String imageUri;
+
     private String note;
 
 
@@ -68,16 +71,13 @@ public class Pet implements BaseColumns {
         this.imagePath = imagePath;
     }
 
-    public String getImageUri() {
-        return imageUri;
-    }
+
+
     public String getNote() {
         return note;
     }
 
-    public void setImageUri(String imageUri) {
-        this.imageUri = imageUri;
-    }
+
     public void setNote(String note) {
         this.note = note;
     }

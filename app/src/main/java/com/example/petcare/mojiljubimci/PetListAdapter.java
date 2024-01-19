@@ -1,9 +1,13 @@
 package com.example.petcare.mojiljubimci;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +16,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,13 +50,17 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         return new PetViewHolder(view);
     }
 
-    @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
         final Pet pet = petList.get(holder.getAdapterPosition());
 
-        if (pet.getImageUri() != null) {
-            Picasso.get().load(Uri.parse(pet.getImageUri())).into(holder.petImageView);
+        // Dobivanje Uri iz slike u listi
+        Uri imageUri = getImageUriFromDrawable(holder.petImageView.getDrawable(), pet);
+
+        if (imageUri != null) {
+            // Picasso za prikazivanje slike
+            Picasso.get().load(imageUri).into(holder.petImageView);
         } else {
+            // Ako nema slike, postavite placeholder
             holder.petImageView.setImageResource(R.drawable.placeholder_image);
         }
 
@@ -80,11 +88,12 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
     // Metoda za ažuriranje URI-ja slike za određenog ljubimca
-    public void updatePetImage(int position, String imageUri) {
+    public void setPetImagePath(int position, String imagePath) {
         Pet pet = petList.get(position);
-        pet.setImageUri(imageUri);
+        pet.setImagePath(imagePath);
         notifyItemChanged(position);
     }
+
 
     // Metoda za prikaz dijaloga za potvrdu brisanja
     private void showDeleteConfirmationDialog(final Pet pet, final int position) {
@@ -109,9 +118,6 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
                 // Prikazivanje poruke da je ljubimac izbrisan
                 Toast.makeText(context, "Ljubimac je trajno izbrisan.", Toast.LENGTH_SHORT).show();
-
-                // Otvorite MyPetsActivity nakon brisanja
-
             }
         });
 
@@ -133,6 +139,28 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         // Postavite boju teksta za gumbe
         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
+    }
+
+    // Metoda za dobivanje Uri iz Drawable
+    private Uri getImageUriFromDrawable(Drawable drawable, Pet pet) {
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+
+            if (bitmap != null) {
+                // Ako imagePath nije null, znači da je korisnik odabrao sliku iz galerije
+                if (pet.getImagePath() != null) {
+                    return Uri.parse(pet.getImagePath());
+                } else {
+                    // Ako imagePath je null, znači da je korisnik snimio novu fotografiju
+                    String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "Opis slike", null);
+                    return Uri.parse(path);
+                }
+            }
+        }
+
+        // Ako nema slike, možete vratiti null ili obraditi kako je potrebno za vašu aplikaciju
+        return null;
     }
 
     public static class PetViewHolder extends RecyclerView.ViewHolder {

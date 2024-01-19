@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_IMAGE_PATH = "image_path";
-    private static final String COLUMN_IMAGE_URI = "image_uri";
+
 
 
     private static final String CREATE_TABLE_PETS = "CREATE TABLE " + TABLE_PETS + "("
@@ -80,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 pet.setName(cursor.getString(nameColumnIndex));
                 pet.setType(cursor.getString(typeColumnIndex));
                 pet.setImagePath(cursor.getString(imagePathColumnIndex));
+
 
                 pet.setNote(cursor.getString(noteColumnIndex));
                 petList.add(pet);
