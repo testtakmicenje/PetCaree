@@ -63,7 +63,7 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         datumHranjenjaText = findViewById(R.id.datumHranjenjaText);
         timePicker = findViewById(R.id.timePicker);
         datePicker = findViewById(R.id.datePicker);
-        obavjestenjeSwitch = findViewById(R.id.obavjestenjeSwitch);
+
         dbHelper = new DBHelper(this);
 
         // Inicijalizacija odabira za TimePicker i DatePicker
@@ -98,25 +98,8 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         });
 
         // Dodaj OnCheckedChangeListener za prekidač obavještenja
-        obavjestenjeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Spremi trenutno stanje prekidača u SharedPreferences
-            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean(NOTIFICATIONS_ENABLED_KEY, isChecked);
-            editor.apply();
 
-            // Prikazi poruku o tome jesu li obavještenja uključena ili isključena
-            if (isChecked) {
-                showToast("Obavještenja su uključena.");
-            } else {
-                showToast("Obavještenja su isključena.");
-            }
-        });
 
-        // Učitaj trenutno stanje prekidača iz SharedPreferences i postavi ga
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        boolean notificationsEnabled = settings.getBoolean(NOTIFICATIONS_ENABLED_KEY, true);
-        obavjestenjeSwitch.setChecked(notificationsEnabled);
     }
 
     private void setupDateTimePickers() {

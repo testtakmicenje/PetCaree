@@ -86,13 +86,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/cardView">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_below="@+id/cardView1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/cardView"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cardview"
+        android:layout_marginTop="1dp"
+        app:cardCornerRadius="15dp"
+        android:layout_centerInParent="true"
+        app:cardPreventCornerOverlap="true"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Tekst unutar drugog CardView-a -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/crna2"
+                android:textSize="16dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="PetCare mobilna aplikacija je kreirana s ciljem pružanja sveobuhvatne podrške vlasnicima ljubimaca. Omogućava korisnicima praćenje zdravlja, prehrane, aktivnosti i mnogo više, čime olakšava njegu o njihovim ljubimcima. Aplikacija je namijenjena ljubiteljima životinja koji žele pružiti najbolju moguću brigu svojim kućnim ljubimcima.\n\nAutori ove aplikacije su učenice 2IT-a Tehničke škole Gradiška:\n*Dejana Škorić\n*Marija Vuković\n"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- NestedScrollView ispod CardView-a -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/cardView2"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/cardview"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="3dp"
             app:cardCornerRadius="15dp"
             android:layout_centerInParent="true"
             app:cardPreventCornerOverlap="true"
@@ -113,9 +153,11 @@
                 android:textSize="16dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
-                android:text="\nLjubimci-poseban segment posvećen ljubimcima, pružajući korisnicima specifične informacije i savjete o različitim vrstama kućnih ljubimaca.\n\nMoji ljubimci-centralno mjesto za pregled svih ljubimaca korisnika, gdje mogu dodavati nove, uređivati ili brisati postojeće informacije.\n\nEgzotični ljubimci-poseban segment posvećen egzotičnim ljubimcima, pružajući korisnicima specifične informacije i savjete o neobičnim vrstama kućnih ljubimaca.\n\nMedecinski podaci-omogućava korisnicima bilježenje medicinskih podataka o svojim ljubimcima, uključujući veterinarske posjete i ostale relevantne informacije.\n\nForum-mjesto gdje korisnici mogu dijeliti iskustva, postavljati pitanja i razmjenjivati savjete s drugim ljubiteljima ljubimaca.\n\nEvidencija prehrane-pruža korisnicima alat za praćenje prehrane njihovih ljubimaca, uključujući vrste hrane, količine i redovitost hranjenja.\n\nFitnes i ativnosti-omogućava zapisivanje i praćenje fizičkih aktivnosti ljubimaca, poput šetnji, igara i vježbi, kako bi se održala njihova kondicija.\n\nTjelesna težina-funkcija koja omogućava korisnicima praćenje tjelesne težine svojih ljubimaca pomoću datuma.\n\nEviidencija troškova-pomaže korisnicima da prate financijske aspekte skrbi o ljubimcima, uključujući troškove hrane, veterinarskih usluga i drugih potrebnih resursa.\n\nPrva pomoć-pruža osnovne smjernice i informacije o prvoj pomoći za ljubimce, kako bi korisnici znali kako reagirati u hitnim situacijama.\n\nPrepoznavanje simptoma-skeniranje bolesti putem kamere omogućava korisnicima da brzo identificiraju moguće zdravstvene probleme kod svojih ljubimaca.\n\nVodič za njegu-detaljne informacije i savjeti o opštoj njezi za različite vrste ljubimaca, uključujući preporuke o higijeni, čiščenju krzna i slično.\n\nZanimljivosti-dio posvećen zabavnim i zanimljivim činjenicama o životinjama, pružajući korisnicima dodatne informacije o svijetu ljubimaca.\n\nSavjeti-sekcija koja nudi korisne savjete i trikove vezane uz skrb o ljubimcima, podržavajući korisnike u pružanju najbolje moguće brige.\n\nKviz-interaktivna igra koja testira znanje korisnika o ljubimcima kroz postavljanje pitanja i pruža dodatnu edukaciju na zabavan način.\n "/>
+                android:text="\nLjubimci-poseban segment posvećen ljubimcima, pružajući korisnicima specifične informacije i savjete o različitim vrstama kućnih ljubimaca.\n\nMoji ljubimci-centralno mjesto za pregled svih ljubimaca korisnika, gdje mogu dodavati nove, uređivati ili brisati postojeće informacije.\n\nEgzotični ljubimci-poseban segment posvećen egzotičnim ljubimcima, pružajući korisnicima specifične informacije i savjete o neobičnim vrstama kućnih ljubimaca.\n\nMedicinski podaci-omogućava korisnicima bilježenje medicinskih podataka o svojim ljubimcima, uključujući veterinarske posjete i ostale relevantne informacije.\n\nForum-mjesto gdje korisnici mogu dijeliti iskustva, postavljati pitanja i razmjenjivati savjete s drugim ljubiteljima ljubimaca.\n\nEvidencija prehrane-pruža korisnicima alat za praćenje prehrane njihovih ljubimaca, uključujući redovitost hranjenja.\n\nFitnes i ativnosti-omogućava praćenje fizičkih aktivnosti ljubimaca pomoću posjetnika, kako bi se održala njihova kondicija.\n\nTjelesna težina-funkcija koja omogućava korisnicima praćenje tjelesne težine svojih ljubimaca pomoću datuma.\n\nEvidencija troškova-pomaže korisnicima da prate financijske aspekte skrbi o ljubimcima, uključujući troškove hrane, veterinarskih usluga i drugih potrebnih resursa.\n\nPrva pomoć-pruža osnovne smjernice i informacije o prvoj pomoći za ljubimce, kako bi korisnici znali kako reagovati u hitnim situacijama.\n\nPrepoznavanje simptoma-skeniranje bolesti putem kamere omogućava korisnicima da brzo identificiraju moguće zdravstvene probleme kod svojih ljubimaca.\n\nVodič za njegu-detaljne informacije i savjeti o opštoj njezi za različite vrste ljubimaca, uključujući preporuke o higijeni, čiščenju krzna i slično.\n\nZanimljivosti-dio posvećen zabavnim i zanimljivim činjenicama o životinjama, pružajući korisnicima dodatne informacije o svijetu ljubimaca.\n\nSavjeti-sekcija koja nudi korisne savjete i trikove vezane uz skrb o ljubimcima, podržavajući korisnike u pružanju najbolje moguće brige.\n\nKviz-interaktivna igra koja testira znanje korisnika o ljubimcima kroz postavljanje pitanja i pruža dodatnu edukaciju na zabavan način.\n "/>
         </LinearLayout>
         </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
 </RelativeLayout>
 

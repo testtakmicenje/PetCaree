@@ -1,6 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/logoImageView1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="start"
+                    app:tint="@color/crna2"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/toolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fitnes i Aktivnosti"
+                    android:textSize="22sp"
+                    android:textColor="@color/crna2"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"/>
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Gornji dio ekrana za unos podataka -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite podatke:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"/>
+
+            <!-- Ime -->
+            <TextView
+                android:id="@+id/imeLjubimcaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ime ljubimca:"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/crna2"/>
+
+            <!-- Ime ljubimca -->
+            <EditText
+                android:id="@+id/imeLjubimcaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unesite ime ljubimca..."
+                android:textColor="@color/crna2"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <!-- Tekst za unos aktivnosti -->
+            <TextView
+                android:id="@+id/aktivnostText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite aktivnost:"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/crna2"/>
+
+            <!-- Aktivnost -->
+            <EditText
+                android:id="@+id/aktivnostEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unesite aktivnost..."
+                android:textColor="@color/crna2"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <!-- Tekst za unos vremena aktivnosti -->
+            <TextView
+                android:id="@+id/vrijemeAktivnostiText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite vrijeme aktivnosti"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:clickable="true"
+                android:textColor="@color/crna2"/>
+
+            <!-- TimePicker za odabir vremena aktivnosti -->
+            <TimePicker
+                android:id="@+id/timePickerAktivnosti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+
+            <!-- Tekst za unos datuma aktivnosti -->
+            <TextView
+                android:id="@+id/datumAktivnostiText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unesite datum aktivnosti"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:clickable="true"
+                android:textColor="@color/crna2"/>
+
+            <!-- DatePicker za odabir datuma aktivnosti -->
+            <DatePicker
+                android:id="@+id/datePickerAktivnosti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/> <!-- Inicijalno skriven -->
+
+            <!-- Dugme za spremanje podataka -->
+            <Button
+                android:id="@+id/spremiButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/cardview"
+                android:text="Podesi podsjetnik"
+                android:textColor="@color/crna2" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
