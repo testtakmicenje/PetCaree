@@ -53,6 +53,7 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         final Ljubimac workersListModel = myJobsAndMyProjectsListModel.get(position);
         holder.textViewName.setText("Ime: " + workersListModel.getEmail());
+        holder.textViewUsername.setText("Vrijeme: " + workersListModel.getVrijeme());
 
         holder.deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,18 +61,18 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Confirmation");
 
-                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbrisati ovaj medicinski podatak?</font>"));
+                builder.setMessage(Html.fromHtml("<font color='#3B3B3B'>Da li si siguran da želiš izbirsati ovu evidenciju prehrane?</font>"));
 
                 builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String sql = "DELETE FROM Student2 WHERE id = ?";
+                        String sql = "DELETE FROM Prehrana2 WHERE id = ?";
                         mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
                         removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
                         notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
                         // Display toast for weight deletion
-                        showToast("Medicinski podatak je obrisan.");
+                        showToast("Evidencija prehrane je obrisana.");
                     }
                 });
 

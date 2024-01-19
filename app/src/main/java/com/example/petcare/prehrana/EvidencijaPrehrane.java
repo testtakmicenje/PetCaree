@@ -18,9 +18,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import com.example.petcare.R;
-import com.example.petcare.medecinskipodaci.AddMedicalInfo;
-import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -81,7 +80,6 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         addpodsjetnik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String email = workeremail.getText().toString().trim();
 
                 if (email.isEmpty()) {
@@ -89,12 +87,17 @@ public class EvidencijaPrehrane extends AppCompatActivity {
                     showToast("Molimo vas da unesete sve podatke.");
                 } else {
                     // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
+
+                    // Formatiranje odabranog datuma i vremena u string
+                    SimpleDateFormat databaseDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+                    String formattedDateTime = databaseDateFormat.format(calendar.getTime());
+
                     String insertSQL = "INSERT INTO Prehrana2 \n" +
                             "(Email, Vrijeme)\n" +
                             "VALUES \n" +
                             "(?, ?);";
 
-                    mDatabase.execSQL(insertSQL, new String[]{email});
+                    mDatabase.execSQL(insertSQL, new String[]{email, formattedDateTime});
 
                     Intent intent = new Intent(EvidencijaPrehrane.this, Prehrana.class);
                     startActivity(intent);
@@ -103,40 +106,21 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         });
     }
 
-
-
-
     private void createEmployeeTable() {
         mDatabase.execSQL(
-
                 "CREATE TABLE IF NOT EXISTS Prehrana2 " +
-
                         "(\n" +
-
                         "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
-
                         "    Email varchar(200) NOT NULL,\n" +
-
                         "    Vrijeme varchar(200) NOT NULL\n" +
-
                         ");"
-
         );
     }
 
-    // Izmene ovde - dodata metoda za formatiranje datuma
-    private String formatDate(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month - 1, day); // month is 0-based
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(calendar.getTime());
-    }
     private void showToast(String message) {
         Toast.makeText(EvidencijaPrehrane.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Metoda za prikazivanje dijaloga za odabir datuma i vremena
-    // Metoda za prikazivanje dijaloga za odabir datuma i vremena
     private void showDateTimePicker() {
         // Postavljanje trenutnog datuma i vremena u dijalog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -174,7 +158,6 @@ public class EvidencijaPrehrane extends AppCompatActivity {
 
                         negativeButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
                         negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
-
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
@@ -187,7 +170,5 @@ public class EvidencijaPrehrane extends AppCompatActivity {
 
         negativeButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
         negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
-
     }
-
 }
