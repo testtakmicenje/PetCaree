@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,12 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
-
+        <activity
+            android:name=".prehrana.Prehrana"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".splashscreen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -29,120 +32,175 @@
                 android:name="android:name"
                 android:value="true" />
         </activity>
-
-        <activity android:name=".skeniranje.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".medecinskipodaci.MyMedicalInfo"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".medecinskipodaci.AddMedicalInfo"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".početna.HomeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".weight.MyJobsAndMyProjects"
+        <activity
+            android:name=".skeniranje.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".medecinskipodaci.MyMedicalInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".medecinskipodaci.AddMedicalInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".početna.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".weight.MyJobsAndMyProjects"
             android:parentActivityName=".početna.HomeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".weight.AddMyJobsAndMyProjects"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".appintro.AppIntro"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".splashscreen.MainActivity2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".login.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".login.Login1Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".login.Login3Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prehrana.EvidencijaPrehrane"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".egzoticniljubimci.ExoticPetsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".fitnesiaktivnosti.FitnesIAktivnosti"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".troškovi.EvidencijaTroškova"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.Home2Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Home4Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".savjeti.Home5Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.KrvarenjeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.OpekotineActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.PovredaKostijuActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.PovredaOcijuActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.PovredaSapaActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.TrovanjeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.VjestackoDisanjeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prvapomoc.GusenjeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost3"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost4"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost5"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost6"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost7"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost8"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost9"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost10"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".zanimljivosti.Zanimljivost11"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".kviz.HomeqActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ljubimci.DetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ljubimci.ListActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ljubimci.ListItem"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ljubimci.CustomListAdapter"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ljubimci.PetsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".egzoticniljubimci.ActivityDetail"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".egzoticniljubimci.List1Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".settings.SettingsActivity"
-            android:screenOrientation="portrait"/>
-    <activity android:name=".settings.AboutApp"
-        android:screenOrientation="portrait"/>
-        <activity android:name=".vodičzanjegu.Home3Activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".vodičzanjegu.Detalji"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prehrana.ReminderBroadcastReceiver"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prehrana.Ljubimac"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".prehrana.DBHelper"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.AddPetActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.DatabaseHelper"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.Pet"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.PetListAdapter"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mojiljubimci.MyPetsActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".weight.AddMyJobsAndMyProjects"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".appintro.AppIntro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".splashscreen.MainActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.Login1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.Login3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prehrana.EvidencijaPrehrane"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".egzoticniljubimci.ExoticPetsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fitnesiaktivnosti.FitnesIAktivnosti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".troškovi.EvidencijaTroškova"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.Home2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Home4Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".savjeti.Home5Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.KrvarenjeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.OpekotineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.PovredaKostijuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.PovredaOcijuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.PovredaSapaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.TrovanjeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.VjestackoDisanjeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prvapomoc.GusenjeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost6"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost7"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost8"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost9"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost10"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".zanimljivosti.Zanimljivost11"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".kviz.HomeqActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ljubimci.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ljubimci.ListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ljubimci.ListItem"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ljubimci.CustomListAdapter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ljubimci.PetsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".egzoticniljubimci.ActivityDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".egzoticniljubimci.List1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".settings.AboutApp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vodičzanjegu.Home3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vodičzanjegu.Detalji"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prehrana.ReminderBroadcastReceiver"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prehrana.Ljubimac"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prehrana.DBHelper"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mojiljubimci.AddPetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mojiljubimci.DatabaseHelper"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mojiljubimci.Pet"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mojiljubimci.PetListAdapter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mojiljubimci.MyPetsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".forum.EditProfileActivity"
             android:screenOrientation="portrait" />
@@ -151,17 +209,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".forum.PostActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".forum.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".skeniranje.ScanFragment"
+        <activity
+            android:name=".skeniranje.ScanFragment"
             android:screenOrientation="portrait" />
-
-
-
     </application>
+
 </manifest>

@@ -7,7 +7,7 @@
     <string name="close_drawer">zatvaranje</string>
     <string name="hide_bottom_view_on_scroll_behavior">ponasanje</string>
     <string name="kviz_prvo_pitanje">Koji glodar je često biran kao kućni ljubimac zbog svoje sposobnosti da brzo uči trikove? </string>
-<string name="zapocnite_kviz">započnite kviz</string>
+    <string name="zapocnite_kviz">započnite kviz</string>
     <string name="molimo_unesite_svoje_ime">Unesite svoje ime</string>
     <string name="confirm">Podnesi</string>
     <string name="vas_rezultat_je">Vaš rezultat je</string>

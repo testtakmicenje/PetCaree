@@ -18,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.petcare.forum.MainActivity;
 import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 import com.example.petcare.prehrana.EvidencijaPrehrane;
+import com.example.petcare.prehrana.Prehrana;
 import com.example.petcare.savjeti.Home5Activity;
 import com.example.petcare.kviz.HomeqActivity;
 import com.example.petcare.fitnesiaktivnosti.FitnesIAktivnosti;
@@ -160,7 +161,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         careCardView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, EvidencijaPrehrane.class);
+                Intent intent = new Intent(HomeActivity.this, Prehrana.class);
                 startActivity(intent);
             }
         });

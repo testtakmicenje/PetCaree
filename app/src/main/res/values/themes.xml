@@ -26,6 +26,15 @@
     <style name="MyDatePickerStyle" parent="android:Widget.Material.DatePicker">
         <item name="android:textColorPrimary">#3B3B3B</item>
     </style>
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+    </style>
+    <style name="DatePickerTheme2" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+    </style>
+    <style name="MyDatePickerStyle2" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+    </style>
 
 
 </resources>

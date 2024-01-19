@@ -73,7 +73,7 @@
                 android:id="@+id/vrijemeHranjenjaText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unesite vrijeme hranjenja"
+                android:text="Unesite vrijeme i datum hranjenja"
                 android:textSize="18sp"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"
@@ -88,18 +88,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:visibility="gone"/>
-
-
-            <TextView
-                android:id="@+id/datumHranjenjaText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Unesite datum hranjenja"
-                android:textSize="18sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:clickable="true"
-                android:textColor="@color/crna2"/>
 
             <!-- DatePicker za odabir datuma hranjenja -->
             <DatePicker
@@ -123,9 +111,8 @@
                 android:text="Podesi Podsjetnik"
                 android:textColor="@color/crna2" />
 
-
-
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>
