@@ -1,11 +1,18 @@
 package com.example.petcare.prehrana;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.petcare.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -83,12 +87,10 @@ public class EvidencijaPrehrane extends AppCompatActivity {
                 String email = workeremail.getText().toString().trim();
 
                 if (email.isEmpty()) {
-                    // Ako neki od podataka nedostaje, prikaži Toast
                     showToast("Molimo vas da unesete sve podatke.");
                 } else {
                     // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
 
-                    // Formatiranje odabranog datuma i vremena u string
                     SimpleDateFormat databaseDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
                     String formattedDateTime = databaseDateFormat.format(calendar.getTime());
 
@@ -98,6 +100,9 @@ public class EvidencijaPrehrane extends AppCompatActivity {
                             "(?, ?);";
 
                     mDatabase.execSQL(insertSQL, new String[]{email, formattedDateTime});
+
+                    // Postavljanje push notifikacije
+                    scheduleNotification(getNotification("Vaš podsjetnik"), calendar.getTimeInMillis());
 
                     Intent intent = new Intent(EvidencijaPrehrane.this, Prehrana.class);
                     startActivity(intent);
@@ -170,5 +175,36 @@ public class EvidencijaPrehrane extends AppCompatActivity {
 
         negativeButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
         negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
+    }
+
+    private void scheduleNotification(Notification notification, long delay) {
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, delay, pendingIntent);
+    }
+
+    private Notification getNotification(String content) {
+        Notification.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "YOUR_CHANNEL_ID";
+            CharSequence channelName = "YOUR_CHANNEL_NAME";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel notificationChannel = new NotificationChannel(channelId, channelName, importance);
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            builder = new Notification.Builder(this, channelId);
+        } else {
+            builder = new Notification.Builder(this);
+        }
+
+        builder.setContentTitle("Vaš podsjetnik");
+        builder.setContentText(content);
+        builder.setSmallIcon(R.drawable.notificationicon); // Dodajte ikonu notifikacije
+        return builder.build();
     }
 }

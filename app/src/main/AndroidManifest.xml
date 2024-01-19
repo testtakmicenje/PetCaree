@@ -178,13 +178,7 @@
             android:name=".vodičzanjegu.Detalji"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".prehrana.ReminderBroadcastReceiver"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".prehrana.Ljubimac"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".prehrana.DBHelper"
             android:screenOrientation="portrait" />
         <activity
             android:name=".mojiljubimci.AddPetActivity"
@@ -219,6 +213,10 @@
         <activity
             android:name=".skeniranje.ScanFragment"
             android:screenOrientation="portrait" />
+        <receiver
+            android:name=".prehrana.NotificationPublisher"
+            android:exported="false">
+        </receiver>
     </application>
 
 </manifest>
