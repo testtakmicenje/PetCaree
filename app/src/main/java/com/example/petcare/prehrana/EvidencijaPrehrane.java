@@ -10,6 +10,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,14 +23,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.Manifest;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import com.example.petcare.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class EvidencijaPrehrane extends AppCompatActivity {
+
+    final int PERMISSION_REQUEST_CODE =112;
 
     private EditText imeLjubimcaEditText;
     private TextView datumVrijemeTextView;
@@ -50,36 +56,43 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        ImageView backImageView = findViewById(R.id.logoImageView1);
-        backImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
+        if (Build.VERSION.SDK_INT > 32) {
+            if (!shouldShowRequestPermissionRationale("112")) {
+                getNotificationPermission();
             }
-        });
 
-        // Inicijalizacija elemenata
-        imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText);
-        datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        workeremail = findViewById(R.id.imeLjubimcaEditText);
+            ImageView backImageView = findViewById(R.id.logoImageView1);
+            backImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
 
-        addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton);
+            // Inicijalizacija elemenata
+            imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText);
+            datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText);
 
-        calendar = Calendar.getInstance();
+            workeremail = findViewById(R.id.imeLjubimcaEditText);
 
-        mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
-        createEmployeeTable();
+            addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton);
 
-        // Postavljanje klika za odabir datuma i vremena
-        datumVrijemeTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDateTimePicker();
-            }
-        });
+            calendar = Calendar.getInstance();
+
+            mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+            createEmployeeTable();
+
+            // Postavljanje klika za odabir datuma i vremena
+            datumVrijemeTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDateTimePicker();
+                }
+            });
+
+        }
 
         addpodsjetnik.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,7 +194,7 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         Intent notificationIntent = new Intent(this, NotificationPublisher.class);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, delay, pendingIntent);
@@ -207,4 +220,38 @@ public class EvidencijaPrehrane extends AppCompatActivity {
         builder.setSmallIcon(R.drawable.notificationicon); // Dodajte ikonu notifikacije
         return builder.build();
     }
+
+
+    public void getNotificationPermission(){
+        try {
+            if (Build.VERSION.SDK_INT > 32) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        PERMISSION_REQUEST_CODE);
+            }
+        }catch (Exception e){
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // allow
+
+                }  else {
+                    //deny
+                }
+                return;
+
+        }
+
+    }
+
 }
