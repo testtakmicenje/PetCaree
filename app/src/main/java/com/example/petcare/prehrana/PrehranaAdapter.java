@@ -45,21 +45,14 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_medicalinfo_adapter, null);
+        View view = inflater.inflate(R.layout.prehrana_adapter, null);
         return new ProductViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
         final Ljubimac workersListModel = myJobsAndMyProjectsListModel.get(position);
-        holder.textViewEmail.setText("Ime: " + workersListModel.getEmail());
-
-        holder.editbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateEmployee(workersListModel);
-            }
-        });
+        holder.textViewName.setText("Ime: " + workersListModel.getEmail());
 
         holder.deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +108,8 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
             do {
                 Ljubimac workersListModel = new Ljubimac(
                         cursorproduct1.getInt(0),
-                        cursorproduct1.getString(1));
+                        cursorproduct1.getString(1),
+                        cursorproduct1.getString(2));
 
                 // Dodajte workersListModel na kraj liste umjesto na početak
                 myJobsAndMyProjectsListModel.add(workersListModel);
@@ -129,68 +123,6 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
 
         notifyDataSetChanged();
     }
-
-    private void updateEmployee(final Ljubimac workersListModel) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dialog_edit_medical_info, null);
-        builder.setView(view);
-
-        final DatePicker datePicker = view.findViewById(R.id.dateDatePicker);
-        final EditText editUsername = view.findViewById(R.id.workerphonenumber);
-        final EditText editemail = view.findViewById(R.id.workeremail);
-        final EditText editphno = view.findViewById(R.id.workersalary);
-        final EditText editlijek = view.findViewById(R.id.lijek);
-
-        editUsername.setText(workersListModel.getEmail());
-
-        final AlertDialog dialog = builder.create();
-        dialog.show();
-
-        view.findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int dayOfMonth = datePicker.getDayOfMonth();
-                int month = datePicker.getMonth() + 1;
-                int year = datePicker.getYear();
-                String date = formatDate(year, month, dayOfMonth);
-
-                // Ako je korisnik unio nove podatke, zamijeni ih
-                String email = editemail.getText().toString().trim();
-                // Ako je korisnik unio nove podatke, zamijeni ih
-                if (!editemail.getText().toString().trim().isEmpty()) {
-                    email = editemail.getText().toString().trim();
-                }
-
-                // Ažuriraj bazu podataka
-                String sql = " UPDATE Prehrana2 \n" +
-                        " SET Email = ? \n" +
-                        "WHERE id = ?;\n";
-
-                mDatabase.execSQL(sql, new String[]{date, email, String.valueOf(workersListModel.getId())});
-
-                dialog.dismiss();
-
-                ((Activity) context).finish();
-
-                // Prikazuje toast za ažuriranje težine
-                showToast("Medicinski podatak je uređen.");
-
-                // Ponovno učitaj podatke iz baze podataka
-                reloadEmployeesFromDatabase();
-            }
-        });
-
-        view.findViewById(R.id.logoImageView1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-    }
-
-
 
     private void removeUserFromFunction(Ljubimac workersListModel) {
         myJobsAndMyProjectsListModel.remove(workersListModel);
@@ -218,12 +150,6 @@ public class PrehranaAdapter extends RecyclerView.Adapter<PrehranaAdapter.Produc
             deletebtn = itemView.findViewById(R.id.buttonDeleteStudent);
             editbtn = itemView.findViewById(R.id.buttonEditstudent);
         }
-    }
-
-    // Dodata metoda za formatiranje datuma
-    private String formatDate(int year, int month, int day) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(new java.util.Date(year - 1900, month, day));
     }
 
     // Add this method to display a toast

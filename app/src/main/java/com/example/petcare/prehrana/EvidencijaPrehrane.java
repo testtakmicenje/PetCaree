@@ -90,9 +90,9 @@ public class EvidencijaPrehrane extends AppCompatActivity {
                 } else {
                     // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
                     String insertSQL = "INSERT INTO Prehrana2 \n" +
-                            "(Email)\n" +
+                            "(Email, Vrijeme)\n" +
                             "VALUES \n" +
-                            "(?);";
+                            "(?, ?);";
 
                     mDatabase.execSQL(insertSQL, new String[]{email});
 
@@ -115,7 +115,9 @@ public class EvidencijaPrehrane extends AppCompatActivity {
 
                         "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
 
-                        "    Email varchar(200) NOT NULL\n" +
+                        "    Email varchar(200) NOT NULL,\n" +
+
+                        "    Vrijeme varchar(200) NOT NULL\n" +
 
                         ");"
 
