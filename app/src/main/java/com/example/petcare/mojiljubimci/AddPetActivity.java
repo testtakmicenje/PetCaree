@@ -12,8 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.petcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -87,6 +89,10 @@ public class AddPetActivity extends AppCompatActivity {
                     Toast.makeText(AddPetActivity.this, "Ljubimac dodan!", Toast.LENGTH_SHORT).show();
 
                     finish();
+
+                    Intent intent = new Intent(AddPetActivity.this, MyPetsActivity.class);
+                    startActivity(intent);
+
                 } else {
                     Toast.makeText(AddPetActivity.this, "Greška pri dodavanju ljubimca!", Toast.LENGTH_SHORT).show();
                 }
@@ -99,16 +105,19 @@ public class AddPetActivity extends AppCompatActivity {
         startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
 
-            if (positionOfSelectedItem != -1) {
-                petListAdapter.setPetImagePath(positionOfSelectedItem, imageUri.toString());
-            }
+            // Update petImagePath with the actual image path
+            petImagePath = imageUri.toString();
 
+            if (positionOfSelectedItem != -1) {
+                petListAdapter.setPetImagePath(positionOfSelectedItem, petImagePath);
+            }
 
             Picasso.get().load(imageUri).into(petImageView);
         }
@@ -122,23 +131,23 @@ public class AddPetActivity extends AppCompatActivity {
             Bitmap bitmap = bitmapDrawable.getBitmap();
 
             if (bitmap != null) {
-                // If petImagePath is not null, it means the user selected an image from the gallery
                 if (petImagePath != null) {
                     return Uri.parse(petImagePath);
                 } else {
-                    // If petImagePath is null, it means the user captured a new photo
-                    String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Image Description", null);
-                    return Uri.parse(path);
+                    return saveImageToGallery(bitmap);
                 }
             }
         }
 
-        // If there is no image, you can return null or handle it as needed for your application
         return null;
+    }
+
+    private Uri saveImageToGallery(Bitmap bitmap) {
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "Image Description", null);
+        return Uri.parse(path);
     }
 
     private void setCurrentPetPosition(int position) {
         positionOfSelectedItem = position;
     }
 }
-
