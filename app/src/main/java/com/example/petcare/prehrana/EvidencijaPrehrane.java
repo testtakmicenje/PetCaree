@@ -203,8 +203,8 @@ public class EvidencijaPrehrane extends AppCompatActivity {
     private Notification getNotification(String content) {
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelId = "YOUR_CHANNEL_ID";
-            CharSequence channelName = "YOUR_CHANNEL_NAME";
+            String channelId = "1";
+            CharSequence channelName = "Notification";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel notificationChannel = new NotificationChannel(channelId, channelName, importance);
             notificationChannel.enableLights(true);

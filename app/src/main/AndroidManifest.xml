@@ -68,7 +68,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".prehrana.EvidencijaPrehrane"
-            android:screenOrientation="portrait" />
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".egzoticniljubimci.ExoticPetsActivity"
             android:screenOrientation="portrait" />
@@ -212,6 +216,9 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".skeniranje.ScanFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".prehrana.PermissionActivity"
             android:screenOrientation="portrait" />
         <receiver
             android:name=".prehrana.NotificationPublisher"

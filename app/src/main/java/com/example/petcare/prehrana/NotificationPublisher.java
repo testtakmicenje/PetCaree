@@ -7,8 +7,8 @@ import android.app.NotificationManager;
 import android.app.Notification;
 
 public class NotificationPublisher extends BroadcastReceiver {
-    public static String NOTIFICATION_ID = "notification_id";
-    public static String NOTIFICATION = "notification";
+    public static String NOTIFICATION_ID = "2";
+    public static String NOTIFICATION = "obavjestenje";
 
     @Override
     public void onReceive(Context context, Intent intent) {
