@@ -1,5 +1,5 @@
 package com.example.petcare.ljubimci;
-// CustomListAdapter.java
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +39,11 @@ public class CustomListAdapter extends ArrayAdapter<ListItem> {
 
         ListItem currentItem = items.get(position);
 
-        // Prikazivanje slike
+
         ImageView imageView = listItemView.findViewById(R.id.itemImage);
         imageView.setImageResource(currentItem.getImageResourceId());
 
-        // Prikazivanje teksta (ime psa)
+
         TextView textView = listItemView.findViewById(R.id.itemText);
         textView.setText(currentItem.getName());
 

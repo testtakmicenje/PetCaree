@@ -38,7 +38,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         this.custom_list_item = custom_list_item;
         this.mDatabase = mDatabase;
         this.myJobsAndMyProjectsListModel = myJobsAndMyProjectsListModel;
-        this.isToastShown = false; // Postavi isToastShown na false prilikom kreiranja adaptera
+        this.isToastShown = false;
     }
 
     @NonNull
@@ -81,7 +81,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                         removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
                         notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
 
-                        // Display toast for weight deletion
+
                         showToast("Medicinski podatak je obrisan.");
                     }
                 });
@@ -89,21 +89,21 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // Do nothing, just close the dialog
+
                     }
                 });
 
-                // Prevent dialog dismissal when clicking outside
+
                 builder.setCancelable(false);
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
-                // Customize the colors of the AlertDialog buttons
+
                 int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
                 int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
 
-                // Set text color for buttons
+
                 alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
                 alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
             }
@@ -125,14 +125,14 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                         cursorproduct1.getString(4),
                         cursorproduct1.getString(5));
 
-                // Dodajte workersListModel na kraj liste umjesto na početak
+
                 myJobsAndMyProjectsListModel.add(workersListModel);
             } while (cursorproduct1.moveToNext());
         }
 
         cursorproduct1.close();
 
-        // Obrnite redoslijed liste kako biste dobili najnovije težine na vrhu
+
         Collections.reverse(myJobsAndMyProjectsListModel);
 
         notifyDataSetChanged();
@@ -173,14 +173,14 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
 
-                // Ako je korisnik unio nove podatke, zamijeni ih
-                String name = workersListModel.getDate(); // Ostavi datum nepromijenjenim
+
+                String name = workersListModel.getDate();
                 String email = editemail.getText().toString().trim();
                 String username = workersListModel.getUsername();
                 String phno = workersListModel.getPhno();
                 String lijek = workersListModel.getLijek();
 
-                // Ako je korisnik unio nove podatke, zamijeni ih
+
                 if (!editemail.getText().toString().trim().isEmpty()) {
                     email = editemail.getText().toString().trim();
                 }
@@ -197,7 +197,7 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
                     lijek = editlijek.getText().toString().trim();
                 }
 
-                // Ažuriraj bazu podataka
+
                 String sql = " UPDATE Student2 \n" +
                         " SET Date = ?, \n" +
                         " Email = ?,\n" +
@@ -212,10 +212,10 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
 
                 ((Activity) context).finish();
 
-                // Prikazuje toast za ažuriranje težine
+
                 showToast("Medicinski podatak je uređen.");
 
-                // Ponovno učitaj podatke iz baze podataka
+
                 reloadEmployeesFromDatabase();
             }
         });
@@ -258,13 +258,13 @@ public class MyMedicalInfoAdapter extends RecyclerView.Adapter<MyMedicalInfoAdap
         }
     }
 
-    // Dodata metoda za formatiranje datuma
+
     private String formatDate(int year, int month, int day) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(new java.util.Date(year - 1900, month, day));
     }
 
-    // Add this method to display a toast
+
     private void showToast(String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }

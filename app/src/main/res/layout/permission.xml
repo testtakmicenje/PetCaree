@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
 
-    <!--lottie animation-->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="411dp"

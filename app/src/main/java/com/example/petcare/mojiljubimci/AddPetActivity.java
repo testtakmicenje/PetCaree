@@ -44,7 +44,7 @@ public class AddPetActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // ... (prethodni kod)
+
 
         petNameEditText = findViewById(R.id.petNameEditText);
         petTypeEditText = findViewById(R.id.petTypeEditText);
@@ -112,7 +112,7 @@ public class AddPetActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri imageUri = data.getData();
 
-            // Update petImagePath with the actual image path
+
             petImagePath = imageUri.toString();
 
             if (positionOfSelectedItem != -1) {

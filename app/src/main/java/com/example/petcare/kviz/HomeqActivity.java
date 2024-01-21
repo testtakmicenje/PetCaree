@@ -29,7 +29,7 @@ public class HomeqActivity extends AppCompatActivity {
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
 
-    // Define array with questions
+
     private String[] questions = {
             "Koji glodar je često biran kao kućni ljubimac zbog svoje sposobnosti da brzo uči trikove?",
             "Koji papagaj je poznat po svojoj sposobnosti da imitira ljudski govor?",
@@ -43,7 +43,7 @@ public class HomeqActivity extends AppCompatActivity {
             "Koja hrana je najprikladnija za ishranu štenaca?"
     };
 
-    // Define a 2D array with answers for each question
+
     private String[][] answers = {
             {"Kunić", "Kineski hrčak", "Morsko prase"},
             {"Kanareski kanarinci", "Zlatni retriveri", "Afrički sivi papagaj"},
@@ -57,7 +57,7 @@ public class HomeqActivity extends AppCompatActivity {
             {"Mlijeko", "Sirova hrana", "Hrana za štence"}
     };
 
-    // Define an array with correct answer indexes for each question
+
     private int[] correctAnswerIndexes = {1, 2, 0, 2, 2, 1, 1, 1, 0, 2};
 
     private int[] questionImageIds = {
@@ -145,7 +145,7 @@ public class HomeqActivity extends AppCompatActivity {
         builder.setTitle("Kviz završen");
         builder.setMessage(message);
 
-        // Postavljanje boje teksta na dugmetu
+
         builder.setPositiveButton(Html.fromHtml("<font color='#ec9faf'>Završi kviz</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -155,7 +155,7 @@ public class HomeqActivity extends AppCompatActivity {
             }
         });
 
-        builder.setCancelable(false); // Prevent dialog dismissal by clicking outside
+        builder.setCancelable(false);
 
         AlertDialog dialog = builder.create();
         dialog.show();

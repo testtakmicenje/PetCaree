@@ -17,7 +17,7 @@ public class MyPetsActivity extends AppCompatActivity {
     private RecyclerView petsRecyclerView;
     private PetListAdapter petListAdapter;
     private DatabaseHelper databaseHelper;
-    private Toolbar toolbar;  // Ovo je sada inicijalizirano
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MyPetsActivity extends AppCompatActivity {
         setContentView(R.layout.mypets_activity);
         databaseHelper = new DatabaseHelper(this);
 
-        toolbar = findViewById(R.id.toolbar);  // Dodano
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -43,10 +43,10 @@ public class MyPetsActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         petsRecyclerView.setLayoutManager(layoutManager);
 
-        // Dobavite listu ljubimaca iz baze podataka
+
         List<Pet> petList = databaseHelper.getAllPets();
 
-        // Postavljanje adaptera za RecyclerView
+
         petListAdapter = new PetListAdapter(this, petList);
         petsRecyclerView.setAdapter(petListAdapter);
 
@@ -59,7 +59,7 @@ public class MyPetsActivity extends AppCompatActivity {
             }
         });
 
-        // Dodajte ovu liniju kako biste odmah ažurirali prikaz RecyclerView-a
+
         petListAdapter.notifyDataSetChanged();
     }
 }

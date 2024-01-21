@@ -4,16 +4,15 @@ import android.provider.BaseColumns;
 
 public class Pet implements BaseColumns {
 
-    // Ime tablice
     public static final String TABLE_NAME = "ljubimci";
 
-    // Imena stupaca
+
     public static final String COLUMN_NAME_NAME = "ime";
     public static final String COLUMN_NAME_TYPE = "vrsta";
     public static final String COLUMN_NAME_IMAGE_PATH = "slika_path";
 
     public static final String COLUMN_NAME_NOTE = "napomena";
-    // Unutar klase Pet
+
 
 
 
@@ -25,12 +24,11 @@ public class Pet implements BaseColumns {
     private String note;
 
 
-    // Prazan konstruktor
+
     public Pet() {
     }
 
-    // Konstruktor s argumentima
-    // Konstruktor s argumentima
+
     public Pet(String name, String type, String note) {
         this.name = name;
         this.type = type;
@@ -38,7 +36,7 @@ public class Pet implements BaseColumns {
     }
 
 
-    // Getteri i setteri
+
     public int getId() {
         return id;
     }

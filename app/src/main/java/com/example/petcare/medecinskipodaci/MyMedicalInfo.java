@@ -69,7 +69,7 @@ public class MyMedicalInfo extends AppCompatActivity {
         addWeightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Otvorite novi ekran za unos težine
+
                 Intent intent = new Intent(MyMedicalInfo.this, AddMedicalInfo.class);
                 startActivityForResult(intent, 1);
             }

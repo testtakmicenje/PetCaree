@@ -61,7 +61,7 @@ class ScanFragment : Fragment() {
 
         }
 
-   //     showInterstitial()
+
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 
@@ -79,9 +79,7 @@ class ScanFragment : Fragment() {
 
         binding.btnUpload.setOnClickListener {
 
-           // loadIntAd()
 
-           // showIntAd()
 
                 launcher.launch(
 

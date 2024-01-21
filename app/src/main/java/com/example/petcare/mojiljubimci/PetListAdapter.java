@@ -37,7 +37,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         this.context = context;
         this.petList = petList;
 
-        // Inicijalizirajte DatabaseHelper ako nije
+
         if (databaseHelper == null) {
             databaseHelper = new DatabaseHelper(context);
         }
@@ -53,14 +53,14 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
         final Pet pet = petList.get(holder.getAdapterPosition());
 
-        // Dobivanje Uri iz slike u listi
+
         Uri imageUri = getImageUriFromDrawable(holder.petImageView.getDrawable(), pet);
 
         if (imageUri != null) {
-            // Picasso za prikazivanje slike
+
             Picasso.get().load(imageUri).into(holder.petImageView);
         } else {
-            // Ako nema slike, postavite placeholder
+
             holder.petImageView.setImageResource(R.drawable.placeholder_image);
         }
 
@@ -71,7 +71,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         holder.buttonDeletePetImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Prikažite dijalog za potvrdu brisanja
+
                 showDeleteConfirmationDialog(pet, holder.getAdapterPosition());
             }
         });
@@ -83,11 +83,11 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
     public void addPet(Pet pet) {
-        petList.add(0, pet); // Dodaj na početak liste
-        notifyItemInserted(0); // Obavijesti adapter o promjenama
+        petList.add(0, pet);
+        notifyItemInserted(0);
     }
 
-    // Metoda za ažuriranje URI-ja slike za određenog ljubimca
+
     public void setPetImagePath(int position, String imagePath) {
         Pet pet = petList.get(position);
         pet.setImagePath(imagePath);
@@ -95,7 +95,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
 
-    // Metoda za prikaz dijaloga za potvrdu brisanja
+
     private void showDeleteConfirmationDialog(final Pet pet, final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(Html.fromHtml("<font color='#3B3B3B'>Potvrda</font>"));
@@ -104,19 +104,19 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         builder.setPositiveButton("Izbriši", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                // Pozovite metodu za brisanje ljubimca iz baze podataka
+
                 if (databaseHelper != null) {
                     databaseHelper.deletePet(pet.getId());
                 } else {
                     Log.e("MyPetsActivity", "DatabaseHelper is null");
-                    return; // Ako je DatabaseHelper null, prekinite izvršavanje
+                    return;
                 }
 
-                // Osvježavanje prikaza RecyclerView-a
+
                 petList.remove(position);
                 notifyItemRemoved(position);
 
-                // Prikazivanje poruke da je ljubimac izbrisan
+
                 Toast.makeText(context, "Ljubimac je trajno izbrisan.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -124,7 +124,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                // Zatvori dijalog, korisnik je odustao od brisanja
+
                 dialogInterface.dismiss();
             }
         });
@@ -132,34 +132,33 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
-        // Prilagodite boje gumba AlertDialog-a
+
         int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
         int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
 
-        // Postavite boju teksta za gumbe
+
         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
     }
 
-    // Metoda za dobivanje Uri iz Drawable
     private Uri getImageUriFromDrawable(Drawable drawable, Pet pet) {
         if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             Bitmap bitmap = bitmapDrawable.getBitmap();
 
             if (bitmap != null) {
-                // Ako imagePath nije null, znači da je korisnik odabrao sliku iz galerije
+
                 if (pet.getImagePath() != null) {
                     return Uri.parse(pet.getImagePath());
                 } else {
-                    // Ako imagePath je null, znači da je korisnik snimio novu fotografiju
+
                     String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "Opis slike", null);
                     return Uri.parse(path);
                 }
             }
         }
 
-        // Ako nema slike, možete vratiti null ili obraditi kako je potrebno za vašu aplikaciju
+
         return null;
     }
 

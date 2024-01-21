@@ -43,11 +43,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         TextView aboutAppTextView = findViewById(R.id.aboutAppTextView);
 
-        // Postavi OnClickListener za "O aplikaciji"
+
         aboutAppTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Pokreni novu aktivnost kad korisnik klikne "O aplikaciji"
+
                 Intent intent = new Intent(SettingsActivity.this, AboutApp.class);
                 startActivity(intent);
             }
@@ -57,43 +57,42 @@ public class SettingsActivity extends AppCompatActivity {
         instructionsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Pokreće AppIntroActivity kada korisnik klikne na "Upute"
+
                 Intent intent = new Intent(SettingsActivity.this, AppIntro.class);
                 startActivity(intent);
             }
         });
 
-        // Inicijalizacija prekidača za obavještenja
+
         notificationsSwitch = findViewById(R.id.notificationsSwitch);
 
-        // Postavi OnCheckedChangeListener za prekidač
+
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked != lastNotificationStatus) {
-                // Status se promijenio, spremi u SharedPreferences i pokaži toast ako već nije prikazan
+
                 if (!toastShown) {
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putBoolean(NOTIFICATIONS_ENABLED_KEY, isChecked);
                     editor.apply();
 
-                    // Prikazi poruku o tome jesu li obavještenja uključena ili isključena
+
                     showToast(isChecked ? "Obavještenja su uključena." : "Obavještenja su isključena.");
 
-                    // Postavi flag da je toast prikazan
+
                     toastShown = true;
                 }
 
-                // Ažuriraj zadnji status
-                lastNotificationStatus = isChecked;
+              lastNotificationStatus = isChecked;
             }
         });
 
-        // Učitaj trenutno stanje prekidača iz SharedPreferences i postavi ga
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean notificationsEnabled = settings.getBoolean(NOTIFICATIONS_ENABLED_KEY, true);
         notificationsSwitch.setChecked(notificationsEnabled);
 
-        // Učitaj flag za prikazivanje toast poruke
+
         toastShown = settings.getBoolean(TOAST_SHOWN_KEY, false);
     }
 
@@ -105,7 +104,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        // Spremi flag za prikazivanje toast poruke u SharedPreferences
+
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(TOAST_SHOWN_KEY, toastShown);

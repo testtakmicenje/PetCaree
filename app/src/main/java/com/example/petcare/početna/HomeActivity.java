@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         settingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Otvorite novi ekran za postavke
+
                 Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }

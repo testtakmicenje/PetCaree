@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:padding="10dp">
 
-            <!-- ImageView za prikaz slike ljubimca -->
+
             <ImageView
                 android:id="@+id/petImageView"
                 android:layout_width="80dp"
@@ -53,7 +53,6 @@
                 android:layout_toEndOf="@id/petImageView"
                 android:textColor="@color/crna2" />
 
-            <!-- Ostatak koda ostaje nepromijenjen -->
 
             <TextView
                 android:id="@+id/petName"

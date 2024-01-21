@@ -40,7 +40,7 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <!-- CardView na vrhu -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Ikona aplikacije -->
+
             <ImageView
                 android:id="@+id/appIcon"
                 android:layout_width="48dp"
@@ -67,7 +67,6 @@
                 android:src="@drawable/pozadina6"
                 android:layout_gravity="center_horizontal"/>
 
-            <!-- Tekst ispod ikone -->
             <TextView
                 android:id="@+id/appName"
                 android:layout_width="wrap_content"
@@ -81,7 +80,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- NestedScrollView ispod CardView-a -->
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -110,7 +109,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Tekst unutar drugog CardView-a -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,7 +123,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- NestedScrollView ispod CardView-a -->
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
@@ -145,7 +144,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Tekstovi unutar NestedScrollView-a -->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

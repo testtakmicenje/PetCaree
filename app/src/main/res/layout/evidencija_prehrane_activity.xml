@@ -45,7 +45,7 @@
                     android:textStyle="bold"/>
             </androidx.appcompat.widget.Toolbar>
 
-            <!-- Gornji dio ekrana za unos podataka -->
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"/>
 
-            <!-- Ime ljubimca -->
+
             <EditText
                 android:id="@+id/imeLjubimcaEditText"
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
 
 
 
-            <!-- Tekst za unos vremena hranjenja -->
+
             <TextView
                 android:id="@+id/vrijemeHranjenjaText"
                 android:layout_width="wrap_content"
@@ -89,17 +89,16 @@
                 android:layout_marginTop="8dp"
                 android:visibility="gone"/>
 
-            <!-- DatePicker za odabir datuma hranjenja -->
+
             <DatePicker
                 android:id="@+id/datePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:visibility="gone"/> <!-- Inicijalno skriven -->
+                android:visibility="gone"/>
 
-            <!-- Dugme za postavljanje podsjetnika -->
-            <Button
+              <Button
                 android:id="@+id/podesiPodsjetnikButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

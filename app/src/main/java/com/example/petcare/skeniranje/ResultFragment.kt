@@ -83,7 +83,7 @@ class ResultFragment : Fragment() {
         }
 
 
-        // showInterstitial()
+
 
         assetManager = activity?.assets!!
 

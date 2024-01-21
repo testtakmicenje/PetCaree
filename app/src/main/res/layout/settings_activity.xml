@@ -133,7 +133,7 @@
             android:layout_marginTop="8dp" />
     </LinearLayout>
 
-    <!-- Nastavak koda... -->
+
 
     <Switch
         android:id="@+id/notificationsSwitch"
@@ -146,14 +146,7 @@
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:background="#ec9faf" />
-
-
-
-
-
-
-
-</LinearLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>
 
 

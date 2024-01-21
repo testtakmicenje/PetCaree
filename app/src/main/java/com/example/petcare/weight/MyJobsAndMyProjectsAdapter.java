@@ -41,7 +41,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         this.custom_list_item = custom_list_item;
         this.mDatabase = mDatabase;
         this.myJobsAndMyProjectsListModel = myJobsAndMyProjectsListModel;
-        this.isToastShown = false; // Postavi isToastShown na false prilikom kreiranja adaptera
+        this.isToastShown = false;
     }
 
     @NonNull
@@ -80,10 +80,10 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String sql = "DELETE FROM Student WHERE id = ?";
                         mDatabase.execSQL(sql, new Integer[]{workersListModel.getId()});
-                        removeUserFromFunction(workersListModel); // Izbačaj korisnika iz funkcije
-                        notifyDataSetChanged(); // Obavesti adapter da je došlo do promena
+                        removeUserFromFunction(workersListModel);
+                        notifyDataSetChanged();
 
-                        // Display toast for weight deletion
+
                         showToast("Težina je obrisana.");
                     }
                 });
@@ -91,21 +91,21 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 builder.setNegativeButton("Odustani", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // Do nothing, just close the dialog
+
                     }
                 });
 
-                // Prevent dialog dismissal when clicking outside
+
                 builder.setCancelable(false);
 
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
-                // Customize the colors of the AlertDialog buttons
+
                 int buttonPositiveColor = ContextCompat.getColor(context, R.color.buttonPositiveColor);
                 int buttonNegativeColor = ContextCompat.getColor(context, R.color.buttonNegativeColor);
 
-                // Set text color for buttons
+
                 alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(buttonPositiveColor);
                 alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(buttonNegativeColor);
             }
@@ -126,14 +126,14 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                         cursorproduct1.getString(3),
                         cursorproduct1.getString(4));
 
-                // Dodajte workersListModel na kraj liste umjesto na početak
+
                 myJobsAndMyProjectsListModel.add(workersListModel);
             } while (cursorproduct1.moveToNext());
         }
 
         cursorproduct1.close();
 
-        // Obrnite redoslijed liste kako biste dobili najnovije težine na vrhu
+
         Collections.reverse(myJobsAndMyProjectsListModel);
 
         notifyDataSetChanged();
@@ -172,13 +172,13 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 int year = datePicker.getYear();
                 String date = formatDate(year, month, dayOfMonth);
 
-                // Čuvanje nepromijenjenih podataka
+
                 String date1 = workersListModel.getData();
                 String email = workersListModel.getEmail();
                 String phone = workersListModel.getPhone();
                 String sallary = workersListModel.getSallary();
 
-                // Ako je korisnik unio nove podatke, zamijeni ih
+
                 if (!emailedittext.getText().toString().trim().isEmpty()) {
                     email = emailedittext.getText().toString().trim();
                 }
@@ -190,7 +190,7 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                     sallary = sallaryedittext.getText().toString().trim();
                 }
 
-                // Ažuriraj bazu podataka
+
                 String sql = "UPDATE Student \n" +
                         "SET Date = ?,\n" +
                         "    Email = ?,\n" +
@@ -203,10 +203,10 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
                 dialog.dismiss();
                 ((Activity) context).finish();
 
-                // Prikazuje toast za ažuriranje težine
+
                 showToast("Težina je uređena.");
 
-                // Ponovno učitaj podatke iz baze podataka
+
                 reloadEmployeesFromDatabase();
             }
         });
@@ -247,13 +247,13 @@ public class MyJobsAndMyProjectsAdapter extends RecyclerView.Adapter<MyJobsAndMy
         }
     }
 
-    // Dodata metoda za formatiranje datuma
+
     private String formatDate(int year, int month, int day) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(new java.util.Date(year - 1900, month, day));
     }
 
-    // Add this method to display a toast
+
     private void showToast(String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }

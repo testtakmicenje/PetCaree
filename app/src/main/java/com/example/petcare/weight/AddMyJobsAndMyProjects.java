@@ -55,7 +55,7 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
         mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
         createEmployeeTable();
 
-        // Izmene ovde - promenili smo ime i tip varijable, i pridružili smo je DatePicker-u
+
         datePicker = findViewById(R.id.dateDatePicker);
 
         workeremail = findViewById(R.id.workeremail);
@@ -68,7 +68,7 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Izmene ovde - dohvatanje datuma iz DatePicker-a
+
                 int dayOfMonth = datePicker.getDayOfMonth();
                 int month = datePicker.getMonth() + 1;
                 int year = datePicker.getYear();
@@ -79,10 +79,10 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
 
 
                 if (date.isEmpty() || email.isEmpty() || phone.isEmpty() || salary.isEmpty()) {
-                    // Ako neki od podataka nedostaje, prikaži Toast
+
                     showToast("Molimo Vas da unesete sve podatke.");
                 } else {
-                    // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
+
                     String insertSQL = "INSERT INTO Student \n" +
                             "(Date, Email, PhoneNo, WorkerSalary)\n" +
                             "VALUES \n" +
@@ -119,7 +119,7 @@ public class AddMyJobsAndMyProjects extends AppCompatActivity {
         );
     }
 
-    // Izmene ovde - dodata metoda za formatiranje datuma
+
     private String formatDate(int year, int month, int day) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, day); // month is 0-based
