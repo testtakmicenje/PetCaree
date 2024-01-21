@@ -1,4 +1,4 @@
-package com.example.petcare.prehrana
+package com.example.petcare.fitnesiaktivnosti
 
 import android.Manifest
 import android.app.AlarmManager
@@ -37,7 +37,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class EvidencijaPrehrane() : AppCompatActivity() {
+class FitnesActivity() : AppCompatActivity() {
 
     val PERMISSION_REQUEST_CODE = 112
 
@@ -53,14 +53,14 @@ class EvidencijaPrehrane() : AppCompatActivity() {
 
     var mDatabase: SQLiteDatabase? = null
 
-    private val channelId = "channelId"
+    private val channelId = "channelIdFitnes"
 
     private lateinit var notificationManager: NotificationManager
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.evidencija_prehrane_activity)
+        setContentView(R.layout.aktivnosti)
 
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -78,9 +78,9 @@ class EvidencijaPrehrane() : AppCompatActivity() {
             backImageView.setOnClickListener(View.OnClickListener { onBackPressed() })
 
             // Inicijalizacija elemenata
-            imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText)
+            imeLjubimcaEditText = findViewById(R.id.imeLjubimca1EditText)
             datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText)
-            workeremail = findViewById(R.id.imeLjubimca1EditText)
+            workeremail = findViewById(R.id.imeLjubimcaEditText)
             addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton)
             calendar = Calendar.getInstance()
             mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null)
@@ -112,9 +112,10 @@ class EvidencijaPrehrane() : AppCompatActivity() {
                     scheduleNotification(calendar!!.timeInMillis)
 
                     // Postavljanje push notifikacije
-                    val intent = Intent(this@EvidencijaPrehrane, Prehrana::class.java)
+                    val intent = Intent(this@FitnesActivity, FitnesIAktivnosti::class.java)
                     startActivity(intent)
                 }
+                sendNotification()
             }
         })
     }
@@ -131,11 +132,11 @@ class EvidencijaPrehrane() : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(this@EvidencijaPrehrane, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@FitnesActivity, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun scheduleNotification(timeInMillis: Long) {
-        val notificationIntent = Intent(this, NotificationPublisher::class.java)
+        val notificationIntent = Intent(this, Notification::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
             this,
             0,
@@ -166,7 +167,7 @@ class EvidencijaPrehrane() : AppCompatActivity() {
 
                     // Prikazivanje dijaloga za odabir vremena nakon odabira datuma
                     val timePickerDialog = TimePickerDialog(
-                        this@EvidencijaPrehrane, R.style.DatePickerTheme,
+                        this@FitnesActivity, R.style.DatePickerTheme,
                         object : OnTimeSetListener {
                             override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
                                 calendar!![Calendar.HOUR_OF_DAY] = hourOfDay
@@ -206,14 +207,15 @@ class EvidencijaPrehrane() : AppCompatActivity() {
     private fun getNotification(content: String): Notification {
         val builder: Notification.Builder
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "1"
-            val channelName: CharSequence = "Notification"
+            val channelIdFitnes = "1"
+            val channelNameFitnes: CharSequence = "Notification"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val notificationChannel = NotificationChannel(channelId, channelName, importance)
+            val notificationChannel = NotificationChannel(channelIdFitnes, channelNameFitnes, importance)
             notificationChannel.enableLights(true)
             notificationChannel.lightColor = Color.RED
             notificationChannel.enableVibration(true)
-            builder = Notification.Builder(this, channelId)
+            builder = Notification.Builder(this, channelIdFitnes)
+
         } else {
             builder = Notification.Builder(this)
         }

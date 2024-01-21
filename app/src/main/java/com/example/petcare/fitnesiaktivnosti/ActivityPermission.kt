@@ -1,4 +1,4 @@
-package com.example.petcare.prehrana
+package com.example.petcare.fitnesiaktivnosti
 
 import android.Manifest
 import android.content.Intent
@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import com.example.petcare.databinding.ActivityPermissionBinding
 
-class PermissionActivity : AppCompatActivity() {
+class ActivityPermission : AppCompatActivity() {
 
     private lateinit var binding: ActivityPermissionBinding
     private lateinit var requestLauncher: ActivityResultLauncher<String>
@@ -26,8 +26,8 @@ class PermissionActivity : AppCompatActivity() {
             if (it) {
                 //main activity
                 startActivity(Intent(
-                    this@PermissionActivity,
-                    EvidencijaPrehrane::class.java
+                    this@ActivityPermission,
+                    FitnesActivity::class.java
                 ))
             }
             else {

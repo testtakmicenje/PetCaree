@@ -17,17 +17,17 @@ import com.example.petcare.medecinskipodaci.MyMedicalInfoModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Prehrana extends AppCompatActivity {
+    public class Prehrana extends AppCompatActivity {
 
-    private Toolbar mTopToolbar;
+        private Toolbar mTopToolbar;
 
-    List<MyMedicalInfoModel> myJobsAndMyProjectsListModel;
+        List<MyMedicalInfoModel> myJobsAndMyProjectsListModel;
 
-    RecyclerView recyclerView;
+        RecyclerView recyclerView;
 
-    SQLiteDatabase mDatabase;
+        SQLiteDatabase mDatabase;
 
-    PrehranaAdapter adapter;
+        PrehranaAdapter adapter;
 
     public static final String DATABASE_NAME = "Prehrana.db";
 

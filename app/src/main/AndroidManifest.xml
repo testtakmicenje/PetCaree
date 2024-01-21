@@ -224,6 +224,23 @@
             android:name=".prehrana.NotificationPublisher"
             android:exported="false">
         </receiver>
+        <receiver
+            android:name=".fitnesiaktivnosti.Notification"
+            android:exported="false">
+        </receiver>
+        <activity
+            android:name=".fitnesiaktivnosti.ActivityPermission"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fitnesiaktivnosti.Fitnes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fitnesiaktivnosti.FitnesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fitnesiaktivnosti.FitnesAdapter"
+            android:screenOrientation="portrait" />
+       
     </application>
 
 </manifest>

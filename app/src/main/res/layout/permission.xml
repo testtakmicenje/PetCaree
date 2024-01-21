@@ -12,15 +12,15 @@
         android:layout_height="72dp"
         android:layout_marginTop="?attr/actionBarSize"
         android:src="@drawable/notificationsicon"
-        app:layout_constraintBottom_toTopOf="@id/textView1"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/rosa"
-   />
+        />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -44,7 +44,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView1" />
+        app:layout_constraintTop_toBottomOf="@id/textView" />
 
 
     <!--lottie animation-->
@@ -57,14 +57,14 @@
         android:maxHeight="100dp"
         android:scaleType="fitCenter"
         android:src="@drawable/zvonce"
-        app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+        app:layout_constraintBottom_toTopOf="@id/bottom1_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView2"
         app:tint="@color/rosa" />
 
     <RelativeLayout
-        android:id="@+id/bottom_layout"
+        android:id="@+id/bottom1_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -74,7 +74,7 @@
         >
 
         <Button
-            android:id="@+id/okay_btn"
+            android:id="@+id/okay1_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -87,7 +87,7 @@
             android:textAllCaps="false" />
 
         <TextView
-            android:id="@+id/skip_btn"
+            android:id="@+id/skip1_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/okay_btn"
