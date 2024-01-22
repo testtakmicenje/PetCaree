@@ -163,7 +163,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         newCardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, FitnesIAktivnosti.class);
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
