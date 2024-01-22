@@ -78,9 +78,8 @@ class EvidencijaPrehrane() : AppCompatActivity() {
             backImageView.setOnClickListener(View.OnClickListener { onBackPressed() })
 
             // Inicijalizacija elemenata
-            imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText)
             datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText)
-            workeremail = findViewById(R.id.imeLjubimca1EditText)
+            workeremail = findViewById(R.id.imeLjubimcaEditText)
             addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton)
             calendar = Calendar.getInstance()
             mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null)
