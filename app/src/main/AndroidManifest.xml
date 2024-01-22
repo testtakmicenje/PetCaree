@@ -77,9 +77,6 @@
             android:name=".egzoticniljubimci.ExoticPetsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".fitnesiaktivnosti.FitnesIAktivnosti"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".troškovi.EvidencijaTroškova"
             android:screenOrientation="portrait" />
         <activity
@@ -225,20 +222,17 @@
             android:exported="false">
         </receiver>
         <receiver
-            android:name=".fitnesiaktivnosti.Notification"
+            android:name=".fitnesiaktivnosti.NotificationPublisherFitnes"
             android:exported="false">
         </receiver>
         <activity
-            android:name=".fitnesiaktivnosti.ActivityPermission"
+            android:name=".fitnesiaktivnosti.PermissionActivityFitnes"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".fitnesiaktivnosti.Fitnes"
+            android:name=".fitnesiaktivnosti.FitnesIAktivnost"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".fitnesiaktivnosti.FitnesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".fitnesiaktivnosti.FitnesAdapter"
+            android:name=".fitnesiaktivnosti.EvidencijaFitnesiAktivnost"
             android:screenOrientation="portrait" />
        
     </application>

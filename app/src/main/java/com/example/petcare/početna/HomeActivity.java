@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.petcare.fitnesiaktivnosti.FitnesIAktivnost;
 import com.example.petcare.forum.MainActivity;
 import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 import com.example.petcare.prehrana.Prehrana;
@@ -163,7 +164,7 @@ public class HomeActivity extends AppCompatActivity implements OnNavigationItemS
         newCardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                Intent intent = new Intent(HomeActivity.this, FitnesIAktivnost.class);
                 startActivity(intent);
             }
         });
