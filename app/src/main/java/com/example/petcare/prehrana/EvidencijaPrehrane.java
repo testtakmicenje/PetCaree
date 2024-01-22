@@ -1,306 +1,257 @@
-package com.example.petcare.prehrana
+package com.example.petcare.prehrana;
 
-import android.Manifest
-import android.app.AlarmManager
-import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.app.TimePickerDialog
-import android.app.TimePickerDialog.OnTimeSetListener
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.database.sqlite.SQLiteDatabase
-import android.graphics.Color
-import android.os.Build
-import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.TimePicker
-import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import com.example.petcare.R
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import android.Manifest;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import com.example.petcare.R;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
-class EvidencijaPrehrane() : AppCompatActivity() {
+public class EvidencijaPrehrane extends AppCompatActivity {
 
-    val PERMISSION_REQUEST_CODE = 112
+    final int PERMISSION_REQUEST_CODE =112;
 
-    private var imeLjubimcaEditText: EditText? = null
+    private EditText imeLjubimcaEditText;
+    private TextView datumVrijemeTextView;
+    private Calendar calendar;
 
-    private var datumVrijemeTextView: TextView? = null
+    Button addpodsjetnik;
 
-    private var calendar: Calendar? = null
+    EditText workeremail;
 
-    var addpodsjetnik: Button? = null
+    public static final String DATABASE_NAME = "Prehrana.db";
 
-    var workeremail: EditText? = null
+    SQLiteDatabase mDatabase;
 
-    var mDatabase: SQLiteDatabase? = null
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.evidencija_prehrane_activity);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    private val channelId = "channelId"
-
-    private lateinit var notificationManager: NotificationManager
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.evidencija_prehrane_activity)
-
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        createNotificationChannel()
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-
-        setSupportActionBar(toolbar)
         if (Build.VERSION.SDK_INT > 32) {
             if (!shouldShowRequestPermissionRationale("112")) {
-                notificationPermission
+                getNotificationPermission();
             }
-            supportActionBar!!.setDisplayShowTitleEnabled(false)
-            val backImageView = findViewById<ImageView>(R.id.logoImageView1)
-            backImageView.setOnClickListener(View.OnClickListener { onBackPressed() })
+
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+            ImageView backImageView = findViewById(R.id.logoImageView1);
+            backImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
 
             // Inicijalizacija elemenata
-            imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText)
-            datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText)
-            workeremail = findViewById(R.id.imeLjubimca1EditText)
-            addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton)
-            calendar = Calendar.getInstance()
-            mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null)
-            createEmployeeTable()
+            imeLjubimcaEditText = findViewById(R.id.imeLjubimcaEditText);
+            datumVrijemeTextView = findViewById(R.id.vrijemeHranjenjaText);
+
+            workeremail = findViewById(R.id.imeLjubimcaEditText);
+
+            addpodsjetnik = findViewById(R.id.podesiPodsjetnikButton);
+
+            calendar = Calendar.getInstance();
+
+            mDatabase = openOrCreateDatabase(DATABASE_NAME, MODE_PRIVATE, null);
+            createEmployeeTable();
 
             // Postavljanje klika za odabir datuma i vremena
-            datumVrijemeTextView!!.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(v: View) {
-                    showDateTimePicker()
+            datumVrijemeTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDateTimePicker();
                 }
-            })
+            });
+
         }
-        addpodsjetnik!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                val email = workeremail!!.text.toString().trim { it <= ' ' }
+
+        addpodsjetnik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = workeremail.getText().toString().trim();
+
                 if (email.isEmpty()) {
-                    showToast("Molimo vas da unesete sve podatke.")
+                    showToast("Molimo vas da unesete sve podatke.");
                 } else {
                     // Svi potrebni podaci su uneseni, možete izvršiti unos u bazu podataka
-                    val databaseDateFormat =
-                        SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                    val formattedDateTime = databaseDateFormat.format(calendar!!.time)
-                    val insertSQL = ("INSERT INTO Prehrana2 \n" +
+
+                    SimpleDateFormat databaseDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+                    String formattedDateTime = databaseDateFormat.format(calendar.getTime());
+
+                    String insertSQL = "INSERT INTO Prehrana2 \n" +
                             "(Email, Vrijeme)\n" +
                             "VALUES \n" +
-                            "(?, ?);")
-                    mDatabase!!.execSQL(insertSQL, arrayOf(email, formattedDateTime))
+                            "(?, ?);";
 
-                    scheduleNotification(calendar!!.timeInMillis)
+                    mDatabase.execSQL(insertSQL, new String[]{email, formattedDateTime});
 
                     // Postavljanje push notifikacije
-                    val intent = Intent(this@EvidencijaPrehrane, Prehrana::class.java)
-                    startActivity(intent)
+                    scheduleNotification(getNotification("Vaš podsjetnik"), calendar.getTimeInMillis());
+
+                    Intent intent = new Intent(EvidencijaPrehrane.this, Prehrana.class);
+                    startActivity(intent);
                 }
             }
-        })
+        });
     }
 
-    private fun createEmployeeTable() {
-        mDatabase!!.execSQL(
-            ("CREATE TABLE IF NOT EXISTS Prehrana2 " +
-                    "(\n" +
-                    "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
-                    "    Email varchar(200) NOT NULL,\n" +
-                    "    Vrijeme varchar(200) NOT NULL\n" +
-                    ");")
-        )
+    private void createEmployeeTable() {
+        mDatabase.execSQL(
+                "CREATE TABLE IF NOT EXISTS Prehrana2 " +
+                        "(\n" +
+                        "    id INTEGER NOT NULL CONSTRAINT Prehrana_pk2 PRIMARY KEY AUTOINCREMENT,\n" +
+                        "    Email varchar(200) NOT NULL,\n" +
+                        "    Vrijeme varchar(200) NOT NULL\n" +
+                        ");"
+        );
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this@EvidencijaPrehrane, message, Toast.LENGTH_SHORT).show()
+    private void showToast(String message) {
+        Toast.makeText(EvidencijaPrehrane.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private fun scheduleNotification(timeInMillis: Long) {
-        val notificationIntent = Intent(this, NotificationPublisher::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(
-            this,
-            0,
-            notificationIntent,
-            PendingIntent.FLAG_IMMUTABLE
-        )
-
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmManager.set(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent)
-    }
-
-
-    private fun showDateTimePicker() {
+    private void showDateTimePicker() {
         // Postavljanje trenutnog datuma i vremena u dijalog
-        val datePickerDialog = DatePickerDialog(
-            this,
-            R.style.DatePickerTheme,
-            object : OnDateSetListener {
-                override fun onDateSet(
-                    view: DatePicker,
-                    year: Int,
-                    monthOfYear: Int,
-                    dayOfMonth: Int
-                ) {
-                    calendar!![Calendar.YEAR] = year
-                    calendar!![Calendar.MONTH] = monthOfYear
-                    calendar!![Calendar.DAY_OF_MONTH] = dayOfMonth
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this, R.style.DatePickerTheme,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, monthOfYear);
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                    // Prikazivanje dijaloga za odabir vremena nakon odabira datuma
-                    val timePickerDialog = TimePickerDialog(
-                        this@EvidencijaPrehrane, R.style.DatePickerTheme,
-                        object : OnTimeSetListener {
-                            override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
-                                calendar!![Calendar.HOUR_OF_DAY] = hourOfDay
-                                calendar!![Calendar.MINUTE] = minute
+                        // Prikazivanje dijaloga za odabir vremena nakon odabira datuma
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                                EvidencijaPrehrane.this, R.style.DatePickerTheme,
+                                new TimePickerDialog.OnTimeSetListener() {
+                                    @Override
+                                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                                        calendar.set(Calendar.MINUTE, minute);
 
-                                // Formatiranje i postavljanje odabranog datuma i vremena u TextView
-                                val dateFormat =
-                                    SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
-                                datumVrijemeTextView!!.text = dateFormat.format(calendar!!.time)
-                            }
-                        }, calendar!![Calendar.HOUR_OF_DAY], calendar!![Calendar.MINUTE], true
-                    )
-                    timePickerDialog.show()
+                                        // Formatiranje i postavljanje odabranog datuma i vremena u TextView
+                                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+                                        datumVrijemeTextView.setText(dateFormat.format(calendar.getTime()));
+                                    }
+                                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
 
-                    // Prilagodba boje dugmadi unutar DatePickerDialog-a
-                    val positiveButton = timePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                    val negativeButton = timePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                    positiveButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-                    positiveButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
-                    negativeButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-                    negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
-                }
-            },
-            calendar!![Calendar.YEAR],
-            calendar!![Calendar.MONTH],
-            calendar!![Calendar.DAY_OF_MONTH]
-        )
-        datePickerDialog.show()
-        val positiveButton = datePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-        val negativeButton = datePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-        positiveButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-        positiveButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
-        negativeButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-        negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
+                        timePickerDialog.show();
+
+                        // Prilagodba boje dugmadi unutar DatePickerDialog-a
+                        Button positiveButton = timePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                        Button negativeButton = timePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+                        positiveButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
+                        positiveButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
+
+                        negativeButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
+                        negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
+                    }
+                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+
+        Button positiveButton = datePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button negativeButton = datePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+        positiveButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
+        positiveButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
+
+        negativeButton.setTextColor(Color.parseColor("#000000")); // Boja teksta
+        negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")); // Boja pozadine
     }
 
-    private fun getNotification(content: String): Notification {
-        val builder: Notification.Builder
+    private void scheduleNotification(Notification notification, long delay) {
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, delay, pendingIntent);
+    }
+
+    private Notification getNotification(String content) {
+        Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "1"
-            val channelName: CharSequence = "Notification"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val notificationChannel = NotificationChannel(channelId, channelName, importance)
-            notificationChannel.enableLights(true)
-            notificationChannel.lightColor = Color.RED
-            notificationChannel.enableVibration(true)
-            builder = Notification.Builder(this, channelId)
+            String channelId = "1";
+            CharSequence channelName = "Notification";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel notificationChannel = new NotificationChannel(channelId, channelName, importance);
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            builder = new Notification.Builder(this, channelId);
         } else {
-            builder = Notification.Builder(this)
+            builder = new Notification.Builder(this);
         }
-        builder.setContentTitle("Vaš podsjetnik")
-        builder.setContentText(content)
-        builder.setSmallIcon(R.drawable.notificationicon) // Dodajte ikonu notifikacije
-        return builder.build()
+
+        builder.setContentTitle("Vaš podsjetnik");
+        builder.setContentText(content);
+        builder.setSmallIcon(R.drawable.notificationicon); // Dodajte ikonu notifikacije
+        return builder.build();
     }
 
-    val notificationPermission: Unit
-        get() {
-            try {
-                if (Build.VERSION.SDK_INT > 32) {
-                    ActivityCompat.requestPermissions(
-                        this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                        PERMISSION_REQUEST_CODE
-                    )
-                }
-            } catch (e: Exception) {
-            }
-        }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            PERMISSION_REQUEST_CODE -> {
+    public void getNotificationPermission(){
+        try {
+            if (Build.VERSION.SDK_INT > 32) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        PERMISSION_REQUEST_CODE);
+            }
+        }catch (Exception e){
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.size > 0 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED
-                ) {
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // allow
-                } else {
+
+                }  else {
                     //deny
                 }
-                return
-            }
-        }
-    }
+                return;
 
-    companion object {
-        val DATABASE_NAME = "Prehrana.db"
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun createNotificationChannel() {
-        val channel = NotificationChannel(
-            channelId,
-            "Dummy Channel",
-            NotificationManager.IMPORTANCE_HIGH
-        ).apply {
-            description = "This is dummy description"
         }
 
-        notificationManager.createNotificationChannel(channel)
-    }
-
-    private fun sendNotification() {
-        val notificationBuilder = NotificationCompat.Builder(
-            this, channelId
-        )
-
-        notificationBuilder.apply {
-            setSmallIcon(R.drawable.notificationicon)
-            setTitle("Android 13!!!")
-            setContentText("Android 13 notification")
-        }
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        NotificationManagerCompat.from(this)
-            .notify(1, notificationBuilder.build())
     }
 
 }
