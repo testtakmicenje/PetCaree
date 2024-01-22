@@ -1,4 +1,4 @@
-package com.example.petcare.troškovi;
+package com.example.petcare.troskovi;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;

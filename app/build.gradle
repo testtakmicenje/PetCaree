@@ -30,6 +30,10 @@ android {
         enabled = true
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -92,5 +96,23 @@ dependencies {
     implementation "com.hendraanggrian.appcompat:socialview:0.2"
     implementation "com.hendraanggrian.appcompat:socialview-commons:0.2"
     implementation 'com.github.CanHub:Android-Image-Cropper:3.2.1'
+
+    // Room
+    def room_version = "2.5.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation('com.github.javafaker:javafaker:1.0.2')
+
+    // Lifecycle libraries
+    def lifecycle_version = "2.4.3"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 }
