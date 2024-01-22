@@ -36,5 +36,9 @@
         <item name="android:datePickerMode">spinner</item>
     </style>
 
+    <style name="Theme.ExpensesTracker" parent="Theme.Material3.DynamicColors.Light">
+    </style>
+
+
 
 </resources>
