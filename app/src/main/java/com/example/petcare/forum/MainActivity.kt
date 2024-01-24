@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.petcare.R
-import com.example.petcare.databinding.ActivityMainForumForFarmersBinding
+import com.example.petcare.databinding.ActivityMainForumBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainForumForFarmersBinding
+    private lateinit var binding: ActivityMainForumBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         )
 
-        binding = ActivityMainForumForFarmersBinding.inflate(layoutInflater)
+        binding = ActivityMainForumBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 

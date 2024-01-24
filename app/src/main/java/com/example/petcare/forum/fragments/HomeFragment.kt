@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.petcare.databinding.FragmentHomeForumForFarmersBinding
+import com.example.petcare.databinding.FragmentHomeForumBinding
 import com.example.petcare.forum.adapter.PostAdapter
 import com.example.petcare.forum.model.Post
 import com.example.petcare.početna.HomeActivity
@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeForumForFarmersBinding
+    private lateinit var binding: FragmentHomeForumBinding
 
     private val posts = mutableListOf<Post>()
 
@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
 
     ): View {
 
-        binding = FragmentHomeForumForFarmersBinding.inflate(inflater, container, false)
+        binding = FragmentHomeForumBinding.inflate(inflater, container, false)
 
         binding.backbutton.setOnClickListener {
 

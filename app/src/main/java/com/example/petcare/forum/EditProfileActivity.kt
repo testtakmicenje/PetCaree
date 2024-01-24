@@ -10,7 +10,7 @@ import com.canhub.cropper.CropImageContract
 import com.canhub.cropper.CropImageView
 import com.canhub.cropper.options
 import com.example.petcare.R
-import com.example.petcare.databinding.ActivityEditProfileForumForFarmersBinding
+import com.example.petcare.databinding.ActivityEditProfileForumBinding
 import com.example.petcare.forum.model.User
 import com.example.petcare.forum.utils.createProgressBar
 import com.example.petcare.forum.utils.createShortToast
@@ -32,7 +32,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private var imageUri: Uri? = null
 
-    private lateinit var binding: ActivityEditProfileForumForFarmersBinding
+    private lateinit var binding: ActivityEditProfileForumBinding
 
     private lateinit var uploadTask: UploadTask
 
@@ -74,7 +74,7 @@ class EditProfileActivity : AppCompatActivity() {
 
         )
 
-        binding = ActivityEditProfileForumForFarmersBinding.inflate(layoutInflater)
+        binding = ActivityEditProfileForumBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 

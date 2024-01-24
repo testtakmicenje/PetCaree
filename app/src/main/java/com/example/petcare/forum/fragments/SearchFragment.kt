@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.petcare.databinding.FragmentSearchForumForFarmersBinding
+import com.example.petcare.databinding.FragmentSearchForumBinding
 import com.example.petcare.forum.adapter.TagAdapter
 import com.example.petcare.forum.adapter.UserAdapter
 import com.example.petcare.forum.model.User
@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener
 
 class SearchFragment : Fragment() {
 
-    private lateinit var binding: FragmentSearchForumForFarmersBinding
+    private lateinit var binding: FragmentSearchForumBinding
 
     private val users = mutableListOf<User>()
 
@@ -41,7 +41,7 @@ class SearchFragment : Fragment() {
 
     ): View {
 
-        binding = FragmentSearchForumForFarmersBinding.inflate(inflater, container, false)
+        binding = FragmentSearchForumBinding.inflate(inflater, container, false)
 
         binding.recyclerViewUsers.apply {
 
