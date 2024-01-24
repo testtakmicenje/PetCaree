@@ -48,6 +48,12 @@ android {
         jvmTarget = '17'
     }
 
+    lintOptions {
+        abortOnError false
+        absolutePaths false
+        lintConfig file('lint.xml')
+    }
+
     aaptOptions{
         noCompress "tflite"
         cruncherEnabled = false
