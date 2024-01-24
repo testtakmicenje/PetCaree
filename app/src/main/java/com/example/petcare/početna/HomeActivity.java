@@ -18,7 +18,6 @@ import com.example.petcare.medecinskipodaci.MyMedicalInfo;
 import com.example.petcare.prehrana.Prehrana;
 import com.example.petcare.savjeti.Home5Activity;
 import com.example.petcare.kviz.HomeqActivity;
-import com.example.petcare.troskovi.EvidencijaTroškova;
 import com.example.petcare.R;
 import com.example.petcare.egzoticniljubimci.ExoticPetsActivity;
 import com.example.petcare.ljubimci.PetsActivity;

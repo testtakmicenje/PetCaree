@@ -20,7 +20,7 @@
             android:alpha="1"
             android:layout_width="6dp"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary" />
+            android:background="@color/rosa" />
 
         <TextView
             android:gravity="center"

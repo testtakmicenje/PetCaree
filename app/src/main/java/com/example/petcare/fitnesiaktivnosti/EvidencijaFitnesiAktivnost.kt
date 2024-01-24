@@ -183,10 +183,10 @@ class EvidencijaFitnesiAktivnost() : AppCompatActivity() {
                     // Prilagodba boje dugmadi unutar DatePickerDialog-a
                     val positiveButton = timePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                     val negativeButton = timePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                    positiveButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-                    positiveButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
-                    negativeButton.setTextColor(Color.parseColor("#000000")) // Boja teksta
-                    negativeButton.setBackgroundColor(Color.parseColor("#FFFFFF")) // Boja pozadine
+                    positiveButton.setTextColor(Color.parseColor("#3B3B3B")) // Boja teksta
+                    positiveButton.setBackgroundColor(Color.parseColor("#3B3B3B")) // Boja pozadine
+                    negativeButton.setTextColor(Color.parseColor("#3B3B3B")) // Boja teksta
+                    negativeButton.setBackgroundColor(Color.parseColor("#3B3B3B")) // Boja pozadine
                 }
             },
             calendar!![Calendar.YEAR],

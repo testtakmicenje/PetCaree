@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <item
         android:id="@id/navigation_home"
+        android:iconTint="@color/crna2"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/home_title" />
+        android:title="Početna" />
 
         <item
         android:id="@id/navigation_list"
         android:icon="@drawable/ic_baseline_format_list_bulleted_24"
-        android:title="@string/list_title"/>
+        android:title="Lista"
+            android:iconTint="@color/crna2"/>
 
-    <!-- Temporally removed
-    TODO(Floating action button in bottom nav bar)
-    <item
-        android:id="@+id/placeholder"
-        android:title=""/>
-        -->
+
 
     <item
         android:id="@id/navigation_chart"
         android:icon="@drawable/ic_baseline_bar_chart_24"
-        android:title="Chart"/>
+        android:title="Dijagram"
+        android:iconTint="@color/crna2"/>
 
 </menu>

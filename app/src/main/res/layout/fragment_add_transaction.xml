@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +19,8 @@
             app:cardElevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeWidth="0dp">
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/cardview">
 
 
             <RadioGroup
@@ -28,7 +30,8 @@
                 tools:checkedButton="@id/radiobutton_expense"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+             >
 
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
@@ -41,8 +44,9 @@
                     android:contextClickable="true"
                     android:gravity="center"
                     android:text="@string/expense"
-                    android:textColor="@drawable/radio_text_color"
-                    android:textStyle="bold" />
+                    android:textColor="@color/crna2"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/cardview"/>
 
             </RadioGroup>
         </com.google.android.material.card.MaterialCardView>
@@ -69,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="@string/price_hint"
+            android:hint="Cijena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/categories_rv">
@@ -79,7 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/crna2"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="@string/description_hint"
+            android:hint="Opis"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_price_label">
@@ -98,7 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textAutoComplete"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/crna2"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.checkbox.MaterialCheckBox
@@ -108,7 +114,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:checked="true"
-            android:text="@string/compulsory_expense"
+            android:text="Obavezni trošak"
+            app:buttonTint="#3B3B3B"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_description_label" />
 
@@ -130,8 +137,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="32dp"
-            android:text="@string/save_button"
+            android:text="Sačuvaj"
             android:visibility="gone"
+            android:textColor="@color/crna2"
+            android:backgroundTint="@color/cardview"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

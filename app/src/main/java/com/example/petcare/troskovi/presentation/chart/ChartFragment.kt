@@ -145,7 +145,7 @@ class ChartFragment : Fragment(R.layout.fragment_chart) {
 
             // on below line we are setting center text
             setDrawCenterText(true)
-            centerText = "Expenses\nTracker"
+            centerText = "Troškovi"
             setCenterTextColor(mainColor)
 
             // on below line we are setting

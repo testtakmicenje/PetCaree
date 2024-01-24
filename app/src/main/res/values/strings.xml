@@ -15,59 +15,59 @@
     <string name="cestitamo_ime">Čestitamo</string>
     <string name="play">Počni</string>
 
-    <string name="add_fragment_title">Add Item</string>
-    <string name="edit_fragment_title">Edit Item</string>
-    <string name="item_detail_fragment_title">Item Details</string>
-    <string name="delete_question">Are you sure you want to delete?</string>
-    <string name="clear_question">Are you sure you want to clear transactions?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
-    <string name="compulsory">Compulsory</string>
-    <string name="notCompulsory">Not compulsory</string>
-    <string name="InputError">Input error</string>
+    <string name="add_fragment_title">Dodaj stavku</string>
+    <string name="edit_fragment_title">Uredi stavku</string>
+    <string name="item_detail_fragment_title">Detalji stavke</string>
+    <string name="delete_question">Jeste li sigurni da želite izbrisati?</string>
+    <string name="clear_question">Jeste li sigurni da želite očistiti transakcije?</string>
+    <string name="no">Ne</string>
+    <string name="yes">Da</string>
+    <string name="compulsory">Obavezno</string>
+    <string name="notCompulsory">Nije obavezno</string>
+    <string name="InputError">Greška u unosu</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home_title">Home</string>
-    <string name="list_title">List</string>
-    <string name="settings_title">Settings</string>
-    <string name="save_button">Save</string>
-    <string name="price_hint">Price</string>
-    <string name="category_hint">Category</string>
-    <string name="home_fragment_title">Home</string>
-    <string name="list_fragment_title">List</string>
-    <string name="settings_fragment_title">Settings</string>
-    <string name="chart_fragment_title">Chart</string>
-    <string name="detail_fragment_title">Details</string>
-    <string name="date">Date</string>
-    <string name="change">Change</string>
-    <string name="delete">Delete</string>
-    <string name="edit_item">Edit item</string>
-    <string name="item">Item</string>
-    <string name="done">Done</string>
-    <string name="close">Close</string>
-    <string name="compulsory_expense">Compulsory expense</string>
-    <string name="incompulsory_expense">Not compulsory expense</string>
-    <string name="add_new_item">Add new item</string>
-    <string name="total_balance">Total balance</string>
-    <string name="total_income">Total income</string>
-    <string name="total_expense">Total expense</string>
-    <string name="expenses_by_category">Expenses by category</string>
-    <string name="edit">Edit</string>
-    <string name="transaction_type">Transaction type</string>
-    <string name="clear_transactions">Clear transactions</string>
-    <string name="expense">Expense</string>
-    <string name="income">Income</string>
-    <string name="description_hint">Description</string>
-    <string name="expenses_amount">Expenses amount</string>
-    <string name="dear_user">Dear user!</string>
-    <string name="dont_forget_remind">Don\'t forget about adding transactions</string>
-    <string name="remaining_balance">Remaining balance</string>
-    <string name="total_expenses">Total expenses</string>
-    <string name="ui_theme">UI theme</string>
-    <string name="spend_frequency">Spend frequency</string>
-    <string name="secret_fragment_title">Secret</string>
-    <string name="notification_desction">Used for reminding about adding transactions</string>
-    <string name="notification_name">Reminder</string>
+    <string name="hello_blank_fragment">Zdravo, prazan fragment</string>
+    <string name="home_title">Početna</string>
+    <string name="list_title">Lista</string>
+    <string name="settings_title">Podešavanja</string>
+    <string name="save_button">Sačuvaj</string>
+    <string name="price_hint">Cijena</string>
+    <string name="category_hint">Kategorija</string>
+    <string name="home_fragment_title">Početna</string>
+    <string name="list_fragment_title">Lista</string>
+    <string name="settings_fragment_title">Podešavanja</string>
+    <string name="chart_fragment_title">Grafikon</string>
+    <string name="detail_fragment_title">Detalji</string>
+    <string name="date">Datum</string>
+    <string name="change">Promjena</string>
+    <string name="delete">Izbriši</string>
+    <string name="edit_item">Uredi stavku</string>
+    <string name="item">Stavka</string>
+    <string name="done">Gotovo</string>
+    <string name="close">Zatvori</string>
+    <string name="compulsory_expense">Obavezni trošak</string>
+    <string name="incompulsory_expense">Nije obavezan trošak</string>
+    <string name="add_new_item">Dodaj novu stavku</string>
+    <string name="total_balance">Ukupno stanje</string>
+    <string name="total_income">Ukupni prihodi</string>
+    <string name="total_expense">Ukupan trošak</string>
+    <string name="expenses_by_category">Troškovi po kategorijama</string>
+    <string name="edit">Uredi</string>
+    <string name="transaction_type">Vrsta transakcije</string>
+    <string name="clear_transactions">Očistite transakcije</string>
+    <string name="expense">Troškovi</string>
+    <string name="income">Prihodi</string>
+    <string name="description_hint">Opis</string>
+    <string name="expenses_amount">Iznos troškova</string>
+    <string name="dear_user">Dragi korisniče!</string>
+    <string name="dont_forget_remind">Ne zaboravite na dodavanje transakcija</string>
+    <string name="remaining_balance">Preostali iznos</string>
+    <string name="total_expenses">Ukupni troškovi</string>
+    <string name="ui_theme">UI tema</string>
+    <string name="spend_frequency">Učestalost potrošnje</string>
+    <string name="secret_fragment_title">Tajna</string>
+    <string name="notification_desction">Koristi se za podsjećanje na dodavanje transakcija</string>
+    <string name="notification_name">Podsjetnik</string>
 
 
     <string-array name="expense_categories">
@@ -81,8 +81,8 @@
     </string-array>
 
     <string-array name="transaction_types">
-        <item>All transactions</item>
-        <item>Expenses</item>
+        <item>Sve transakcije</item>
+        <item>Troškovi</item>
     </string-array>
 
 

@@ -11,32 +11,52 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
 
+
     </style>
 
     <style name="Theme.PetCare" parent="Base.Theme.PetCare" >
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:statusBarColor">@color/bg</item>
+
     </style>
 
     <style name="DashboardDrawerLayoutStyle">
         <item name="android:textSize">15sp</item>
         <item name="android:listPreferredItemHeightSmall">50dp</item>
         <item name="android:forceDarkAllowed" tools:ignore="NewApi">false</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
     <style name="MyDatePickerStyle" parent="android:Widget.Material.DatePicker">
         <item name="android:textColorPrimary">#3B3B3B</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
     <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:textColor">@color/crna2</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
     <style name="DatePickerTheme2" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
     <style name="MyDatePickerStyle2" parent="android:Widget.Material.DatePicker">
         <item name="android:datePickerMode">spinner</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
 
     <style name="Theme.ExpensesTracker" parent="Theme.Material3.DynamicColors.Light">
+        <item name="android:background">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
     </style>
 
 

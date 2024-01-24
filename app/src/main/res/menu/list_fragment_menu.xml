@@ -1,11 +1,12 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <item
         android:id="@+id/spinner"
-        android:iconTint="@color/black"
-        android:title="@string/transaction_type"
+        android:iconTint="@color/crna2"
+        android:title="Vrsta transakcije"
         app:actionViewClass="androidx.appcompat.widget.AppCompatSpinner"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
@@ -13,7 +14,7 @@
     <item
         android:id="@+id/action_about"
         android:enabled="true"
-        android:title="@string/clear_transactions"
+        android:title="Izbriši transakcije"
         app:showAsAction="never" />
 
 </menu>

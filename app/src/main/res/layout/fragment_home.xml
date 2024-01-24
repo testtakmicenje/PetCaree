@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="12dp"
                 app:cardElevation="1dp"
-                app:strokeWidth="0dp">
+                app:strokeWidth="0dp"
+                android:backgroundTint="@color/cardview">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,7 +41,8 @@
                         android:layout_marginTop="34dp"
                         android:text="@string/total_balance"
                         android:textAllCaps="true"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/crna2"/>
 
                     <TextView
                         android:id="@+id/tv_total_balance"
@@ -48,7 +51,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="16dp"
                         android:text="124.03 Br"
-                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        android:textColor="@color/crna2"
                         android:textSize="24sp" />
 
                 </LinearLayout>
@@ -70,7 +73,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     app:cardElevation="1dp"
-                    app:strokeWidth="0dp">
+                    app:strokeWidth="0dp"
+                    android:backgroundTint="@color/cardview">
 
                     <LinearLayout
                         android:id="@+id/total_expense_layout"
@@ -99,7 +103,8 @@
                             android:layout_marginTop="3dp"
                             android:text="@string/total_expense"
                             android:textAllCaps="true"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:textColor="@color/crna2"/>
 
                         <TextView
                             android:id="@+id/tv_total_expense"
@@ -108,7 +113,7 @@
                             android:layout_marginStart="21dp"
                             android:layout_marginTop="12dp"
                             android:text="257.48 Br"
-                            android:textColor="@color/material_on_background_emphasis_high_type"
+                            android:textColor="@color/crna2"
                             android:textSize="24sp" />
 
                     </LinearLayout>
@@ -126,7 +131,8 @@
                 android:layout_marginTop="12dp"
                 android:layout_weight="1"
                 app:cardElevation="1dp"
-                app:strokeWidth="0dp">
+                app:strokeWidth="0dp"
+                android:backgroundTint="@color/cardview">
 
                 <LinearLayout
                     android:id="@+id/could_save_layout"
@@ -154,9 +160,10 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="3dp"
-                        android:text="Could save"
+                        android:text="Mogao bi sačuvati"
                         android:textAllCaps="true"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/crna2"/>
 
                     <TextView
                         android:id="@+id/tv_could_save"
@@ -166,7 +173,7 @@
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="12dp"
                         android:text="13.18 Br"
-                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        android:textColor="@color/crna2"
                         android:textSize="24sp" />
 
                 </LinearLayout>
@@ -181,7 +188,8 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginVertical="12dp"
                 app:cardElevation="1dp"
-                app:strokeWidth="0dp">
+                app:strokeWidth="0dp"
+                android:backgroundTint="@color/cardview">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,7 +204,8 @@
                         android:layout_marginTop="34dp"
                         android:text="@string/total_expenses"
                         android:textAllCaps="true"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/crna2"/>
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pie_chart"
@@ -223,6 +232,7 @@
             android:src="@android:drawable/ic_input_add"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

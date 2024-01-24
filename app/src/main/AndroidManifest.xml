@@ -80,9 +80,6 @@
             android:name=".egzoticniljubimci.ExoticPetsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".troskovi.EvidencijaTroškova"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".prvapomoc.Home2Activity"
             android:screenOrientation="portrait" />
         <activity

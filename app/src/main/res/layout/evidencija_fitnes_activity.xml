@@ -37,7 +37,7 @@
                     android:id="@+id/toolbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Evidencija fitnes i aktivnosti"
+                    android:text="Fitnes i aktivnosti"
                     android:textSize="22sp"
                     android:textColor="@color/crna2"
                     android:layout_gravity="center"
@@ -53,7 +53,8 @@
                 android:text="Unesite podatke za ljubimca:"
                 android:textSize="18sp"
                 android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"/>
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/crna2"/>
 
 
             <EditText
@@ -96,7 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                style="@style/Theme.PetCare"/>
 
               <Button
                 android:id="@+id/podesiPodsjetnikButton"

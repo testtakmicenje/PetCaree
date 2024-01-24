@@ -23,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Вторник, 20 декабря"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            android:textColor="@color/crna2"/>
 
         <com.google.android.material.card.MaterialCardView
             android:clickable="true"
@@ -31,7 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="92dp"
             app:cardElevation="1dp"
-            app:strokeWidth="0dp">
+            app:strokeWidth="0dp"
+            android:backgroundTint="@color/cardview">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -60,7 +62,8 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@id/item_category_logo"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Category" />
+                    tools:text="Kategorija"
+                    android:textColor="@color/crna2"/>
 
                 <TextView
                     android:id="@+id/item_description"
@@ -75,7 +78,8 @@
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/item_category_logo"
                     app:layout_constraintTop_toBottomOf="@id/item_category"
-                    tools:text="Description" />
+                    tools:text="Opis"
+                    android:textColor="@color/crna2"/>
 
                 <TextView
                     android:id="@+id/item_price"
@@ -86,11 +90,12 @@
                     android:maxLength="14"
                     android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:textColor="@color/expense_color"
+                    android:textColor="@color/rosa"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/item_category"
-                    tools:text="- 12.31 Br" />
+                    tools:text="- 12.31 Br"
+                    />
 
                 <TextView
                     android:id="@+id/item_date"
@@ -104,7 +109,8 @@
                     android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="@id/item_price"
                     app:layout_constraintTop_toBottomOf="@id/item_price"
-                    tools:text="10:00" />
+                    tools:text="10:00"
+                    android:textColor="@color/crna2"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
