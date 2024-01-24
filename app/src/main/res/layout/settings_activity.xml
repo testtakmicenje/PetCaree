@@ -14,140 +14,103 @@
         android:padding="16dp"
         android:background="@color/bg">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="26dp"
-        android:elevation="4dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="26dp"
+            android:elevation="4dp">
 
-        <ImageView
-            android:id="@+id/logoImageView1"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:tint="@color/rosa"
-            android:layout_gravity="start"
-            android:layout_marginStart="16dp"
+            <ImageView
+                android:id="@+id/logoImageView1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:tint="@color/rosa"
+                android:layout_gravity="start"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/back" />
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Podešavanja"
+                android:textSize="22sp"
+                android:textColor="@color/rosa"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/cardview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/info"
+                    app:tint="#ec9faf"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/aboutAppTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="O aplikaciji"
+                    android:textColor="@color/rosa"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/back" />
-        <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Podešavanja"
-            android:textSize="22sp"
-            android:textColor="@color/rosa"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:textStyle="bold"/>
-    </androidx.appcompat.widget.Toolbar>
+            android:backgroundTint="@color/cardview">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/infoo"
+                    app:tint="#ec9faf"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/instructionsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Uputstva"
+                    android:textColor="@color/rosa"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp"
-        android:background="#ec9faf" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/info"
-            app:tint="#ec9faf"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="8dp"/>
-
-        <TextView
-            android:id="@+id/aboutAppTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="O aplikaciji"
-            android:textColor="@color/rosa"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="#ec9faf" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/infoo"
-            app:tint="#ec9faf" />
-
-        <TextView
-            android:id="@+id/instructionsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="27dp"
-            android:layout_marginTop="16dp"
-            android:text="Uputstva"
-            android:textColor="@color/rosa"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="#ec9faf" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/notification"
-            app:tint="#ec9faf"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"/>
-
-        <TextView
-            android:id="@+id/notificationsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Obavještenja"
-            android:textColor="@color/rosa"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
-
-
-
-    <Switch
-        android:id="@+id/notificationsSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="#ec9faf" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
+
 
 
 

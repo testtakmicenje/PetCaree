@@ -33,6 +33,7 @@
         <item name="android:background">@color/bg</item>
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:statusBarColor">@color/bg</item>
+
     </style>
     <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:textColor">@color/crna2</item>
@@ -57,6 +58,12 @@
         <item name="android:background">@color/bg</item>
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:statusBarColor">@color/bg</item>
+    </style>
+    <style name="TimePickerTheme" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:textColor">@color/crna2</item>
+        <item name="android:background">@color/bg</item>
+        <item name="android:colorControlActivated">@color/rosa</item>
+        <item name="android:numbersTextColor">@color/rosa</item>
     </style>
 
 

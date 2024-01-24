@@ -88,7 +88,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                style="@style/TimePickerTheme"
+                />
 
 
             <DatePicker
@@ -98,7 +100,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:visibility="gone"
-                style="@style/Theme.PetCare"/>
+                style="@style/MyDatePickerStyle"/>
 
               <Button
                 android:id="@+id/podesiPodsjetnikButton"
