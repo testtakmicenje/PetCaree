@@ -23,8 +23,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_IMAGE_PATH = "image_path";
 
-
-
     private static final String CREATE_TABLE_PETS = "CREATE TABLE " + TABLE_PETS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_NAME + " TEXT, "
