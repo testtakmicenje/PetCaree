@@ -179,7 +179,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Glodavci"
+                    android:text="Glodari"
                     android:textColor="@android:color/white"
                     android:padding="8dp"
                     android:textStyle="bold"/>

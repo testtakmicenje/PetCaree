@@ -17,6 +17,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
+        android:id="@+id/logoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -37,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="511dp"
-        android:layout_below="@+id/logoImageView"
+        android:layout_below="@+id/logoTextView"
         android:layout_marginBottom="506dp"
         android:text="Otkrijte svijet kućnih ljubimaca"
         android:textColor="@color/white"
