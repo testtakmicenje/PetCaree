@@ -20,8 +20,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.hendraanggrian.appcompat.socialview.Hashtag
-import com.hendraanggrian.appcompat.widget.HashtagArrayAdapter
+import com.hendraanggrian.appcompat.socialview.autocomplete.Hashtag
+import com.hendraanggrian.appcompat.socialview.widget.HashtagArrayAdapter
 
 class PostActivity : AppCompatActivity() {
 

@@ -24,7 +24,7 @@
                     android:contentDescription="@null"
                     app:tint="@color/rosa"/>
 
-                <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
+                <com.hendraanggrian.appcompat.socialview.widget.SocialAutoCompleteTextView
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

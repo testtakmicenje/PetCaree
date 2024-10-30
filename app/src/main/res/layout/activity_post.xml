@@ -63,7 +63,7 @@
                 android:src="@drawable/userprofilepictureplaceholder"
                 tools:ignore="ContentDescription" />
 
-            <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
+            <com.hendraanggrian.appcompat.socialview.widget.SocialAutoCompleteTextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
